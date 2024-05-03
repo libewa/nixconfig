@@ -1,4 +1,67 @@
 { config, pkgs, ... }:
+
+let
+  vimplugins = with pkgs.vimPlugins; [
+    conflict-marker-vim
+    nvim-treesitter.withAllGrammars
+    lspkind-nvim
+    neogit
+    cmp-nvim-lsp
+    telescope-github-nvim
+    telescope-nvim
+    telescope-symbols-nvim
+    todo-comments-nvim
+    plenary-nvim
+    nvim-lspconfig
+    which-key-nvim
+    trouble-nvim
+    nvim-cmp
+    vim-vsnip
+    cmp-vsnip
+  ];
+
+  code-exts = with pkgs.vscode-extensions; [
+    vadimcn.vscode-lldb
+    ms-azuretools.vscode-docker
+    github.vscode-pull-request-github
+    bbenoist.nix
+    arrterian.nix-env-selector
+    jnoortheen.nix-ide
+    esbenp.prettier-vscode
+    equinusocio.vsc-material-theme
+    ms-vscode.cpptools
+    denoland.vscode-deno
+  ];
+
+  packages = with pkgs; [
+    tree
+    fd
+    gh
+    arduino
+    gnome-browser-connector
+    lynx
+    nerdfonts
+    arduino-cli
+    nmap
+    ripgrep
+    arduino-ide
+    cmatrix
+    nextcloud-client
+    prismlauncher
+    firefox
+    thunderbird
+    vlc
+    sl
+    steam
+    gcc
+    signal-desktop
+    nil
+    swift
+    swiftPackages.swiftpm
+    sourcekit-lsp
+    deno
+  ];
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -14,9 +77,6 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -47,49 +107,7 @@
       }
     ];
   };
-  home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-    tree
-    fd
-    gh
-    arduino
-    gnome-browser-connector
-    lynx
-    nerdfonts
-    arduino-cli
-    nmap
-    ripgrep
-    arduino-ide
-    cmatrix
-    nextcloud-client
-    prismlauncher
-    firefox
-    thunderbird
-    vlc
-    sl
-    steam
-    gcc
-    signal-desktop
-    nil
-    swift
-    swiftPackages.swiftpm
-    sourcekit-lsp
-    deno
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-  ];
+  home.packages = packages;
   programs.gnome-terminal = {
     enable = true;
     themeVariant = "dark";
@@ -110,31 +128,7 @@
       };
     };
   };
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/linus/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -143,24 +137,7 @@
   programs.home-manager.enable = true;
   programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
-      conflict-marker-vim
-      nvim-treesitter.withAllGrammars
-      lspkind-nvim
-      neogit
-      cmp-nvim-lsp
-      telescope-github-nvim
-      telescope-nvim
-      telescope-symbols-nvim
-      todo-comments-nvim
-      plenary-nvim
-      nvim-lspconfig
-      which-key-nvim
-      trouble-nvim
-      nvim-cmp
-      vim-vsnip
-      cmp-vsnip
-    ];
+    plugins = vimplugins;
     extraConfig = ''
       set mouse=a
     '';
@@ -170,7 +147,7 @@
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhs;
+    package = pkgs.vscodium;
     userSettings = {
       "workbench.colorTheme" = "Material Theme High Contrast";
       "workbench.iconTheme" = "eq-material-theme-icons-light";
@@ -185,21 +162,7 @@
         "command" = "workbench.action.terminal.toggleTerminal";
       }
     ];
-    extensions = with pkgs.vscode-extensions; [
-      vadimcn.vscode-lldb
-      ms-azuretools.vscode-docker
-      github.vscode-pull-request-github
-      bbenoist.nix
-      arrterian.nix-env-selector
-      jnoortheen.nix-ide
-      esbenp.prettier-vscode
-      #equinusocio.vsc-material-theme-icons
-      equinusocio.vsc-material-theme
-#     vsciot-vscode.vscode-arduino
-      ms-vscode.cpptools
-#     ms-vscode.vscode-serial-monitor
-      denoland.vscode-deno
-    ];
+    extensions = code-exts;
   };
   programs.oh-my-posh = {
     enable = false;
