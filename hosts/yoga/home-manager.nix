@@ -1,10 +1,12 @@
-{ config, inputs, ...}:
+{ config, inputs, pkgs, ...}:
 
 {
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "linus" = import ../../homes/linus.nix;
+      "linus" = pkgs.fetchgit {
+        url = "https://gist.github.com/3169f2fc02aa56a78bae1cdf2231078d.git";
+      }
     };
   };
 }

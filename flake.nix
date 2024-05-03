@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.yoga = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs; };
       modules = [
         ./hosts/yoga/configuration.nix
         ./modules/grub.nix
