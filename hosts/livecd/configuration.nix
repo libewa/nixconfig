@@ -8,8 +8,6 @@
     [
       ./packages.nix
       ./home-manager.nix
-      <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
-      <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ];
   nixpkgs.config = {
     # Allow proprietary packages
