@@ -34,7 +34,7 @@
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
 
-          "${cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
+          "${cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           "${cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
         ];
       };
@@ -46,6 +46,9 @@
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
           ./modules/germanlocale.nix
+
+          "${cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          "${cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
         ];
       };
     };
