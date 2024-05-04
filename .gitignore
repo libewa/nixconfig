@@ -1,5 +1,3 @@
 hardware-configuration.nix
 
 hosts/*/users.nix
-homes/*
-!homes/linus.nix
