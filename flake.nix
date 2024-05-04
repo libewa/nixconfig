@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    cdpkgs.url = "nixpkgs/23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, cdpkgs, ... }@inputs: {
     nixosConfigurations = {
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; };
@@ -28,16 +29,19 @@
       livedisc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/livedisc/configuration.nix
+          ./hosts/livecd/configuration.nix
           ./modules/appimage.nix
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
+
+          "${cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
+          "${cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
         ];
       };
       livedisc-de = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/livedisc/configuration.nix
+          ./hosts/livecd/configuration.nix
           ./modules/appimage.nix
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
