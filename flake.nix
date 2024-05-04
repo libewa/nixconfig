@@ -26,7 +26,7 @@
           inputs.home-manager.nixosModules.default
         ];
       };
-      livedisc = nixpkgs.lib.nixosSystem {
+      livecd = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/livecd/configuration.nix
