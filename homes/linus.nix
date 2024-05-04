@@ -60,9 +60,19 @@ let
     swiftPackages.swiftpm
     sourcekit-lsp
     deno
+
+    hyprlock
+    hypridle
+    swayosd
+    swaynotificationcenter
+    udiskie
   ];
 in
 {
+  imports = [
+    ./hyprland.nix
+    ./waybar.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "linus";
@@ -77,6 +87,7 @@ in
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -108,6 +119,22 @@ in
     ];
   };
   home.packages = packages;
+
+  home.file = {
+    hypr = {
+      target = ".config/hypr";
+      source = ../dotfiles/hypr;
+    };
+  };
+  programs.rofi = {
+    enable = true;
+    terminal = "\${pkgs.kitty/bin/kitty}";
+    extraConfig = {
+      combi-modes = "window,drun,run";
+      modes = "combi";
+    };
+  };
+
   programs.gnome-terminal = {
     enable = true;
     themeVariant = "dark";
