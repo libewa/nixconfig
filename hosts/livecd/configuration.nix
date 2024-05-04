@@ -8,6 +8,7 @@
     [
       ./packages.nix
       ./home-manager.nix
+      inputs.home-manager.nixosModules.default
     ];
   nixpkgs.config = {
     # Allow proprietary packages
