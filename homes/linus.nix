@@ -52,9 +52,18 @@ let
 
     hyprlock
     hypridle
+    dolphin
     swayosd
     swaynotificationcenter
     udiskie
+
+    (pkgs.writeShellScriptBin "exitwindow" ''
+    if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+      xdotool getactivewindow windowunmap
+    else
+      hyprctl dispatch killactive ""
+    fi
+    '')
   ];
 in
 {
@@ -151,6 +160,7 @@ in
       "nix.enableLanguageServer" = true;
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
+      "git.autofetch" = true;
     };
     keybindings = [
       {
