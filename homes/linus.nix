@@ -56,6 +56,7 @@ let
     swayosd
     swaynotificationcenter
     udiskie
+    notify-desktop
 
     (pkgs.writeShellScriptBin "exitwindow" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then

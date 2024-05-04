@@ -7,8 +7,17 @@
     firefox
     pv
     efibootmgr
+
     kitty
     hyprnome
+    dolphin
+    hyprlock
+    hypridle
+    swayosd
+    swaynotificationcenter
+    udiskie
+    notify-desktop
+    rofi-power-menu
   ];
   hardware.opengl.driSupport32Bit = true;
   programs.hyprland.enable = true;

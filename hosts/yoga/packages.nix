@@ -11,8 +11,17 @@
     pv
     prusa-slicer
     efibootmgr
+    
     kitty
     hyprnome
+    dolphin
+    hyprlock
+    hypridle
+    swayosd
+    swaynotificationcenter
+    udiskie
+    notify-desktop
+    rofi-power-menu
   ];
   programs.steam = {
     enable = true;

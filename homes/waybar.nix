@@ -5,7 +5,7 @@
       topbar = {
         height = 30;
         position = "top";
-        modules-left = [ "tray" ];
+        modules-left = [ "custom/power" "tray" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "network" "pulseaudio" "memory" "backlight" "keyboard-state" "hyprland/language" "battery" "clock" ];
 
@@ -27,6 +27,10 @@
         };
         memory = {
           format = "{}% ";
+        };
+        "custom/power" = {
+          format = "󰐥";
+          on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         };
         backlight = {
           format = "{percent}% {icon}";
