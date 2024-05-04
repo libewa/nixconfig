@@ -1,9 +1,12 @@
-{ config, pkgs, ...}:
+{ pkgs, ...}:
 
 {
   environment.systemPackages = with pkgs; [
     tldr
     sl
+    nmap
+    gcc
+    fastfetch
   ];
   programs = {
     neovim.enable = true;

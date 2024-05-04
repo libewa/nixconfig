@@ -35,25 +35,14 @@ let
 
   packages = with pkgs; [
     tree
-    fd
     gh
-    arduino
-    gnome-browser-connector
     lynx
     nerdfonts
     arduino-cli
-    nmap
-    ripgrep
-    arduino-ide
     cmatrix
-    nextcloud-client
-    prismlauncher
-    firefox
     thunderbird
     vlc
     sl
-    steam
-    gcc
     signal-desktop
     nil
     swift
@@ -93,6 +82,7 @@ in
     enableCompletion = true;
     autocd = true;
     initExtraFirst = "
+
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias egrep='egrep --color=auto'
@@ -132,27 +122,6 @@ in
     extraConfig = {
       combi-modes = "window,drun,run";
       modes = "combi";
-    };
-  };
-
-  programs.gnome-terminal = {
-    enable = true;
-    themeVariant = "dark";
-    profile = {
-      "3016dd0f-599a-4b27-a5af-dba92550fe79" = {
-        allowBold = true;
-	visibleName = "zsh";
-	audibleBell = true;
-	default = true;
-	font = "CaskaydiaCove Nerd Font";
-      };
-      "4a348826-f5d3-4034-bd42-2efddf71f816" = {
-        allowBold = true;
-	visibleName = "bash";
-	audibleBell = true;
-	font = "CaskaydiaCove Nerd Font";
-	customCommand = "bash";
-      };
     };
   };
 

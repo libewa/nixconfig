@@ -5,11 +5,9 @@
   virtualisation.virtualbox.host.enable = true;
   programs.dconf.enable = true; # virt-manager requires dconf to remember settings
   environment.systemPackages = with pkgs; [
-    gnome.gnome-software
     virt-manager
     vscodium
     firefox
-    gnome.gnome-terminal
     pv
     prusa-slicer
     efibootmgr
