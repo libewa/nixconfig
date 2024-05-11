@@ -128,6 +128,7 @@ in
   };
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
     terminal = "\${pkgs.kitty/bin/kitty}";
     extraConfig = {
       combi-modes = "window,drun,run";
