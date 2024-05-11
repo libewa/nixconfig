@@ -4,6 +4,7 @@
     settings = {
       topbar = {
         height = 30;
+        spacing = 10;
         position = "top";
         modules-left = [ "custom/power" "tray" ];
         modules-center = [ "hyprland/window" ];
@@ -29,7 +30,7 @@
           format = "{}% ";
         };
         "custom/power" = {
-          format = "󰐥";
+          format = "󰐥 Power options";
           on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         };
         backlight = {
@@ -74,5 +75,32 @@
         };
       };
     };
+    style = ''
+    * {
+      border: none;
+      border-radius: 0;
+      font-family: "Ubuntu Nerd Font";
+      font-size: 13px;
+      min-height: 0;
+      background: none;
+      color: #fff;
+      padding-top: 2px;
+      padding-bottom: 2px
+    }
+
+    window#waybar {
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    tooltip {
+      background: rgba(43, 48, 59, 0.9);
+      border: 1px solid rgba(100, 114, 125, 0.5);
+    }
+    '';
   };
 }
