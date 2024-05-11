@@ -54,6 +54,13 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
 
+  services.logind.powerKey = "suspend-then-hibernate";
+  services.logind.powerKeyLongPress = "poweroff";
+  systemd.sleep.extraConfig = ''
+  HibernateDelaySec=10m
+  SuspendState=mem
+  '';
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
