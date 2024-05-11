@@ -7,6 +7,8 @@
     nmap
     gcc
     fastfetch
+    killall
+    htop
   ];
   programs = {
     neovim.enable = true;
