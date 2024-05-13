@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-if [ $1 == "de" ]; then
-    nix build .#nixosConfigurations.livecd.config.system.build.isoImage
+if [ "$1" = "de" ]; then
+    nix build .#nixosConfigurations.livecd-de.config.system.build.isoImage
 fi
+
+nix build .#nixosConfigurations.livecd.config.system.build.isoImage
