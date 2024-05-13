@@ -127,7 +127,7 @@ in
   home.file = {
     hypr = {
       target = ".config/hypr";
-      source = ../dotfiles/hypr;
+      source = ./dotfiles/hypr;
     };
   };
   programs.rofi = {
