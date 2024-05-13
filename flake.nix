@@ -34,7 +34,7 @@
 
           "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-          inputs.livecdhome
+          inputs.livecdhome.nixosModules.default
         ];
       };
       livedisc-de = nixpkgs.lib.nixosSystem {
