@@ -15,26 +15,6 @@
         "type": "indirect"
       }
     },
-    "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1714679908,
-        "narHash": "sha256-KzcXzDvDJjX34en8f3Zimm396x6idbt+cu4tWDVS2FI=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "9036fe9ef8e15a819fa76f47a8b1f287903fb848",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "nixos-boot": {
       "locked": {
         "lastModified": 1714108925,
@@ -69,7 +49,6 @@
     "root": {
       "inputs": {
         "cdpkgs": "cdpkgs",
-        "home-manager": "home-manager",
         "nixos-boot": "nixos-boot",
         "nixpkgs": "nixpkgs"
       }
