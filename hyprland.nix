@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      "$terminal" = "kitty";
+      "$terminal" = "kitty || xterm";
       "$fileManager" = "nautilus";
       "$wwwbrowser" = "firefox";
       "$menu" = "rofi -show combi";
