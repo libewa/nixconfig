@@ -5,6 +5,11 @@
     nixos-boot.url = "github:Melkor333/nixos-boot";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     cdpkgs.url = "nixpkgs/23.11";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs/23.11";
+
+    livecdhome.url = "github:libewa/home-manager";
   };
 
   outputs = { self, nixpkgs, cdpkgs, ... }@inputs: {
@@ -32,6 +37,7 @@
 
           "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          inputs.livecdhome
         ];
       };
       livedisc-de = nixpkgs.lib.nixosSystem {
@@ -43,8 +49,9 @@
           ./modules/essentialpkgs.nix
           ./modules/germanlocale.nix
 
-          "${cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          "${cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          inputs.livecdhome
         ];
       };
     };
