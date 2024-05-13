@@ -11,6 +11,7 @@
     pv
     efibootmgr
     udiskie
+    kitty
   ];
   programs.steam = {
     enable = true;
