@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "nautilus";
       "$wwwbrowser" = "firefox";
       "$menu" = "rofi -show combi";
       "$mainMod" = "SUPER";

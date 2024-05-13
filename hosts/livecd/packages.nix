@@ -10,7 +10,7 @@
 
     kitty
     hyprnome
-    dolphin
+    gnome.nautilus
     hyprlock
     hypridle
     swayosd
