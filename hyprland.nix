@@ -117,6 +117,7 @@
       ];
 
       bind = [
+        " , XF86PowerOff, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
         "$mainMod,space,exec,pkill rofi || rofi -show combi"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
