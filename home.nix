@@ -38,17 +38,10 @@ let
     gh
     lynx
     nerdfonts
-    arduino-cli
     cmatrix
-    thunderbird
     vlc
     sl
-    signal-desktop
     nil
-    swift
-    swiftPackages.swiftpm
-    sourcekit-lsp
-    deno
     prusa-slicer
 
     kitty
