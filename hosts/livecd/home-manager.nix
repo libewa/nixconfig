@@ -5,7 +5,7 @@
     backupFileExtension = "bak";
     extraSpecialArgs = { inherit inputs; };
     users = {
-      nixos = import ../../homes/livecd.nix;
+      #nixos = import ../../homes/livecd.nix;
     };
   };
 }
