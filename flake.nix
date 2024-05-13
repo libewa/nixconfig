@@ -5,11 +5,6 @@
     nixos-boot.url = "github:Melkor333/nixos-boot";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     cdpkgs.url = "nixpkgs/23.11";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, cdpkgs, ... }@inputs: {
@@ -24,7 +19,6 @@
           ./modules/audio.nix
           ./modules/germanlocale.nix
           ./modules/essentialpkgs.nix
-          inputs.home-manager.nixosModules.default
           inputs.nixos-boot.nixosModules.default
         ];
       };
