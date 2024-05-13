@@ -124,8 +124,9 @@ in
     package = pkgs.rofi-wayland;
     terminal = "\${pkgs.kitty/bin/kitty}";
     extraConfig = {
-      combi-modes = "window,drun,run";
+      combi-modes = "window,drun,run,power-menu";
       modes = "combi";
+      modi = "power-menu:rofi-power-menu";
     };
   };
 
