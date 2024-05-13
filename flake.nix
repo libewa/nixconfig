@@ -2,6 +2,7 @@
   description = "NixOS config flake";
 
   inputs = {
+    nixos-boot.url = "github:Melkor333/nixos-boot";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     cdpkgs.url = "nixpkgs/23.11";
 
@@ -24,6 +25,7 @@
           ./modules/germanlocale.nix
           ./modules/essentialpkgs.nix
           inputs.home-manager.nixosModules.default
+          inputs.nixos-boot.nixosModules.default
         ];
       };
       livecd = nixpkgs.lib.nixosSystem {
@@ -34,8 +36,8 @@
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
 
-          "${cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          "${cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          "${inputs.cdpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
         ];
       };
       livedisc-de = nixpkgs.lib.nixosSystem {
