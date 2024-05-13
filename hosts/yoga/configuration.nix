@@ -5,7 +5,6 @@
 { pkgs, inputs, ... }:
 
 {
-  boot.plymouth.enable = true;
   imports =
     [
       ./packages.nix
@@ -34,6 +33,8 @@
       }
     ];
   }];
+
+  boot.plymouth.enable = true;
 
   services.flatpak.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes"];
