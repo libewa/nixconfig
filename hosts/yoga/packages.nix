@@ -12,6 +12,7 @@
     efibootmgr
     udiskie
     kitty
+    libreoffice
   ];
   programs.steam = {
     enable = true;
