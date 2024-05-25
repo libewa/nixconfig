@@ -42,7 +42,7 @@ let
     vlc
     sl
     nil
-    prusa-slicer
+    ffmpeg 
 
     kitty
     hyprnome
@@ -154,6 +154,8 @@ in
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
       "git.autofetch" = true;
+      "swift.actionAfterBuildError" = "Focus Problems";
+      "swift.sourcekit-lsp.serverPath" = "sourcekit-lsp";
     };
     keybindings = [
       {
