@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ... } :
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -40,7 +40,7 @@
           home.homeDirectory = "/home/nixos";
         }];
       };
-      nixosModules.default = {inputs, ...}: {
+      nixosModules.default = { inputs, ... }: {
         imports = [
           inputs.home-manager.nixosModules.home-manager
         ];
