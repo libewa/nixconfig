@@ -7,6 +7,9 @@ This is my [NixOS](https://nixos.org) system configuration.
 > Read the whole text BEFORE modifying your system!
 
 You can't use this configuration directly. To use it, clone the GitHub repo and copy [modules/users.nix.template](./modules/users.nix.template) to [hosts/yoga/users.nix](./hosts/yoga/users.nix). Then, modify that file according to [the NixOS manual](https://nixos.org/manual/nixos/stable/#sec-user-management).
+> [!CAUTION]
+> This means that you will NEED TO BACKUP YOUR USERS.NIX FILE if you reinstall your system and are planning to reinstall from your configuration on a git repo.
+
 Additionally, copy `hardware-configuration.nix` from `/etc/nixos/configuration.nix` into the repository root.
 Look into `flake.nix`. If you do not use a QWERTZ keyboard, comment out the line saying `./modules/germanlocale.nix` under `yoga`. (it should be surrounded by `audio.nix` and `essentialpkgs.nix`)
 You should now be ready to run this command:
