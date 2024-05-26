@@ -69,7 +69,8 @@ in
     ./hyprland.nix
     ./waybar.nix
   ];
-
+  programs.home-manager.path = "$HOME/Dokumente/sourcecode/home-manager-1";
+  programs.zed-editor.enable = true;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
