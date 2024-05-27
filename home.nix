@@ -42,7 +42,7 @@ let
     vlc
     sl
     nil
-    ffmpeg 
+    ffmpeg
 
     kitty
     hyprnome
@@ -65,12 +65,13 @@ let
   ];
 in
 {
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   imports = [
     ./hyprland.nix
     ./waybar.nix
   ];
-  programs.home-manager.path = "$HOME/Dokumente/sourcecode/home-manager-1";
-  programs.zed-editor.enable = true;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -81,6 +82,36 @@ in
   home.stateVersion = "23.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
 
+  programs.zed-editor = {
+    enable = true;
+    userSettings = {
+      theme = "XY-Zed";
+      features = {
+        copilot = false;
+      };
+      vim_mode = false;
+      ui_font_size = 16;
+      buffer_font_size = 16;
+    };
+    extensions = [
+      "html"
+      "dockerfile"
+      "docker-compose"
+      "git_firefly"
+      "toml"
+      "sql"
+      "log"
+      "emmet"
+      "xy-zed"
+      "latex"
+      "xml"
+      "nix"
+      "assembly"
+      "gdscript"
+      "deno"
+      "basher"
+    ];
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -131,8 +162,6 @@ in
     };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
   programs.neovim = {
     enable = true;
     defaultEditor = true;
