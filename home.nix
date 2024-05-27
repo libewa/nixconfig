@@ -43,6 +43,7 @@ let
     sl
     nil
     ffmpeg
+    vesktop
 
     kitty
     hyprnome
