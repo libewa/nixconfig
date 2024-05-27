@@ -8,6 +8,7 @@
     swiftPackages.swiftpm
     sourcekit-lsp
     prusa-slicer
+    vesktop
     thunderbird
     arduino-cli
   ];
