@@ -7,15 +7,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1716711215,
-        "narHash": "sha256-0koEdYN3XOE1ECwWvFdPgI/709jrXYNo8nKDoQe2p3U=",
+        "lastModified": 1716792621,
+        "narHash": "sha256-NZwmPKl95YSmyF8S89dt6AfpDSqHM6YqlEXNLjg5nqI=",
         "owner": "libewa",
         "repo": "home-manager-1",
-        "rev": "6a35d1969e4626a0f8d285e60b6cfd331e2687a9",
+        "rev": "d63ae02c031cb3b1bab8865f3410ca66698425fa",
         "type": "github"
       },
       "original": {
         "owner": "libewa",
+        "ref": "zed-editor",
         "repo": "home-manager-1",
         "type": "github"
       }
