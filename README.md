@@ -38,5 +38,4 @@ sudo nixos-rebuild switch --flake path:.#
 Use this command (or `./apply`) for rebuilding from now on.
 
 ## Live CD Images
-
-`./buildiso` (or `./buildiso de` for QWERTZ layout) should yield you a bootable ISO image. However, there is an infinite recursion somewhere, which I'd be happy if someone found.
+`./buildiso` (or `./buildiso de` for a German locale and keyboard layout) will build an ISO file ready for copying to an USB flash drive (or maybe even a DVD if you trim out enough packages). I have not gotten this to work yet, but only got a `No space left on device` error, so the Nix code is correct, my Nix store partition is just too small. Try it yourself, and see how it works. The default user is `nixos`, and should have no password (again, not tested).
