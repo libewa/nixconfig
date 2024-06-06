@@ -54,7 +54,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  services.logind.powerKey = "ignore";
+  services.logind.powerKey = "hibernate";
   services.logind.powerKeyLongPress = "poweroff";
   systemd.sleep.extraConfig = ''
   HibernateDelaySec=10m
@@ -77,7 +77,7 @@
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
-  }; 
+  };
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
