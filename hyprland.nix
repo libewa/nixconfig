@@ -60,7 +60,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         rounding = 10;
-        
+
         blur = {
             enabled = true;
             size = 3;
@@ -112,12 +112,12 @@
         "stayfocused,title:rofi*"
       ];
 
-      windowrulev2 = [ 
+      windowrulev2 = [
         "suppressevent maximize, class:.*"
       ];
 
       bind = [
-        " , XF86PowerOff, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "$mainMod, o, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
         "$mainMod,space,exec,pkill rofi || rofi -show combi"
         "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
