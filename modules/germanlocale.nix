@@ -20,8 +20,8 @@
   console.keyMap = "de";
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "de";
-    xkbVariant = "";
+    variant = "";
   }; # do this even if theres no server because why not? it's not used if xserver.enabled is false
 }
