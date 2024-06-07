@@ -25,7 +25,7 @@
           ./modules/audio.nix
           ./modules/germanlocale.nix
           ./modules/essentialpkgs.nix
-	  ./modules/sunshine.nix
+	        ./modules/sunshine.nix
           inputs.nixos-boot.nixosModules.default
         ];
       };
