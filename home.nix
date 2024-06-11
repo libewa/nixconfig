@@ -36,6 +36,7 @@ let
   packages = with pkgs; [
     tree
     gh
+    tea
     lynx
     nerdfonts
     cmatrix
