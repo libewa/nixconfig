@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -20,7 +21,7 @@
 
       exec-once = [
         "swaync"
-        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+        "${pkgs.polkit_gnome.outPath}/libexec/polkit-gnome-authentication-agent-1"
         "waybar"
         "wl-paste --watch cliphist store"
         "udiskie &"
