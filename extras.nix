@@ -6,6 +6,7 @@
     yt-dlp
     tartube
     swiftPackages.swiftpm
+    musescore
     sourcekit-lsp
     prusa-slicer
     vesktop
