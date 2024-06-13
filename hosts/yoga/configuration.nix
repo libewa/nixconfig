@@ -1,8 +1,8 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports =
@@ -50,7 +50,23 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    sugarCandyNix = {
+      enable = true;
+      settings = {
+        Background = pkgs.fetchurl {
+          url = "https://web.archive.org/web/20220728150410if_/https://i.redd.it/p3iy6aa826e91.png";
+          hash = "sha256-dsKObMrits5+ZimnshPOc9eNtRv922bOrSvlCgpzUHs=";
+        };
+        HaveFormBackground = true;
+        PartialBlur = true;
+        FormPosition = "left";
+        HeaderText = "Willkommen!";
+        DateFormat = "dddd, d. MMMM yyyy";
+      };
+    };
+  };
   services.xserver.desktopManager.gnome.enable = true;
 
   services.logind.powerKey = "hibernate";

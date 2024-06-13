@@ -6,6 +6,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     #cdpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     livecdhome.url = "github:libewa/home-manager";
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      # Optional, by default this flake follows nixpkgs-unstable.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -28,6 +33,14 @@
           ./modules/sunshine.nix
           ./modules/gnomeapps.nix
           inputs.nixos-boot.nixosModules.default
+          inputs.sddm-sugar-candy-nix.nixosModules.default
+          {
+            nixpkgs = {
+              overlays = [
+                inputs.sddm-sugar-candy-nix.overlays.default
+              ];
+            };
+          }
         ];
       };
     };
