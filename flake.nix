@@ -85,5 +85,17 @@
         format = "iso";
       };
     };
+    nixosModules = {
+      sddm = {
+        imports = [
+          ./modules/sddm.nix
+        ];
+      };
+      grub = {
+        imports = [
+          ./modules/grub.nix
+        ];
+      };
+    };
   };
 }
