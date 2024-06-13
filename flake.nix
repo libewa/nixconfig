@@ -24,6 +24,7 @@
         specialArgs = {inherit inputs; };
         modules = [
           ./hosts/yoga/configuration.nix
+
           ./modules/grub.nix
           ./hardware-configuration.nix
           ./modules/appimage.nix
@@ -51,6 +52,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/livecd/configuration.nix
+
           ./modules/appimage.nix
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
