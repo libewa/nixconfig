@@ -49,7 +49,6 @@ let
     hyprnome
     gnome.nautilus
     hyprlock
-    hypridle
     swayosd
     swaynotificationcenter
     udiskie
