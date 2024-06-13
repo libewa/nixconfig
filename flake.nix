@@ -54,6 +54,7 @@
           ./modules/appimage.nix
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
+          ./modules/sddm.nix
 
           "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
@@ -69,6 +70,8 @@
           ./modules/appimage.nix
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
+          ./modules/sddm.nix
+
           ./modules/germanlocale.nix
 
           "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
