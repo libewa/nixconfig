@@ -47,7 +47,7 @@
         ];
       };
     };
-    packages.x86_64-linux = {
+    /*packages.x86_64-linux = {
       livecd = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         modules = [
@@ -84,7 +84,7 @@
         #pkgs = cdpkgs.legacyPackages.x86_64-linux;
         format = "iso";
       };
-    };
+    };*/
     nixosModules = {
       sddm = {
         imports = [
