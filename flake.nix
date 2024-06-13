@@ -32,6 +32,8 @@
           ./modules/essentialpkgs.nix
           ./modules/sunshine.nix
           ./modules/gnomeapps.nix
+          ./modules/powerkey.nix
+          ./modules/sddm.nix
           inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
           {
