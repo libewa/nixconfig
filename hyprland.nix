@@ -21,11 +21,9 @@
 
       exec-once = [
         "swaync"
-        "${pkgs.polkit_gnome.outPath}/libexec/polkit-gnome-authentication-agent-1"
-        "waybar"
+        "${pkgs.kdePackages.polkit-kde-agent-1.outPath}/libexec/polkit-kde-authentication-agent-1"
         "wl-paste --watch cliphist store"
         "udiskie &"
-        "hypridle"
         "swayosd-server"
         "xhost +SI:localuser:root"
       ];
@@ -181,6 +179,67 @@
         ", XF86MonBrightnessUp, exec, swayosd-client --brightness +5"
         ", XF86MonBrightnessDown, exec, swayosd-client --brightness -5"
       ];
+    };
+  };
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_cursor = false;
+        grace = 5;
+      };
+      background = {
+        monitor = "";
+        path = pkgs.fetchurl {
+          url = "https://web.archive.org/web/20220728150410if_/https://i.redd.it/p3iy6aa826e91.png";
+          hash = "sha256-dsKObMrits5+ZimnshPOc9eNtRv922bOrSvlCgpzUHs=";
+        };
+
+        blur_passes = 2;
+        blur_size = 7;
+        noise = 0.0117;
+        contrast = 0.8916;
+        brightness = 0.8172;
+        vibrancy = 0.1696;
+        vibrancy_darkness = 0.0;
+      };
+      image = {
+        monitor = "";
+        path = "$HOME/face";
+        size = 150;
+        rounding = -1;
+        border_size = 4;
+        border_color = "rgb(221, 221, 221)";
+        reload_time = -1;
+        position = "0, 200";
+        halign = "center";
+        valign = "center";
+      };
+      input-field = {
+        monitor = "";
+        size = "200, 50";
+        outline_thickness = 3;
+        dots_size = 0.33;
+        dots_spacing = 0.15;
+        dots_rounding = -1;
+        outor_color = "rgb(151515)";
+        inner_color = "rgb(200, 200, 200)";
+        font_color = "rgb(10, 10, 10)";
+        fade_on_empty = false;
+        placeholder_text = "<i>Passwort eingeben</i>";
+        hide_input = false;
+        rounding = -1;
+        check_color = "rgb(204, 136, 34)";
+        fail_color = "rgb(204, 34, 34)";
+        fail_text = "Falsches Passwort!";
+        capslock_color = -1;
+        numlock_color = -1;
+        bothlock_color = -1;
+        invert_numlock = false;
+        position = "0, -20";
+        halign = "center";
+        valign = "center";
+      };
     };
   };
 }
