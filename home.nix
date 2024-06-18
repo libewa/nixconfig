@@ -1,25 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  vimplugins = with pkgs.vimPlugins; [
-    conflict-marker-vim
-    nvim-treesitter.withAllGrammars
-    lspkind-nvim
-    neogit
-    cmp-nvim-lsp
-    telescope-github-nvim
-    telescope-nvim
-    telescope-symbols-nvim
-    todo-comments-nvim
-    plenary-nvim
-    nvim-lspconfig
-    which-key-nvim
-    trouble-nvim
-    nvim-cmp
-    vim-vsnip
-    cmp-vsnip
-  ];
-
   code-exts = with pkgs.vscode-extensions; [
     vadimcn.vscode-lldb
     ms-azuretools.vscode-docker
@@ -125,6 +106,8 @@ in
     alias ll='ls -l --color=auto'
     alias nrs='nixos-rebuild switch'
     alias hms='home-manager switch'
+
+    fastfetch
     ";
     syntaxHighlighting = {
       enable = true;
@@ -146,10 +129,10 @@ in
   home.packages = packages;
 
   home.file = {
-    hypr = {
-      target = ".config/hypr";
-      source = ./dotfiles/hypr;
-    };
+    #hypr = {
+    #  target = ".config/hypr";
+    #  source = ./dotfiles/hypr;
+    #};
   };
   programs.rofi = {
     enable = true;
@@ -165,7 +148,15 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    plugins = vimplugins;
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
+      plenary-nvim
+      neogit
+      conflict-marker-vim
+      #todo-comments-vim
+      nvim-cmp
+    ];
     extraConfig = ''
       set mouse=a
     '';
