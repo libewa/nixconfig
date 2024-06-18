@@ -20,6 +20,5 @@
     rofi-power-menu
   ];
   hardware.opengl.driSupport32Bit = true;
-  programs.hyprland.enable = true;
 }
 

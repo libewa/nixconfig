@@ -35,6 +35,7 @@
           ./modules/gnomeapps.nix
           ./modules/powerkey.nix
           ./modules/sddm.nix
+          ./modules/hypr.nix
           inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
           {
