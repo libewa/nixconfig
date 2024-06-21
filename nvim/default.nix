@@ -4,6 +4,10 @@
     ./lsp.nix
     ./nvim-cmp.nix
   ];
+  home.packages = with pkgs; [
+    fd
+    ripgrep
+  ];
   programs.neovim = {
     enable = true;
     defaultEditor = true;
