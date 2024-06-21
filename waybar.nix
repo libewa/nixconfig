@@ -1,6 +1,7 @@
 {
   programs.waybar = {
     enable = true;
+    systemd.enable = false;
     settings = {
       topbar = {
         height = 30;

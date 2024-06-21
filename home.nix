@@ -52,6 +52,7 @@ in
   imports = [
     ./hyprland.nix
     ./waybar.nix
+    ./nvim
   ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -144,23 +145,7 @@ in
       modi = "power-menu:rofi-power-menu";
     };
   };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      nvim-treesitter.withAllGrammars
-      plenary-nvim
-      neogit
-      conflict-marker-vim
-      #todo-comments-vim
-      nvim-cmp
-    ];
-    extraConfig = ''
-      set mouse=a
-    '';
-  };
+  
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
