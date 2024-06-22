@@ -37,7 +37,7 @@ in
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    terminal = "\${pkgs.kitty/bin/kitty}";
+    terminal = "${pkgs.kitty.outPath}/bin/kitty";
     extraConfig = {
       combi-modes = "window,drun,run,power-menu";
       modes = "combi";
