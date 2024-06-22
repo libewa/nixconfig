@@ -1,13 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    #./lsp.nix
-    #./nvim-cmp.nix
-    #./nvim-tree.nix
-  ];
-  home.packages = with pkgs; [
-    fd
-    ripgrep
+    ./lsp.nix
+    ./nvim-cmp.nix
+    ./nvim-tree.nix
   ];
   programs.neovim = {
     enable = true;
@@ -24,6 +20,10 @@
       nvim-tree-lua
       neoconf-nvim
       diffview-nvim
+    ];
+    extraPackages = with pkgs; [
+      ripgrep
+      fd
     ];
     extraConfig = ''
       set mouse=a
