@@ -18,7 +18,13 @@
       telescope-nvim
       todo-comments-nvim
       nvim-tree-lua
-      neoconf-nvim
+      nvim-web-devicons
+      {
+        plugin = neoconf-nvim;
+	config = ''
+	  lua require('neoconf').setup()
+	'';
+      }
       diffview-nvim
     ];
     extraPackages = with pkgs; [
@@ -33,8 +39,7 @@
     extraLuaConfig = /* lua */ ''
       -- disable netrw at the very start of your init.lua
       vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-      require('neoconf').setup()
+      vim.g.loaded_netrwPlugin = 1 
       
       neogit = require('neogit')
       neogit.setup()
