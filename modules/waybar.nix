@@ -78,10 +78,12 @@
     };
     style = ''
     * {
-      border: none;
-      border-radius: 0;
       font-family: "Ubuntu Nerd Font";
       font-size: 13px;
+    }
+    window#waybar {
+      border: none;
+      border-radius: 0; 
       min-height: 0;
       background: none;
       color: #fff;
