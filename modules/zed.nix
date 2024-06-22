@@ -15,6 +15,7 @@
       "html"
       "dockerfile"
       "docker-compose"
+      "swift"
       "git_firefly"
       "toml"
       "sql"
