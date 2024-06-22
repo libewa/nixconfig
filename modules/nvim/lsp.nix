@@ -26,6 +26,9 @@
     lsp.denols.setup {
       capabilities = capabilities
     }
+    lsp.arduino_language_server.setup {
+      capabilities = capabilities
+    }
     '';
   };
 }
