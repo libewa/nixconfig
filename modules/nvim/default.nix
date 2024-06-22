@@ -36,6 +36,7 @@
       set shiftwidth=2
       map <C-p> :NvimTreeToggle<CR>
       map <C-Space> :Telescope<CR>
+      map <C-S-Space> :Telescope<Space>commands<CR>
     '';
     extraLuaConfig = /* lua */ ''
       -- disable netrw at the very start of your init.lua
