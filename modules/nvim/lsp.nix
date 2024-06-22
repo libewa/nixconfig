@@ -16,6 +16,9 @@
     lsp.sourcekit.setup {
       capabilities = capabilities
     }
+    lsp.denols.setup {
+      capabilities = capabilities
+    }
     '';
   };
 }
