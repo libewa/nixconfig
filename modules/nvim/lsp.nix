@@ -5,6 +5,13 @@
       nvim-lspconfig
       cmp-nvim-lsp
     ];
+    extraPackages = with pkgs; [
+      arduino-language-server
+      sourcekit-lsp
+      nil
+      libclang
+      deno
+    ];
     extraLuaConfig = ''
     lsp = require('lspconfig')
     -- Set up lspconfig.
