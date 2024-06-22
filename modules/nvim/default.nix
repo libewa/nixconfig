@@ -35,6 +35,7 @@
       set mouse=a
       set shiftwidth=2
       map <C-p> :NvimTreeToggle<CR>
+      map <C-d> :NvimTreeFocus<CR>
       map <C-Space> :Telescope<CR>
       map <C-S-Space> :Telescope<Space>commands<CR>
     '';
