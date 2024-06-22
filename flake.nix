@@ -21,12 +21,20 @@
 
           # Specify your home configuration modules here, for example,
           # the path to your home.nix.
-          modules = [ ./home.nix ./extras.nix {
-            # Home Manager needs a bit of information about you and the paths it should
-            # manage.
-            home.username = "linus";
-            home.homeDirectory = "/home/linus";
-          }];
+          modules = [
+            ./home.nix
+            ./guionly.nix
+            ./modules/hyprland.nix
+            #./modules/waybar.nix
+            #./modules/nvim
+            #./modules/zsh.nix
+            {
+              # Home Manager needs a bit of information about you and the paths it should
+              # manage.
+              home.username = "linus";
+              home.homeDirectory = "/home/linus";
+            }
+          ];
 
           # Optionally use extraSpecialArgs
           # to pass through arguments to home.nix

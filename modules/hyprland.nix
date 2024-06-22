@@ -1,5 +1,23 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    kitty
+    hyprnome
+    gnome.nautilus
+    hyprlock
+    swayosd
+    swaynotificationcenter
+    udiskie
+    notify-desktop
+    rofi-power-menu
+  ] ++ [(pkgs.writeShellScriptBin "exitwindow" ''
+    if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+      xdotool getactivewindow windowunmap
+    else
+      hyprctl dispatch killactive ""
+    fi
+    '')];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -192,7 +210,7 @@
         monitor = "";
         path = pkgs.fetchurl {
           url = "https://web.archive.org/web/20220728150410if_/https://i.redd.it/p3iy6aa826e91.png";
-          hash = "sha256-dsKObMrits5+ZimnshPOc9eNtRv922bOrSvlCgpzUHs=";
+          hash = "";
         };
 
         blur_passes = 2;

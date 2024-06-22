@@ -1,59 +1,21 @@
 { config, pkgs, ... }:
 
 let
-  code-exts = with pkgs.vscode-extensions; [
-    vadimcn.vscode-lldb
-    ms-azuretools.vscode-docker
-    github.vscode-pull-request-github
-    bbenoist.nix
-    arrterian.nix-env-selector
-    jnoortheen.nix-ide
-    esbenp.prettier-vscode
-    equinusocio.vsc-material-theme
-    ms-vscode.cpptools
-    denoland.vscode-deno
-  ];
-
   packages = with pkgs; [
     tree
     gh
     tea
     lynx
-    nerdfonts
     cmatrix
-    vlc
     sl
     nil
     ffmpeg
-
-    kitty
-    hyprnome
-    gnome.nautilus
-    hyprlock
-    swayosd
-    swaynotificationcenter
-    udiskie
-    notify-desktop
-    rofi-power-menu
-
-    (pkgs.writeShellScriptBin "exitwindow" ''
-    if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
-      xdotool getactivewindow windowunmap
-    else
-      hyprctl dispatch killactive ""
-    fi
-    '')
   ];
 in
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  imports = [
-    ./hyprland.nix
-    ./waybar.nix
-    #./nvim/default.nix
-  ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -63,70 +25,7 @@ in
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
-
-  programs.zed-editor = {
-    enable = true;
-    userSettings = {
-      theme = "XY-Zed";
-      features = {
-        copilot = false;
-      };
-      vim_mode = false;
-      ui_font_size = 16;
-      buffer_font_size = 16;
-    };
-    extensions = [
-      "html"
-      "dockerfile"
-      "docker-compose"
-      "git_firefly"
-      "toml"
-      "sql"
-      "log"
-      "emmet"
-      "xy-zed"
-      "latex"
-      "xml"
-      "nix"
-      "assembly"
-      "gdscript"
-      "deno"
-      "basher"
-    ];
-  };
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autocd = true;
-    initExtraFirst = "
-
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias la='ls -al --color=auto'
-    alias ll='ls -l --color=auto'
-    alias nrs='nixos-rebuild switch'
-    alias hms='home-manager switch'
-
-    fastfetch
-    ";
-    syntaxHighlighting = {
-      enable = true;
-      highlighters = [ "brackets" "main" ];
-    };
-    plugins = [
-      {
-        name = "zsh-nix-shell";
-        file = "nix-shell.plugin.zsh";
-        src = pkgs.fetchFromGitHub {
-          owner = "chisui";
-          repo = "zsh-nix-shell";
-          rev = "v0.7.0";
-          sha256 = "149zh2rm59blr2q458a5irkfh82y3dwdich60s9670kl3cl5h2m1";
-        };
-      }
-    ];
-  };
+ 
   home.packages = packages;
 
   home.file = {
@@ -149,28 +48,7 @@ in
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
   xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    userSettings = {
-      "workbench.colorTheme" = "Material Theme High Contrast";
-      "workbench.iconTheme" = "eq-material-theme-icons-light";
-      "nix.serverPath" = "nil";
-      "nix.enableLanguageServer" = true;
-      "git.enableSmartCommit" = true;
-      "git.confirmSync" = false;
-      "git.autofetch" = true;
-      "swift.actionAfterBuildError" = "Focus Problems";
-      "swift.sourcekit-lsp.serverPath" = "sourcekit-lsp";
-    };
-    keybindings = [
-      {
-        "key" = "ctrl+[Semicolon]";
-        "command" = "workbench.action.terminal.toggleTerminal";
-      }
-    ];
-    extensions = code-exts;
-  };
+  
   programs.oh-my-posh = {
     enable = false;
     enableZshIntegration = true;

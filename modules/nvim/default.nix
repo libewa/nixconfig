@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    ./lsp.nix
-    ./nvim-cmp.nix
-    ./nvim-tree.nix
+    #./lsp.nix
+    #./nvim-cmp.nix
+    #./nvim-tree.nix
   ];
   home.packages = with pkgs; [
     fd

@@ -12,5 +12,6 @@
     vesktop
     thunderbird
     arduino-cli
+    vlc
   ];
 }
