@@ -33,17 +33,7 @@ in
     #  target = ".config/hypr";
     #  source = ./dotfiles/hypr;
     #};
-  };
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    terminal = "${pkgs.kitty.outPath}/bin/kitty";
-    extraConfig = {
-      combi-modes = "window,drun,run,power-menu";
-      modes = "combi";
-      modi = "power-menu:rofi-power-menu";
-    };
-  };
+  }; 
   
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;

@@ -8,8 +8,7 @@
     swayosd
     swaynotificationcenter
     udiskie
-    notify-desktop
-    rofi-power-menu
+    notify-desktop 
   ] ++ [(pkgs.writeShellScriptBin "exitwindow" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
       xdotool getactivewindow windowunmap
