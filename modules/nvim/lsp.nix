@@ -11,6 +11,7 @@
       nil
       libclang
       deno
+      nixd
     ];
     extraLuaConfig = ''
     lsp = require('lspconfig')
@@ -18,6 +19,9 @@
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
     lsp.nil_ls.setup {
+      capabilities = capabilities
+    }
+    lsp.nixd.setup {
       capabilities = capabilities
     }
     lsp.sourcekit.setup {

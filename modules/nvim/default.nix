@@ -31,13 +31,15 @@
       ripgrep
       fd
     ];
-    extraConfig = ''
+    extraConfig = /* vim */ ''
       set mouse=a
       set shiftwidth=2
       map <C-p> :NvimTreeToggle<CR>
       map <C-d> :NvimTreeFocus<CR>
       map <C-Space> :Telescope<CR>
       map <C-S-Space> :Telescope<Space>commands<CR>
+      map <C-w> :q<CR>
+      map <C-s> :w<CR>
     '';
     extraLuaConfig = /* lua */ ''
       -- disable netrw at the very start of your init.lua
