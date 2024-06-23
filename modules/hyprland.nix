@@ -9,7 +9,7 @@
     swaynotificationcenter
     udiskie
     notify-desktop 
-  ] ++ [(pkgs.writeShellScriptBin "exitwindow" ''
+  ] ++ [(writeShellScriptBin "exitwindow" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
       xdotool getactivewindow windowunmap
     else
