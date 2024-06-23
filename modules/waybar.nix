@@ -20,12 +20,19 @@
             unlocked = "";
           };
         };
+        "hyprland/workspaces" = {
+          format-icons = {
+            empty = "";
+            active = "";
+            default = "";
+          };
+          format = "{icon}";
+        };
         tray = {
           spacing = 10;
         };
         clock = {
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%d.%m.%Y}";
+          tooltip-format = "{:%d.%m.%Y}";
         };
         memory = {
           format = "{}% ";
@@ -55,14 +62,15 @@
         network = {
           format-wifi = "{essid} ({signalStrength}%) ";
           format-ethernet = "{ipaddr}/{cidr} ";
-          tooltip-format = "{ifname} via {gwaddr} ";
           format-linked = "{ifname} (No IP) ";
           format-disconnected = "Disconnected ⚠";
-          format-alt = "{ifname}: {ipaddr}/{cidr}";
+          tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+          on-click = "networkmanager_dmenu";
         };
 
         pulseaudio = {
           format = "{volume}% {icon}";
+          format-muted = "{volume}% ";
           format-icons = {
             headphone = "";
             hands-free = "";
