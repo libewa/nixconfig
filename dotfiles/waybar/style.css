@@ -25,3 +25,14 @@ tooltip {
 	background: rgba(43, 48, 59, 0.9);
 	border: 1px solid rgba(100, 114, 125, 0.5);
 }
+
+#workspaces button:hover {
+    box-shadow: rgba(43, 48, 59, 0.9);
+    text-shadow: inherit;
+}
+#workspaces button {
+	background: none;
+	color: #fff;
+    border: rgba(100, 114, 125, 0.5);
+    padding: 0 3px;
+}

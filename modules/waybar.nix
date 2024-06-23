@@ -7,7 +7,7 @@
         height = 30;
         spacing = 10;
         position = "top";
-        modules-left = [ "custom/power" "tray" ];
+        modules-left = [ "custom/power" "tray" "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "network" "pulseaudio" "memory" "backlight" "keyboard-state" "hyprland/language" "battery" "clock" ];
 
