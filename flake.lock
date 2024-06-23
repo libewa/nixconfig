@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716794393,
-        "narHash": "sha256-vDdmsaS2R/2h3cExlaHC229BoZmcKRtD7rxO/RLkH1E=",
+        "lastModified": 1719093349,
+        "narHash": "sha256-hQBbWgFIJwlJXIhhs/aWPe++CftnNZomjfmZw4sKQ6U=",
         "owner": "libewa",
         "repo": "home-manager-1",
-        "rev": "997b800608679b7929407cbb912d910eb1c451da",
+        "rev": "ed6084b4ffda2d3aa5431b1e0b1f77031e58b2df",
         "type": "github"
       },
       "original": {
