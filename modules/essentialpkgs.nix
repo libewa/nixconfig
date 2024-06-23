@@ -11,7 +11,12 @@
     htop
   ];
   programs = {
-    neovim.enable = true;
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+    };
     git.enable = true;
     zsh.enable = true;
     nix-ld.enable = true;
