@@ -39,7 +39,7 @@
       map <C-d> :NvimTreeFocus<CR>
       map <C-Space> :Telescope<CR>
       map <C-S-Space> :Telescope<Space>commands<CR>
-      map <C-w> :q<CR>
+      map <C-y> :q<CR>
       map <C-s> :w<CR>
     '';
     extraLuaConfig = /* lua */ ''
