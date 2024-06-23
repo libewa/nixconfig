@@ -43,6 +43,7 @@
         "udiskie &"
         "swayosd-server"
         "xhost +SI:localuser:root"
+        "wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
       ];
 
       input = {

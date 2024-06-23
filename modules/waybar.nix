@@ -10,7 +10,7 @@
         position = "top";
         modules-left = [ "custom/power" "tray" "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
-        modules-right = [ "network" "pulseaudio" "memory" "backlight" "keyboard-state" "hyprland/language" "battery" "clock" ];
+        modules-right = [ "network" "pulseaudio" "memory" "backlight" "keyboard-state" "custom/osk" "hyprland/language" "battery" "clock" ];
 
         keyboard-state = {
           numlock = false; # yoga laptop doesnt have numlock
@@ -44,6 +44,10 @@
           format = "󰐥 Power options";
           on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         };
+	"custom/osk" = {
+	  format = "";
+	  on-click = "pkill -34 wvkbd-mobintl";
+	};
         backlight = {
           format = "{percent}% {icon}";
           format-icons = [ "" "" "" "" "" "" "" "" "" ];
