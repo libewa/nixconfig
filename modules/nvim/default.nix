@@ -4,6 +4,7 @@
     ./lsp.nix
     ./nvim-cmp.nix
     ./nvim-tree.nix
+    ./cmp-git.nix
   ];
   programs.neovim = {
     enable = true;
