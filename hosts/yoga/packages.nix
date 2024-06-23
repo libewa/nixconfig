@@ -14,6 +14,7 @@
     kitty
     libreoffice
     nerdfonts
+    wvkbd
   ];
   programs.steam = {
     enable = true;
