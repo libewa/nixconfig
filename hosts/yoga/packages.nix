@@ -13,6 +13,7 @@
     udiskie
     kitty
     libreoffice
+    nerdfonts
   ];
   programs.steam = {
     enable = true;
