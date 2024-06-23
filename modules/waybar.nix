@@ -5,6 +5,7 @@
     settings = {
       topbar = {
         height = 30;
+	margin = "10px";
         spacing = 10;
         position = "top";
         modules-left = [ "custom/power" "tray" "hyprland/workspaces" ];
@@ -27,6 +28,7 @@
             default = "";
           };
           format = "{icon}";
+	  separate-outputs = true;
         };
         tray = {
           spacing = 10;
@@ -36,6 +38,7 @@
         };
         memory = {
           format = "{}% ";
+	  on-click = "kitty htop";
         };
         "custom/power" = {
           format = "󰐥 Power options";
