@@ -46,6 +46,7 @@
         };
 	"custom/osk" = {
 	  format = "";
+	  tooltip-format = "Toggle on-screen keyboard";
 	  on-click = "pkill -34 wvkbd-mobintl";
 	};
         backlight = {
