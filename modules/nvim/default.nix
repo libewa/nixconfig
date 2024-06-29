@@ -27,6 +27,12 @@
 	'';
       }
       diffview-nvim
+      {
+        plugin = instant-nvim;
+	config = ''
+	  let g:instant_username = "libewa"
+	'';
+      }
     ];
     extraPackages = with pkgs; [
       ripgrep
