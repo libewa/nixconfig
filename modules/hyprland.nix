@@ -8,7 +8,9 @@
     swayosd
     swaynotificationcenter
     udiskie
-    notify-desktop 
+    notify-desktop
+    wl-clipboard
+    grimblast
   ] ++ [(writeShellScriptBin "exitwindow" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
       xdotool getactivewindow windowunmap
@@ -146,6 +148,8 @@
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
+        "$mainMod, Print, exec, grimblast copy"
+        "SUPER_SHIFT, Print, exec, grimblast copysave"
 
         # move focus with arrow keys
         "$mainMod, left, movefocus, l"
