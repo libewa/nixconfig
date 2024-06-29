@@ -148,8 +148,10 @@
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
-        "$mainMod, Print, exec, grimblast copy area"
-        "SUPER_SHIFT, Print, exec, grimblast --notify copysave screen"
+        "SUPER, Print, exec, grimblast --notify copy area"
+	"SUPER_SHIFT, Print, exec, grimblast --notify copysave area"
+        "SUPER_ALT_SHIFT, Print, exec, grimblast --notify copysave screen"
+	"SUPER_ALT, Print, exec, grimblast --notify copy screen"
 
         # move focus with arrow keys
         "$mainMod, left, movefocus, l"
