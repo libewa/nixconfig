@@ -13,6 +13,7 @@
     alias ll='ls -l --color=auto'
     alias nrs='nixos-rebuild switch'
     alias hms='home-manager switch'
+    export LANG=en_US_US
 
     fastfetch
     ";
