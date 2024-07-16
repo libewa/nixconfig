@@ -73,7 +73,6 @@
           format-linked = "{ifname} (No IP) ";
           format-disconnected = "Disconnected ⚠";
           tooltip-format = "{ifname}: {ipaddr}/{cidr}";
-          on-click = "networkmanager_dmenu";
         };
 
         pulseaudio = {
