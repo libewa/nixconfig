@@ -5,6 +5,7 @@ let
     tree
     gh
     tea
+    audacity
     lynx
     cmatrix
     sl
