@@ -26,7 +26,11 @@
   }];
 
   boot.plymouth.enable = true;
-
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  hardware.enableAllFirmware = true;
   services.flatpak.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
@@ -68,7 +72,7 @@
     allowedTCPPorts = [ 80 443 ];
     allowedUDPPorts = [];
     allowedTCPPortRanges = [
-      # { from = 8080; to = 8090 };
+       { from = 8080; to = 8090; }
     ];
     allowedUDPPortRanges = [
       # as above

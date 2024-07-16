@@ -15,6 +15,9 @@
     libreoffice
     nerdfonts
     wvkbd
+    bottles
+
+    bluez-tools
   ];
   programs.steam = {
     enable = true;
@@ -23,5 +26,6 @@
   };
   hardware.opengl.driSupport32Bit = true;
   programs.hyprland.enable = true;
+  programs.nm-applet.enable = true;
 }
 
