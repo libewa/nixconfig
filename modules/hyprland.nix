@@ -11,6 +11,7 @@
     notify-desktop
     wl-clipboard
     grimblast
+    blueberry
   ] ++ [(writeShellScriptBin "exitwindow" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
       xdotool getactivewindow windowunmap
