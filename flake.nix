@@ -31,6 +31,7 @@
             ./modules/vscode.nix
 	    ./modules/zed.nix
 	    ./modules/rofi.nix
+	    ./modules/yt-dlp.nix
             {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
