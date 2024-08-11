@@ -9,6 +9,8 @@
     fastfetch
     killall
     htop
+    wget
+    curl
   ];
   programs = {
     neovim = {
