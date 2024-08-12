@@ -11,6 +11,10 @@
       # Optional, by default this flake follows nixpkgs-unstable.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -38,6 +42,7 @@
           ./modules/hypr.nix
           inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
+	  inputs.disko.nixosModules.default
           {
             nixpkgs = {
               overlays = [
