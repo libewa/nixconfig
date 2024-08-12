@@ -11,7 +11,7 @@
       # Optional, by default this flake follows nixpkgs-unstable.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,9 +47,26 @@
           }
         ];
       };
+      raspberrypi4 = nixpkgs.lib.nixosSystem {
+        modules = [
+	  ./hosts/raspberrypi4/configuration.nix
+
+	  ./modules/appimage.nix
+	  ./modules/audio.nix
+	  ./modules/germanlocale.nix
+	  ./modules/grub.nix
+	  ./modules/essentialpkgs.nix
+	  ./modules/sddm.nix
+	  ./modules/hypr.nix
+	  inputs.nixos-boot.nixosModules.default
+	  inputs.sddm-sugar-candy-nix.nixosModules.default
+	  { nixpkgs.overlays = [ inputs.sddm-sugar-candy-nix.overlays.default ]; }
+	];
+	specialArgs = { inherit inputs; };
+      };
     };
-    /*packages.x86_64-linux = {
-      livecd = nixos-generators.nixosGenerate {
+    packages.x86_64-linux = {
+      /*livecd = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         modules = [
           ./hosts/livecd/configuration.nix
@@ -84,8 +101,13 @@
         ];
         #pkgs = cdpkgs.legacyPackages.x86_64-linux;
         format = "iso";
+      };*/
+      raspberrypi4 = nixos-generators.nixosGenerate {
+        system = "aarch64";
+	format = "sd-aarch64";
+	modules = self.nixosConfigurations.raspberrypi4.modules;
       };
-    };*/
+    };
     nixosModules = {
       sddm = {
         imports = [
