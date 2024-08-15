@@ -15,20 +15,14 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:libewa/home-manager-1/zed-editor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-  outputs = { nixpkgs, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
+
+  outputs = { self, nixpkgs, /*cdpkgs,*/ nixos-generators, ... }@inputs: {
     nixosConfigurations = {
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; };
@@ -59,46 +53,6 @@
         ];
       };
     };
-    homeConfigurations = {
-        "linus" = inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            ./home.nix
-            ./guionly.nix
-            ./modules/hyprland.nix
-            ./modules/waybar.nix
-            ./modules/nvim
-            ./modules/zsh.nix
-            ./modules/vscode.nix
-	    ./modules/zed.nix
-	    ./modules/rofi.nix
-	    ./modules/yt-dlp.nix
-	    ./modules/git.nix
-            {
-              # Home Manager needs a bit of information about you and the paths it should
-              # manage.
-              home.username = "linus";
-              home.homeDirectory = "/home/linus";
-            }
-          ];
-
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
-        };
-        nixos = inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          modules = [ ./home.nix {
-            # Home Manager needs a bit of information about you and the paths it should
-            # manage.
-            home.username = "nixos";
-            home.homeDirectory = "/home/nixos";
-          }];
-        };
-      };
     nixosModules = {
       sddm = {
         imports = [
