@@ -20,6 +20,7 @@
       commit.gpgsign = true;
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
+      push.autoSetupRemote = true;
     };
   };
 }
