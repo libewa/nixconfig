@@ -2,13 +2,13 @@
 
 {
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 2;
   boot.loader.grub = {
     enable = true;
     device = "nodev";
     efiSupport = true;
     #useOSProber = true;
     timeoutStyle = "menu";
-    timeout = 1;
     memtest86.enable = true;
     extraEntries = ''
     menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' {
