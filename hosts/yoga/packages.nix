@@ -28,7 +28,7 @@
     clean.enable = true;
     flake = "/home/linus/nixconfig";
   };
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
   programs.hyprland.enable = true;
   programs.nm-applet.enable = true;
 }
