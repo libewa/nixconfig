@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 {
-  boot.plymouth.enable = true;
   imports =
     [
       ./packages.nix
@@ -52,6 +51,7 @@
       # as above
     ];
   };
+  services.udisks2.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
