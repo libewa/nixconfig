@@ -7,7 +7,8 @@
     device = "nodev";
     efiSupport = true;
     #useOSProber = true;
-    timeoutStyle = "hidden";
+    timeoutStyle = "menu";
+    timeout = 1;
     memtest86.enable = true;
     extraEntries = ''
     menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' {
