@@ -25,7 +25,7 @@
     enable = true;
     settings = {
       "$terminal" = "kitty || xterm";
-      "$fileManager" = "nautilus";
+      "$fileManager" = "dolphin";
       "$wwwbrowser" = "firefox";
       "$menu" = "rofi -show combi";
       "$mainMod" = "SUPER";
