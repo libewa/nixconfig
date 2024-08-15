@@ -13,7 +13,6 @@
     udiskie
     kitty
     libreoffice
-    nerdfonts
     wvkbd
     bottles
 
