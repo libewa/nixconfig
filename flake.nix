@@ -27,22 +27,22 @@
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; };
         modules = [
-          ./hosts/yoga/configuration.nix
+          ./system/hosts/yoga/configuration.nix
 
-          ./modules/grub.nix
-          ./hardware-configuration.nix
-          ./modules/appimage.nix
-          ./modules/audio.nix
-          ./modules/germanlocale.nix
-          ./modules/essentialpkgs.nix
-          ./modules/sunshine.nix
-          ./modules/powerkey.nix
-          ./modules/sddm.nix
-          ./modules/hypr.nix
-	  ./modules/disko.nix
+          ./system/hardware-configuration.nix
+          ./system/modules/grub.nix
+          ./system/modules/appimage.nix
+          ./system/modules/audio.nix
+          ./system/modules/germanlocale.nix
+          ./system/modules/essentialpkgs.nix
+          ./system/modules/sunshine.nix
+          ./system/modules/powerkey.nix
+          ./system/modules/sddm.nix
+          ./system/modules/hypr.nix
+          ./system/modules/disko.nix
           inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
-	  inputs.disko.nixosModules.default
+          inputs.disko.nixosModules.default
           {
             nixpkgs = {
               overlays = [
@@ -53,53 +53,15 @@
         ];
       };
     };
-    /*packages.x86_64-linux = {
-      livecd = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/livecd/configuration.nix
-
-          ./modules/appimage.nix
-          ./modules/audio.nix
-          ./modules/essentialpkgs.nix
-          ./modules/sddm.nix
-
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-          inputs.livecdhome.nixosModules.default
-        ];
-        #pkgs = cdpkgs.legacyPackages.x86_64-linux;
-        format = "iso";
-      };
-      livecd-de = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/livecd/configuration.nix
-          ./modules/appimage.nix
-          ./modules/audio.nix
-          ./modules/essentialpkgs.nix
-          ./modules/sddm.nix
-
-          ./modules/germanlocale.nix
-
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-
-          inputs.livecdhome.nixosModules.default
-        ];
-        #pkgs = cdpkgs.legacyPackages.x86_64-linux;
-        format = "iso";
-      };
-    };*/
     nixosModules = {
       sddm = {
         imports = [
-          ./modules/sddm.nix
+          ./system/modules/sddm.nix
         ];
       };
       grub = {
         imports = [
-          ./modules/grub.nix
+          ./system/modules/grub.nix
         ];
       };
     };
