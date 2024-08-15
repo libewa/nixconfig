@@ -27,7 +27,7 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
-    flake = /home/linus/nixconfig;
+    flake = "/home/linus/nixconfig";
   };
   hardware.opengl.driSupport32Bit = true;
   programs.hyprland.enable = true;
