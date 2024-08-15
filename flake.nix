@@ -36,7 +36,6 @@
           ./modules/germanlocale.nix
           ./modules/essentialpkgs.nix
           ./modules/sunshine.nix
-          ./modules/gnomeapps.nix
           ./modules/powerkey.nix
           ./modules/sddm.nix
           ./modules/hypr.nix
