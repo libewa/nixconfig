@@ -41,6 +41,7 @@
     extraConfig = /* vim */ ''
       set mouse=a
       set shiftwidth=2
+      set foldcolumn=1
       map <C-p> :NvimTreeToggle<CR>
       map <C-d> :NvimTreeFocus<CR>
       map <C-Space> :Telescope<CR>
