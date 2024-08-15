@@ -3,11 +3,12 @@
   home.packages = with pkgs; [
     kitty
     hyprnome
-    gnome.nautilus
+    dolphin
     hyprlock
     swayosd
     swaynotificationcenter
     udiskie
+    file-roller
     notify-desktop
     wl-clipboard
     grimblast
