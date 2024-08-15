@@ -66,17 +66,17 @@
           # Specify your home configuration modules here, for example,
           # the path to your home.nix.
           modules = [
-            ./home.nix
-            ./guionly.nix
-            ./modules/hyprland.nix
-            ./modules/waybar.nix
-            ./modules/nvim
-            ./modules/zsh.nix
-            ./modules/vscode.nix
-	    ./modules/zed.nix
-	    ./modules/rofi.nix
-	    ./modules/yt-dlp.nix
-	    ./modules/git.nix
+            ./home/home.nix
+            ./home/guionly.nix
+            ./home/modules/hyprland.nix
+            ./home/modules/waybar.nix
+            ./home/modules/nvim
+            ./home/modules/zsh.nix
+            ./home/modules/vscode.nix
+	    ./home/modules/zed.nix
+	    ./home/modules/rofi.nix
+	    ./home/modules/yt-dlp.nix
+	    ./home/modules/git.nix
             {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
