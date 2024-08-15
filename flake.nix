@@ -32,6 +32,7 @@
 	    ./modules/zed.nix
 	    ./modules/rofi.nix
 	    ./modules/yt-dlp.nix
+	    ./modules/git.nix
             {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
