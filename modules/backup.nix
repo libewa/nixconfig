@@ -11,7 +11,7 @@
 	snapshot_preserve_min = "7d";
 	volume."/btrfs-root" = {
 	  target = "ssh://nas/volume1/backup/yoga";
-	  subvolume = "home";
+	  subvolume = "/home";
 	};
       };
     };
