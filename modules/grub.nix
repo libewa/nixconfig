@@ -6,7 +6,7 @@
     enable = true;
     device = "nodev";
     efiSupport = true;
-    useOSProber = true;
+    #useOSProber = true;
     timeoutStyle = "hidden";
     memtest86.enable = true;
     extraEntries = ''
