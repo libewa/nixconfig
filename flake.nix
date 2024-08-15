@@ -33,6 +33,7 @@
           ./hardware-configuration.nix
           ./modules/appimage.nix
           ./modules/audio.nix
+	  ./modules/backup.nix
           ./modules/germanlocale.nix
           ./modules/essentialpkgs.nix
           ./modules/sunshine.nix
