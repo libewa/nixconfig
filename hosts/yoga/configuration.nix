@@ -34,6 +34,7 @@
   services.flatpak.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   security.polkit.enable = true;
+  services.udisks2.enable = true;
 
   networking.hostName = "yoga"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
