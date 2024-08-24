@@ -1,19 +1,30 @@
 {
   services.btrbk = {
-    instances.nas = {
+    instances.btrbk = {
       onCalendar = "daily";
       settings = {
-        ssh_identity = "/home/btrbk";
-	ssh_user = "backup";
-	stream_compress = "xz";
-	snapshot_preserve = "7d 4w 12m";
-	target_preserve = "7d 4w 12m";
-	snapshot_preserve_min = "7d";
-	volume."/btrfs-root" = {
-	  target = "ssh://nas/volume1/backup/yoga";
+	snapshot_dir = "/btrbk_snapshots";
+	snapshot_preserve_min = "4h";
+        snapshot_preserve = "48h";	
+	target_preserve_min = "no";
+	target_preserve = "7d 8w *m";
+	raw_target_compress = "xz";
+        volume."/btrfs-root" = {
 	  subvolume = "/home";
+          target."/mnt/yoga" = {
+	    incremental = "yes";
+	  };
+	  /*target."raw ssh://nas/volume1/backup/yoga" = {
+	    ssh_user = "backup";
+	    incremental = "no";
+	  };*/
 	};
+        timestamp_format = "long";
       };
     };
+  };
+  services.cron = {
+    enable = true;
+    systemCronJobs = [ "0 * * * * /usr/bin/env btrbk snapshot" ];
   };
 }
