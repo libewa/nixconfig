@@ -208,7 +208,7 @@
     };
   };
   services.hyprpaper = {
-    enable = true;
+    enable = false;
     settings = {
       preload = [
         "/home/linus/Bilder/Pikmin_Wallpaper_Sunflower_3840x2160.jpg"
