@@ -27,7 +27,7 @@
       "$terminal" = "kitty || xterm";
       "$fileManager" = "dolphin";
       "$wwwbrowser" = "firefox";
-      "$menu" = "rofi -show combi";
+      "$menu" = "rofi -show drun";
       "$mainMod" = "SUPER";
 
       env = [
@@ -139,8 +139,8 @@
 
       bind = [
         "$mainMod, o, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
-        "$mainMod,space,exec,pkill rofi || rofi -show combi"
-        "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod,space,exec,pkill rofi || $menu"
+        #"$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         "$mainMod, Q, exec, $terminal"
         "$mainMod, B, exec, $wwwbrowser"

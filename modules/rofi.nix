@@ -8,10 +8,10 @@
     enable = true;
     package = pkgs.rofi-wayland;
     terminal = "${pkgs.kitty.outPath}/bin/kitty";
+    theme = "sidebar-v2";
     extraConfig = {
-      combi-modes = "window,drun,run,power-menu";
-      modes = "combi";
-      modi = "power-menu:rofi-power-menu";
+      combi-modes = "window,drun";
+      modi = "power-menu:rofi-power-menu,combi";
     };
   };
 }
