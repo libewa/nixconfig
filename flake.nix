@@ -47,12 +47,18 @@
         nixos = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
-          modules = [ ./home.nix {
-            # Home Manager needs a bit of information about you and the paths it should
-            # manage.
-            home.username = "nixos";
-            home.homeDirectory = "/home/nixos";
-          }];
+          modules = [
+	    ./home.nix
+	    ./modules/nvim
+	    ./modules/zsh.nix
+	    ./modules/git.nix
+	    {
+              # Home Manager needs a bit of information about you and the paths it should
+              # manage.
+              home.username = "nixos";
+              home.homeDirectory = "/home/nixos";
+            }
+	  ];
         };
       };
       nixosModules.default = { inputs, ... }: {

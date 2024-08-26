@@ -13,7 +13,7 @@
       user = {
         name = "libewa";
 	email = "libewa.git@icloud.com";
-	signingkey = "/home/linus/.ssh/id_ed25519.pub";
+	signingkey = "~/.ssh/id_ed25519.pub";
       };
       pull.rebase = true;
       gpg.format = "ssh";
