@@ -8,7 +8,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
     terminal = "${pkgs.kitty.outPath}/bin/kitty";
-    theme = "sidebar-v2";
+    theme = "arthur";
     extraConfig = {
       combi-modes = "window,drun";
       modi = "power-menu:rofi-power-menu,combi";
