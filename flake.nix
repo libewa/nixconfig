@@ -15,14 +15,14 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nixos-wsl.url = "https://github.com/nix-community/NixOS-WSL/archive/refs/heads/main.tar.gz";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, /*cdpkgs,*/ nixos-generators, ... }@inputs: {
+  outputs = { self, nixpkgs, /*cdpkgs,*/ nixos-generators, nixos-wsl, ... }@inputs: {
     nixosConfigurations = {
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; };
@@ -51,6 +51,16 @@
               ];
             };
           }
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/wsl/configuration.nix
+	  ./modules/essentialpkgs.nix
+	  ./modules/appimage.nix
+	  ./modules/germanlocale.nix
+	  inputs.nixos-wsl.nixosModules.wsl
         ];
       };
     };
