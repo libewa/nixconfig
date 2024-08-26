@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       sda = {
-        device = "/dev/disk/by-diskseq/1"; # the classic autoinstaller: format the first block device found
+        device = "/dev/sda"; # the classic autoinstaller: format the first block device found
         type = "disk";
         content = {
           type = "gpt";
@@ -21,7 +21,6 @@
               content = {
                 type = "btrfs";
                 mountpoint = "/btrfs-root";
-                swap.swapfile.size = "4G";
                 subvolumes = {
                   "/rootfs" = {
                     mountpoint = "/";
@@ -33,6 +32,10 @@
                   "/nix-store" = {
                     mountpoint = "/nix/store";
                       mountOptions = [ "noatime" "compress=zstd" ];
+		  };
+		  "/steam" = {
+		    mountpoint = "/steam";
+		    mountOptions = [ "noatime" "compress=zstd" ];
 		  };
                   "/swap" = {
                     mountpoint = "/.swapvolume";
