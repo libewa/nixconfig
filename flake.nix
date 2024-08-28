@@ -33,6 +33,7 @@
 	    ./modules/rofi.nix
 	    ./modules/yt-dlp.nix
 	    ./modules/git.nix
+	    ./modules/fastfetch.nix
             {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
@@ -52,6 +53,7 @@
 	    ./modules/nvim
 	    ./modules/zsh.nix
 	    ./modules/git.nix
+	    ./modules/fastfetch.nix
 	    {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
