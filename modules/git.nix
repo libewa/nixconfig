@@ -4,6 +4,7 @@
     aliases = {
       co = "checkout";
       adog = "log --all --decorate --oneline --graph";
+      aa = "add .";
     };
     includes = [
       { path = ./../dotfiles/git/github.gitconfig; }
