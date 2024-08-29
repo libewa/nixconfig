@@ -13,21 +13,16 @@
     wl-clipboard
     grimblast
     blueberry
-  ] ++ [(writeShellScriptBin "exitwindow" ''
-    if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
-      xdotool getactivewindow windowunmap
-    else
-      hyprctl dispatch killactive ""
-    fi
-    '')];
+    cliphist
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      "$terminal" = "kitty || xterm";
-      "$fileManager" = "dolphin";
-      "$wwwbrowser" = "firefox";
-      "$menu" = "rofi -show drun";
+      "$terminal" = "${pkgs.kitty}/bin/kitty || ${pkgs.xterm}/bin/xterm";
+      "$fileManager" = "${pkgs.dolphin}/bin/dolphin";
+      "$wwwbrowser" = "${pkgs.firefox}/bin/firefox";
+      "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$mainMod" = "SUPER";
 
       env = [
@@ -40,14 +35,14 @@
         "QT_QPA_PLATFORMTHEME,qt5ct"
       ];
 
-      exec-once = [
-        "swaync"
-        "${pkgs.kdePackages.polkit-kde-agent-1.outPath}/libexec/polkit-kde-authentication-agent-1"
-        "wl-paste --watch cliphist store"
-        "udiskie &"
-        "swayosd-server"
-        "xhost +SI:localuser:root"
-        "wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
+      exec-once = with pkgs; [
+        "${swaynotificationcenter}/bin/swaync"
+        "${kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
+        "${wl-clipboard}/bin/wl-paste --watch ${cliphist}/bin/cliphist store"
+        "${udiskie}/bin/udiskie &"
+        "${swayosd}/bin/swayosd-server"
+        "${wvkbd}/bin/wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
+	"${blueberry}/bin/blueberry-tray"
       ];
 
       input = {
@@ -137,23 +132,23 @@
         "suppressevent maximize, class:.*"
       ];
 
-      bind = [
-        "$mainMod, o, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
-        "$mainMod,space,exec,pkill rofi || $menu"
-        #"$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      bind = with pkgs; [
+        "$mainMod, o, exec, ${rofi-wayland}/bin/rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "$mainMod,space,exec,${procps}/bin/pkill rofi || $menu"
+        "$mainMod, V, exec, ${cliphist}/bin/cliphist list | ${rofi-wayland}/bin/rofi -dmenu | ${cliphist}/bin/cliphist decode | ${wl-clipboard}/bin/wl-copy"
 
         "$mainMod, Q, exec, $terminal"
         "$mainMod, B, exec, $wwwbrowser"
-        "$mainMod, C, exec, exitwindow"
+        "$mainMod, C, exec, hyprctl dispatch killactive"
         "$mainMod, M, exit, "
         "$mainMod, E, exec, $fileManager"
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
-        "SUPER, Print, exec, grimblast --notify copy area"
-	"SUPER_SHIFT, Print, exec, grimblast --notify copysave area"
-        "SUPER_ALT_SHIFT, Print, exec, grimblast --notify copysave screen"
-	"SUPER_ALT, Print, exec, grimblast --notify copy screen"
+        "SUPER, Print, exec, ${grimblast}/bin/grimblast --notify copy area"
+        "SUPER_SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave area"
+        "SUPER_ALT_SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave screen"
+        "SUPER_ALT, Print, exec, ${grimblast}/bin/grimblast --notify copy screen"
 
         # move focus with arrow keys
         "$mainMod, left, movefocus, l"
@@ -195,15 +190,15 @@
         "$mainMod, mouse:273, resizewindow" #rmb
       ];
 
-      bindel = [
-        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+      bindeli = with pkgs; [
+        ", XF86AudioRaiseVolume, exec, ${swayosd}/bin/swayosd-client --output-volume raise"
+        ", XF86AudioLowerVolume, exec, ${swayosd}/bin/swayosd-client --output-volume lower"
+        ", XF86MonBrightnessUp, exec, ${swayosd}/bin/swayosd-client --brightness +5"
+        ", XF86MonBrightnessDown, exec, ${swayosd}/bin/swayosd-client --brightness -5"
       ];
 
-      bindl = [
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86MonBrightnessUp, exec, swayosd-client --brightness +5"
-        ", XF86MonBrightnessDown, exec, swayosd-client --brightness -5"
+      bindli = with pkgs; [
+        ", XF86AudioMute, exec, ${swayosd}/bin/swayosd-client --output-volume=mute-toggle"
       ];
     };
   };
