@@ -41,6 +41,7 @@
           ./modules/sddm.nix
           ./modules/hypr.nix
 	  ./modules/disko.nix
+	  ./modules/steamdeck.nix
           inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
 	  inputs.disko.nixosModules.default
