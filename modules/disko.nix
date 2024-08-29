@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      sda = {
+      main = {
         device = "/dev/sda"; # the classic autoinstaller: format the first block device found
         type = "disk";
         content = {
@@ -48,6 +48,12 @@
             };
           };
         };
+      };
+    };
+    nodev = {
+      "/tmp" = {
+        fsType = "tmpfs";
+	mountOptions = [ "size=10M" ];
       };
     };
   };
