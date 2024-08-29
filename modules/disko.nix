@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      sda = {
         device = "/dev/sda"; # the classic autoinstaller: format the first block device found
         type = "disk";
         content = {
