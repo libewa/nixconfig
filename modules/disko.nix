@@ -16,35 +16,43 @@
                 mountpoint = "/boot";
               };
             };
-            btrfs = {
+            luks = {
               size = "100%";
-              content = {
-                type = "btrfs";
-                mountpoint = "/btrfs-root";
-                subvolumes = {
-                  "/rootfs" = {
-                    mountpoint = "/";
-                  };
-                  "/home" = {
-                    mountpoint = "/home";
-                    mountOptions = [ "compress=zstd" ];
-                  };
-                  "/nix-store" = {
-                    mountpoint = "/nix/store";
-                      mountOptions = [ "noatime" "compress=zstd" ];
+	      content = {
+	        type = "luks";
+		name = "crypt";
+		settings = {
+		  allowDiscards = true;
+		};
+		passwordFile = "/tmp/secret.key";
+		content = {
+		  type = "btrfs";
+		  mountpoint = "/btrfs-root";
+		  subvolumes = {
+		    "/rootfs" = {
+		      mountpoint = "/";
+		    };
+		    "/home" = {
+		      mountpoint = "/home";
+		      mountOptions = [ "compress=zstd" ];
+		    };
+		    "/nix-store" = {
+		      mountpoint = "/nix/store";
+			mountOptions = [ "noatime" "compress=zstd" ];
+		    };
+		    "/steam" = {
+		      mountpoint = "/steam";
+		      mountOptions = [ "noatime" "compress=zstd" ];
+		    };
+		    "/swap" = {
+		      mountpoint = "/.swapvolume";
+		      swap = {
+			swapfile.size = "4G";
+		      };
+		    };
 		  };
-		  "/steam" = {
-		    mountpoint = "/steam";
-		    mountOptions = [ "noatime" "compress=zstd" ];
-		  };
-                  "/swap" = {
-                    mountpoint = "/.swapvolume";
-                    swap = {
-                      swapfile.size = "4G";
-                    };
-                  };
-                };
-              };
+		};
+	      };
             };
           };
         };
