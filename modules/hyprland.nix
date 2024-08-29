@@ -14,6 +14,13 @@
     grimblast
     blueberry
     cliphist
+    (writeShellScriptBin "exitwindow" ''
+    if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+      ${xdotool}/bin/xdotool getactivewindow windowunmap
+    else
+      ${hyprland}/bin/hyprctl dispatch killactive ""
+    fi
+    '')
   ];
 
   wayland.windowManager.hyprland = {
@@ -139,7 +146,7 @@
 
         "$mainMod, Q, exec, $terminal"
         "$mainMod, B, exec, $wwwbrowser"
-        "$mainMod, C, exec, hyprctl dispatch killactive"
+        "$mainMod, C, exec, exitwindow"
         "$mainMod, M, exit, "
         "$mainMod, E, exec, $fileManager"
         "$mainMod, F, togglefloating, "
