@@ -12,7 +12,6 @@
     notify-desktop
     wl-clipboard
     grimblast
-    blueberry
     cliphist
     (writeShellScriptBin "exitwindow" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
@@ -49,7 +48,6 @@
         "${udiskie}/bin/udiskie &"
         "${swayosd}/bin/swayosd-server"
         "${wvkbd}/bin/wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
-	"${blueberry}/bin/blueberry-tray"
       ];
 
       input = {
