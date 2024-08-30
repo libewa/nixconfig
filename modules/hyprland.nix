@@ -43,12 +43,12 @@
 
       exec-once = with pkgs; [
         "${swaynotificationcenter}/bin/swaync"
-        "${kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
         "${wl-clipboard}/bin/wl-paste --watch ${cliphist}/bin/cliphist store"
         "${udiskie}/bin/udiskie &"
         "${swayosd}/bin/swayosd-server"
         "${wvkbd}/bin/wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
 	"${blueman}/bin/blueman-applet"
+        "${deepin.dde-polkit-agent}/lib/polkit-1-dde/dde-polkit-agent"
       ];
 
       input = {
@@ -132,6 +132,7 @@
 
       windowrule = [
         "stayfocused,title:rofi*"
+	"float,title:Deepin Polkit Agent"
       ];
 
       windowrulev2 = [
