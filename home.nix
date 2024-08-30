@@ -11,6 +11,9 @@ let
     sl
     nil
     ffmpeg
+    lazygit
+
+    rustc cargo
   ];
 in
 {

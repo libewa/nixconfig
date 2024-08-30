@@ -29,11 +29,12 @@
             ./modules/nvim
             ./modules/zsh.nix
             ./modules/vscode.nix
-	    ./modules/zed.nix
-	    ./modules/rofi.nix
-	    ./modules/yt-dlp.nix
-	    ./modules/git.nix
-	    ./modules/fastfetch.nix
+            ./modules/zed.nix
+            ./modules/rofi.nix
+            ./modules/yt-dlp.nix
+            ./modules/git.nix
+            ./modules/helix.nix
+            ./modules/fastfetch.nix
             {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
