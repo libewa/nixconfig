@@ -23,18 +23,8 @@
           # the path to your home.nix.
           modules = [
             ./home.nix
-            ./guionly.nix
-            ./modules/hyprland.nix
-            ./modules/waybar.nix
-            ./modules/nvim
-            ./modules/zsh.nix
-            ./modules/vscode.nix
-            ./modules/zed.nix
-            ./modules/rofi.nix
-            ./modules/yt-dlp.nix
-            ./modules/git.nix
-            ./modules/helix.nix
-            ./modules/fastfetch.nix
+            ./modules/gui
+            ./modules/cli
             {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
@@ -50,18 +40,15 @@
           inherit pkgs;
 
           modules = [
-	    ./home.nix
-	    ./modules/nvim
-	    ./modules/zsh.nix
-	    ./modules/git.nix
-	    ./modules/fastfetch.nix
-	    {
+            ./home.nix
+            ./modules/cli
+            {
               # Home Manager needs a bit of information about you and the paths it should
               # manage.
               home.username = "nixos";
               home.homeDirectory = "/home/nixos";
             }
-	  ];
+	        ];
         };
       };
       nixosModules.default = { inputs, ... }: {

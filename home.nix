@@ -1,21 +1,4 @@
-{ config, pkgs, ... }:
-
-let
-  packages = with pkgs; [
-    tree
-    gh
-    tea
-    audacity
-    lynx
-    cmatrix
-    sl
-    nil
-    ffmpeg
-    lazygit
-
-    rustc cargo
-  ];
-in
+{ pkgs, ... }:
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -29,24 +12,15 @@ in
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
- 
-  home.packages = packages;
 
   home.file = {
     #hypr = {
     #  target = ".config/hypr";
     #  source = ./dotfiles/hypr;
     #};
-  }; 
+  };
   
   home.sessionVariables.PATH = "/home/linus/CEdev/bin:$PATH";
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
-  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
-  
-  programs.oh-my-posh = {
-    enable = false;
-    enableZshIntegration = true;
-    settings = pkgs.lib.fileContents (pkgs.writeText "libewa.omp.json" (builtins.fetchurl "https://gist.githubusercontent.com/libewa/bdeb367aea920128fc19eeba0f83f5c2/raw/ae74d3bdf1e5394f4d9ff6c19c8f3204e41ca030/libewa.omp.json"));
-  };
 }

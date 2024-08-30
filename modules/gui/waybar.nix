@@ -91,6 +91,6 @@
         };
       };
     };
-    style = builtins.readFile ../dotfiles/waybar/style.css;
+    style = builtins.readFile ../../dotfiles/waybar/style.css;
   };
 }
