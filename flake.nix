@@ -57,14 +57,24 @@
         modules = [
           ({ pkgs, modulesPath, ... }: {
             imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-graphical-calamares.nix") ];
-            environment.systemPackages = [ pkgs.neovim ];
           })
-          inputs.homeconfig.nixosModules.livecd
+          #inputs.homeconfig.nixosModules.livecd
           ./hosts/livecd/configuration.nix
           ./modules/appimage.nix
-          ./modules/audio.nix
           ./modules/essentialpkgs.nix
-          ./modules/sddm.nix
+        ];
+      };
+      livecd-de = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ({ pkgs, modulesPath, ... }: {
+              imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-graphical-calamares.nix") ];
+            })
+          #inputs.homeconfig.nixosModules.livecd
+          ./hosts/livecd/configuration.nix
+          ./modules/appimage.nix
+          ./modules/essentialpkgs.nix
+          ./modules/germanlocale.nix
         ];
       };
     };

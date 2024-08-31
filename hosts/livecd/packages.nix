@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  virtualisation.virtualbox.guest.enable = true;
   environment.systemPackages = with pkgs; [
     vscodium
     firefox
