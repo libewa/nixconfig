@@ -11,7 +11,6 @@
     nil
     ffmpeg
     lazygit
-
-    rustc cargo
+    rustup
   ];
 }

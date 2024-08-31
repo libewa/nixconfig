@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    rustfmt
-    rust-analyzer
+    #rust-analyzer
     typescript-language-server
     yaml-language-server
     marksman
@@ -25,6 +24,7 @@
         statusline = {
           left = [
             "mode"
+            "spinner"
           ];
           center = [
             "file-modification-indicator"
@@ -40,7 +40,7 @@
           ];
           mode = {
             normal = "--NORMAL--";
-            insert = "--INSERT";
+            insert = "--INSERT--";
             select = "--SELECT--";
           };
         };

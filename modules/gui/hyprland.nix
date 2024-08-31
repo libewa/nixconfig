@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     kitty
     hyprnome
-    dolphin
+    nautilus
     hyprlock
     swayosd
     swaynotificationcenter
@@ -26,7 +26,7 @@
     enable = true;
     settings = {
       "$terminal" = "${pkgs.kitty}/bin/kitty || ${pkgs.xterm}/bin/xterm";
-      "$fileManager" = "${pkgs.dolphin}/bin/dolphin";
+      "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
       "$wwwbrowser" = "${pkgs.firefox}/bin/firefox";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$mainMod" = "SUPER";

@@ -51,13 +51,23 @@
 	        ];
         };
       };
-      nixosModules.default = { inputs, ... }: {
+      nixosModules.livecd = { inputs, ... }: {
         imports = [
           inputs.home-manager.nixosModules.home-manager
         ];
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.nixos = import ./home.nix;
+        home-manager.users.nixos = {
+          imports = [
+            ./home.nix
+            ./modules/cli
+            ./modules/gui
+            {
+              home.username = "nixos";
+              home.homeDirectory = "/home/nixos";
+            }
+          ];
+        };
 
         # Optionally, use home-manager.extraSpecialArgs to pass
         # arguments to home.nix
