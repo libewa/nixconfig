@@ -5,7 +5,7 @@
     nixos-boot.url = "github:Melkor333/nixos-boot";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     #cdpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    livecdhome.url = "github:libewa/home-manager";
+    homeconfig.url = "github:libewa/home-manager";
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       # Optional, by default this flake follows nixpkgs-unstable.
@@ -52,43 +52,20 @@
           }
         ];
       };
-    };
-    packages.x86_64-linux = {
-      livecd = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
+      livecd = nixpkgs.lib.nixosSystem {
+        system ="x86_64-linux";
         modules = [
-          ./hosts/livecd/configuration.nix
-
-          ./modules/appimage.nix
-          ./modules/audio.nix
-          ./modules/essentialpkgs.nix
-          ./modules/sddm.nix
-
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-          inputs.livecdhome.nixosModules.default
-        ];
-        #pkgs = cdpkgs.legacyPackages.x86_64-linux;
-        format = "iso";
-      };
-      livecd-de = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        modules = [
+          ({ pkgs, modulesPath, ... }: {
+            imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-graphical-calamares.nix") ];
+            environment.systemPackages = [ pkgs.neovim ];
+          })
+          inputs.homeconfig.nixosModules.livecd
           ./hosts/livecd/configuration.nix
           ./modules/appimage.nix
           ./modules/audio.nix
           ./modules/essentialpkgs.nix
           ./modules/sddm.nix
-
-          ./modules/germanlocale.nix
-
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
-
-          inputs.livecdhome.nixosModules.default
         ];
-        #pkgs = cdpkgs.legacyPackages.x86_64-linux;
-        format = "iso";
       };
     };
     nixosModules = {
