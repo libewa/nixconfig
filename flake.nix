@@ -8,9 +8,10 @@
       url = "github:libewa/home-manager-1/zed-editor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    activate-linux.url = "github:mrglockenspiel/activate-linux";
   };
 
-  outputs = { nixpkgs, home-manager, ... } :
+  outputs = { nixpkgs, home-manager, activate-linux, ... } :
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -32,6 +33,7 @@
               home.homeDirectory = "/home/linus";
             }
           ];
+          extraSpecialArgs = { inherit activate-linux; };
 
           # Optionally use extraSpecialArgs
           # to pass through arguments to home.nix
