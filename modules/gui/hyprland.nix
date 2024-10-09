@@ -49,9 +49,9 @@
         "${udiskie}/bin/udiskie &"
         "${swayosd}/bin/swayosd-server"
         "${wvkbd}/bin/wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
-	"${blueman}/bin/blueman-applet"
+        "${blueman}/bin/blueman-applet"
         "${deepin.dde-polkit-agent}/lib/polkit-1-dde/dde-polkit-agent"
-        "${activate-linux.packages.x86_64-linux.activate-linux}/bin/activate-linux -t "Activate NixOS" -m "Go to Settings to activate NixOS.""
+        #"${activate-linux.packages.x86_64-linux.activate-linux}/bin/activate-linux -t \"Activate NixOS\" -m \"Go to Settings to activate NixOS.\""
       ];
 
       input = {
