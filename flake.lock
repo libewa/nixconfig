@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1725523471,
-        "narHash": "sha256-fGoYpCPCDxzzGsdPoxGpdGp4v4tnr9ZXtJFqdjtW5bM=",
+        "lastModified": 1727974937,
+        "narHash": "sha256-gbLwxgpzNJY8+cGfY3JJCNDB7ZzTweeV4js7j+3nEYE=",
         "owner": "mrglockenspiel",
         "repo": "activate-linux",
-        "rev": "633b280596b3944ccf6fbf19fcc59db7b8561d15",
+        "rev": "75d00638d552c0b5983caf1c12fa8547e2580969",
         "type": "github"
       },
       "original": {
@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720178612,
-        "narHash": "sha256-XYFH2108NG4Fy2zkhEX2Zpv4z1gQdsDhV2u7cy4KiJI=",
+        "lastModified": 1728484607,
+        "narHash": "sha256-T79cqCXciCyJTOdoXhmvA5MxpR3GQkDM0mpfE5WKcYU=",
         "owner": "libewa",
         "repo": "home-manager-1",
-        "rev": "5b7366666be21f795b0ea5cce0b75df65b875ff5",
+        "rev": "d3bc4ff877e30bfc32b8504511eca89f3c209da5",
         "type": "github"
       },
       "original": {
@@ -73,11 +73,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1723362943,
-        "narHash": "sha256-dFZRVSgmJkyM0bkPpaYRtG/kRMRTorUIDj8BxoOt1T4=",
+        "lastModified": 1728241625,
+        "narHash": "sha256-yumd4fBc/hi8a9QgA9IT8vlQuLZ2oqhkJXHPKxH/tRw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a58bc8ad779655e790115244571758e8de055e3d",
+        "rev": "c31898adf5a8ed202ce5bea9f347b1c6871f32d1",
         "type": "github"
       },
       "original": {
