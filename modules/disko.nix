@@ -43,10 +43,7 @@
                       swapfile.size = "4G";
                     };
                   };
-		  "/tmp" = {
-		    mountpoint = "/tmp";
-		  };
-                };
+               };
               };
             };
           };
