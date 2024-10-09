@@ -25,7 +25,7 @@
     ];
   }];
 
-  boot.plymouth.enable = true;
+  boot.plymouth.enable = false;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
