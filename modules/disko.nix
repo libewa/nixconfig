@@ -43,17 +43,14 @@
                       swapfile.size = "4G";
                     };
                   };
+		  "/tmp" = {
+		    mountpoint = "/tmp";
+		  };
                 };
               };
             };
           };
         };
-      };
-    };
-    nodev = {
-      "/tmp" = {
-        fsType = "tmpfs";
-	mountOptions = [ "size=10M" ];
       };
     };
   };
