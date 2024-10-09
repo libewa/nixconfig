@@ -20,6 +20,7 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
   };
 
   outputs = { self, nixpkgs, /*cdpkgs,*/ nixos-generators, nixos-wsl, ... }@inputs: {
@@ -63,6 +64,10 @@
 	  ./modules/germanlocale.nix
 	  inputs.nixos-wsl.nixosModules.wsl
         ];
+      };
+      raspberrypi = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [ inputs.raspberry-pi-nix.nixosModules.raspberry-pi ];
       };
     };
     /*packages.x86_64-linux = {
