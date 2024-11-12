@@ -35,6 +35,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   security.polkit.enable = true;
   services.udisks2.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
 
   networking.hostName = "yoga"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
