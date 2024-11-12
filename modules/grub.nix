@@ -9,22 +9,23 @@
     efiSupport = true;
     #useOSProber = true;
     timeoutStyle = "menu";
-    memtest86.enable = true;
     extraEntries = ''
-    menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' {
+    menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' --class efi {
     	fwsetup
+    }
+    menuentry "Memtest86+" --class memtest {
+      linux ($drive1)//memtest.bin 
     }
     '';
     theme = pkgs.stdenv.mkDerivation {
-      pname = "grub_bios_theme";
+      pname = "grub_nixos_theme";
       version = "1.0";
-      src = pkgs.fetchFromGitHub {
-        owner = "Blaysht";
-	repo = "grub_bios_theme";
-	rev = "Releases";
-	hash = "sha256-kYcEMCV9ipwPGgfAwOtFgYO4eHZxkUS97tOr0ft4rUE=";
+      src = pkgs.fetchzip {
+        url = "https://github.com/AdisonCavani/distro-grub-themes/releases/download/v3.2/nixos.tar";
+        hash = "sha256-KQAXNK6sWnUVwOvYzVfolYlEtzFobL2wmDvO8iESUYE=";
+        stripRoot = false;
       };
-      installPhase = "cp -r OldBIOS/ $out";
+      installPhase = "cp -r . $out";
     };
   };
 }
