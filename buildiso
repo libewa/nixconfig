@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-if [ "$1" = "de" ]; then
-    nix build path:.#livecd-de
-fi
-
-nix build path:.#livecd
