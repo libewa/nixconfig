@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+  nixpkgs.config = {
+    # Allow proprietary packages
+    allowUnfree = true;
+  };
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  security.polkit.enable = true;
+  services.udisks2.enable = true;
+
   environment.systemPackages = with pkgs; [
     tldr
     sl

@@ -4,32 +4,12 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 {
-  config,
-  lib,
   pkgs,
   ...
 }: {
   imports = [
     ./packages.nix
   ];
-
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [80 443];
-    allowedUDPPorts = [];
-    allowedTCPPortRanges = [
-      {
-        from = 8080;
-        to = 8090;
-      }
-    ];
-    allowedUDPPortRanges = [
-    ];
-  };
 
   users.defaultUserShell = pkgs.zsh;
 
@@ -40,7 +20,6 @@
 
   nixpkgs.hostPlatform = "x86_64-linux";
   networking.hostName = "wsl";
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

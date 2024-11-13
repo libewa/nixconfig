@@ -36,29 +36,29 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/yoga/configuration.nix
+          ./hardware-configuration.nix
+          ./modules/system/core.nix
 
           ./modules/system/grub.nix
-          ./hardware-configuration.nix
           ./modules/system/appimage.nix
-          ./modules/system/audio.nix
           ./modules/system/backup.nix
           ./modules/system/germanlocale.nix
-          ./modules/system/essentialpkgs.nix
-          ./modules/system/sunshine.nix
           ./modules/system/powerkey.nix
-          ./modules/system/sddm.nix
-          ./modules/system/hypr.nix
           ./modules/system/disko.nix
-          ./modules/system/steamdeck.nix
+          ./modules/system/firewall.nix
+          
+          ./modules/system/gui/sddm.nix
+          ./modules/system/gui/audio.nix
+          ./modules/system/gui/sunshine.nix
+          ./modules/system/gui/hypr.nix
+          ./modules/system/gui/steamdeck.nix
           inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
           {
-            nixpkgs = {
-              overlays = [
+            nixpkgs.overlays = [
                 inputs.sddm-sugar-candy-nix.overlays.default
               ];
-            };
           }
         ];
       };
@@ -66,9 +66,10 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/wsl/configuration.nix
-          ./modules/system/essentialpkgs.nix
+          ./modules/system/core.nix
           ./modules/system/appimage.nix
           ./modules/system/germanlocale.nix
+          ./modules/system/firewall.nix
           inputs.nixos-wsl.nixosModules.wsl
         ];
       };
