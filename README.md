@@ -14,11 +14,15 @@ sudo nixos-rebuild --experimental-features "nix-command flakes" boot --flake pat
 Nix will download all of the necessary packages and rebuild your system. After it's done, reboot.
 
 You will see the Simple Desktop Display Manager (`sddm`). You will need to login twice due to a bug, but you're not done yet. Upon launching into Hyprland, you will see a big yellow bar telling you that you are using a "generated configuration".
-To remove this bar, launch the `kitty` terminal emulator, and install `home-manager` according to [its manual](https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone). You need to find a home configuration that includes a Hyprland config, like mine, and clone it so `flake.nix` and `home.nix` are in `$HOME/.config/home-manager/`:
+<s>To remove this bar, launch the `kitty` terminal emulator, and install `home-manager` according to [its manual](https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone). You need to find a home configuration that includes a Hyprland config, like mine, and clone it so `flake.nix` and `home.nix` are in `$HOME/.config/home-manager/`.
+Then, follow the manual and reboot.</s>
+
+To remove this bar, simply activate the included home-manager configuration. Open `kitty` by pressing SUPER and Q, and run this:
+```shell
+nh home switch
 ```
-git clone https://github.com/libewa/home-manager ~/.config/home-manager
-```
-Then, follow the manual and reboot.
+
+Reboot, for good measure.
 
 Your setup should now be pretty much identical to mine.
 
