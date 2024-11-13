@@ -23,5 +23,7 @@
     zsh.enable = true;
     nix-ld.enable = true;
     gnupg.agent.enable = true;
+    gnupg.agent.pinentryPackage = pkgs.pinentry-curses;
   };
+  services.pcscd.enable = true;
 }
