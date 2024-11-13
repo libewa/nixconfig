@@ -1,5 +1,8 @@
-{ pkgs, activate-linux, ... }:
 {
+  pkgs,
+  activate-linux,
+  ...
+}: {
   home.packages = with pkgs; [
     activate-linux.packages.x86_64-linux.activate-linux
 
@@ -16,11 +19,11 @@
     grimblast
     cliphist
     (writeShellScriptBin "exitwindow" ''
-    if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
-      ${xdotool}/bin/xdotool getactivewindow windowunmap
-    else
-      ${hyprland}/bin/hyprctl dispatch killactive ""
-    fi
+      if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+        ${xdotool}/bin/xdotool getactivewindow windowunmap
+      else
+        ${hyprland}/bin/hyprctl dispatch killactive ""
+      fi
     '')
   ];
 
@@ -89,9 +92,9 @@
         rounding = 10;
 
         blur = {
-            enabled = true;
-            size = 3;
-            passes = 1;
+          enabled = true;
+          size = 3;
+          passes = 1;
         };
 
         drop_shadow = true;
@@ -123,8 +126,8 @@
         preserve_split = true; # you probably want this
       };
       master = {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          #new_is_master = true;
+        # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+        #new_is_master = true;
       };
 
       gestures = {
@@ -137,7 +140,7 @@
 
       windowrule = [
         "stayfocused,title:rofi*"
-	"float,title:Deepin Polkit Agent"
+        "float,title:Deepin Polkit Agent"
       ];
 
       windowrulev2 = [

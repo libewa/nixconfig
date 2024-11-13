@@ -1,13 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   boot.plymouth.enable = true;
-  imports =
-    [
-      ./packages.nix
-    ];
+  imports = [
+    ./packages.nix
+  ];
   nixpkgs.config = {
     # Allow proprietary packages
     allowUnfree = true;
@@ -15,7 +13,7 @@
 
   system.autoUpgrade.enable = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -43,7 +41,7 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [80 443];
     allowedUDPPorts = [];
     allowedTCPPortRanges = [
       # { from = 8080; to = 8090 };

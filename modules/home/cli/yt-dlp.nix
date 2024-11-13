@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   xdg.configFile.yt-dlp = {
     target = "yt-dlp/config";
     text = ''
@@ -14,5 +13,5 @@
       --restrict-filenames
     '';
   };
-  home.packages = [ pkgs.yt-dlp ];
+  home.packages = [pkgs.yt-dlp];
 }

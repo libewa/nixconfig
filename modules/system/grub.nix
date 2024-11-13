@@ -1,6 +1,4 @@
-{ pkgs, ...}:
-
-{
+{pkgs, ...}: {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 2;
   boot.loader.grub = {
@@ -10,12 +8,12 @@
     #useOSProber = true;
     timeoutStyle = "menu";
     extraEntries = ''
-    menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' --class efi {
-    	fwsetup
-    }
-    menuentry "Memtest86+" --class memtest {
-      linux ($drive1)//memtest.bin 
-    }
+      menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' --class efi {
+      	fwsetup
+      }
+      menuentry "Memtest86+" --class memtest {
+        linux ($drive1)//memtest.bin
+      }
     '';
     theme = pkgs.stdenv.mkDerivation {
       pname = "grub_nixos_theme";

@@ -1,29 +1,27 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, ... }:
-
-{
-  imports =
-    [
-      ./packages.nix
-      ./users.nix
-    ];
+{pkgs, ...}: {
+  imports = [
+    ./packages.nix
+    ./users.nix
+  ];
   nixpkgs.config = {
     # Allow proprietary packages
     allowUnfree = true;
   };
 
   system.autoUpgrade.enable = true;
-  security.sudo.extraRules = [{
-    commands = [
-      {
-        command = "${pkgs.systemd}/bin/reboot";
-        options = [ "NOPASSWD" ];
-      }
-    ];
-  }];
+  security.sudo.extraRules = [
+    {
+      commands = [
+        {
+          command = "${pkgs.systemd}/bin/reboot";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
 
   boot.plymouth.enable = false;
   hardware.bluetooth = {
@@ -32,7 +30,7 @@
   };
   hardware.enableAllFirmware = true;
   services.flatpak.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   security.polkit.enable = true;
   services.udisks2.enable = true;
   virtualisation.docker.enable = true;
@@ -60,7 +58,7 @@
   services.libinput.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
   # List services that you want to enable:
@@ -73,10 +71,13 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [80 443];
     allowedUDPPorts = [];
     allowedTCPPortRanges = [
-       { from = 8080; to = 8090; }
+      {
+        from = 8080;
+        to = 8090;
+      }
     ];
     allowedUDPPortRanges = [
       # as above

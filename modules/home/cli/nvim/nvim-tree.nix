@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.neovim = {
     extraLuaConfig = ''
       local function my_on_attach(bufnr)

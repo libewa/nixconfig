@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   virtualisation.virtualbox.guest.enable = true;
   environment.systemPackages = with pkgs; [
     vscodium
@@ -21,4 +19,3 @@
   ];
   hardware.opengl.driSupport32Bit = true;
 }
-

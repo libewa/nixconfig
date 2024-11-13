@@ -12,7 +12,7 @@
               type = "EF00";
               content = {
                 type = "filesystem";
-	        format = "vfat";
+                format = "vfat";
                 mountpoint = "/boot";
               };
             };
@@ -27,23 +27,23 @@
                   };
                   "/home" = {
                     mountpoint = "/home";
-                    mountOptions = [ "compress=zstd" ];
+                    mountOptions = ["compress=zstd"];
                   };
                   "/nix-store" = {
                     mountpoint = "/nix/store";
-                      mountOptions = [ "noatime" "compress=zstd" ];
-		  };
-		  "/steam" = {
-		    mountpoint = "/steam";
-		    mountOptions = [ "noatime" "compress=zstd" ];
-		  };
+                    mountOptions = ["noatime" "compress=zstd"];
+                  };
+                  "/steam" = {
+                    mountpoint = "/steam";
+                    mountOptions = ["noatime" "compress=zstd"];
+                  };
                   "/swap" = {
                     mountpoint = "/.swapvolume";
                     swap = {
                       swapfile.size = "4G";
                     };
                   };
-               };
+                };
               };
             };
           };

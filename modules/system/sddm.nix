@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   security.pam.services.sddm.enableGnomeKeyring = true;
   services.displayManager.sddm = {
     enable = true;

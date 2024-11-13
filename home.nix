@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -19,7 +18,7 @@
     #  source = ./dotfiles/hypr;
     #};
   };
-  
+
   home.sessionVariables.PATH = "/home/linus/CEdev/bin:$PATH";
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;

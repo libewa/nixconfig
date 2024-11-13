@@ -8,9 +8,9 @@
         margin = "10px";
         spacing = 10;
         position = "top";
-        modules-left = [ "custom/power" "tray" "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" ];
-        modules-right = [ "network" "pulseaudio" "memory" "backlight" "keyboard-state" "custom/osk" "hyprland/language" "battery" "clock" ];
+        modules-left = ["custom/power" "tray" "hyprland/workspaces"];
+        modules-center = ["hyprland/window"];
+        modules-right = ["network" "pulseaudio" "memory" "backlight" "keyboard-state" "custom/osk" "hyprland/language" "battery" "clock"];
 
         keyboard-state = {
           numlock = false; # yoga laptop doesnt have numlock
@@ -28,7 +28,7 @@
             default = "";
           };
           format = "{icon}";
-	  separate-outputs = true;
+          separate-outputs = true;
         };
         tray = {
           spacing = 10;
@@ -38,20 +38,20 @@
         };
         memory = {
           format = "{}% ";
-	  on-click = "kitty htop";
+          on-click = "kitty htop";
         };
         "custom/power" = {
           format = "󰐥 Power options";
           on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         };
-	"custom/osk" = {
-	  format = "";
-	  tooltip-format = "Toggle on-screen keyboard";
-	  on-click = "pkill -34 wvkbd-mobintl";
-	};
+        "custom/osk" = {
+          format = "";
+          tooltip-format = "Toggle on-screen keyboard";
+          on-click = "pkill -34 wvkbd-mobintl";
+        };
         backlight = {
           format = "{percent}% {icon}";
-          format-icons = [ "" "" "" "" "" "" "" "" "" ];
+          format-icons = ["" "" "" "" "" "" "" "" ""];
         };
         battery = {
           states = {

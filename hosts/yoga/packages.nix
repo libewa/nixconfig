@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = true;
   programs.dconf.enable = true; # virt-manager requires dconf to remember settings
@@ -33,4 +31,3 @@
   programs.nm-applet.enable = true;
   services.blueman.enable = true;
 }
-
