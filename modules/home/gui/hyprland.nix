@@ -35,7 +35,7 @@
       "$wwwbrowser" = "${pkgs.firefox}/bin/firefox";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$mainMod" = "SUPER";
-      cursor.no_hardware_cursors = true;
+      
       env = [
         "GDK_BACKEND,wayland,x11,*"
         "SDL_VIDEODRIVER,wayland"
@@ -70,6 +70,7 @@
 
         sensitivity = 0; # -1.0 to 1.0, 0 means no modification.
       };
+      cursor.no_hardware_cursors = true;
 
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -79,6 +80,7 @@
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
+        resize_on_border = true;
 
         layout = "dwindle";
 
@@ -124,10 +126,13 @@
         # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
         pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
         preserve_split = true; # you probably want this
+        special_scale_factor = 0.8;
       };
       master = {
-        # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-        #new_is_master = true;
+        new_status = "inherit";
+        new_on_top = true;
+        orientation = "center";
+        special_scale_factor = 0.8;
       };
 
       gestures = {
@@ -160,10 +165,12 @@
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
-        "SUPER, Print, exec, ${grimblast}/bin/grimblast --notify copy area"
-        "SUPER_SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave area"
-        "SUPER_ALT_SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave screen"
-        "SUPER_ALT, Print, exec, ${grimblast}/bin/grimblast --notify copy screen"
+        "$mainMod, J, layoutmsg, swapwithmaster"
+
+        "$mainMod, Print, exec, ${grimblast}/bin/grimblast --notify copy area"
+        "$mainMod SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave area"
+        "$mainMod ALT_SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave screen"
+        "$mainMod ALT, Print, exec, ${grimblast}/bin/grimblast --notify copy screen"
 
         # move focus with arrow keys
         "$mainMod, left, movefocus, l"
@@ -196,8 +203,8 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         # scratchpad
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod, t, togglespecialworkspace, magic"
+        "$mainMod SHIFT, t, movetoworkspace, special:magic"
       ];
 
       bindm = [
@@ -215,18 +222,6 @@
       bindli = with pkgs; [
         ", XF86AudioMute, exec, ${swayosd}/bin/swayosd-client --output-volume=mute-toggle"
       ];
-    };
-  };
-  services.hyprpaper = {
-    enable = false;
-    settings = {
-      preload = [
-        "/home/linus/Bilder/Pikmin_Wallpaper_Sunflower_3840x2160.jpg"
-      ];
-      wallpaper = [
-        ", /home/linus/Bilder/Pikmin_Wallpaper_Sunflower_3840x2160.jpg"
-      ];
-      splash = true;
     };
   };
 }
