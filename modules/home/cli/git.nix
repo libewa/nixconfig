@@ -8,8 +8,8 @@
       s = "status";
     };
     includes = [
-      { path = ../../dotfiles/git/github.gitconfig; }
-      { path = ../../dotfiles/git/lfs.gitconfig; }
+      { path = ../../../dotfiles/git/github.gitconfig; }
+      { path = ../../../dotfiles/git/lfs.gitconfig; }
     ];
     extraConfig = {
       user = {

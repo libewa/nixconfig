@@ -5,7 +5,7 @@
     settings = {
       topbar = {
         height = 30;
-	margin = "10px";
+        margin = "10px";
         spacing = 10;
         position = "top";
         modules-left = [ "custom/power" "tray" "hyprland/workspaces" ];
@@ -91,6 +91,6 @@
         };
       };
     };
-    style = builtins.readFile ../../dotfiles/waybar/style.css;
+    style = builtins.readFile ../../../dotfiles/waybar/style.css;
   };
 }

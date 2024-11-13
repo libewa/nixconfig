@@ -32,7 +32,7 @@
       "$wwwbrowser" = "${pkgs.firefox}/bin/firefox";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$mainMod" = "SUPER";
-
+      cursor.no_hardware_cursors = true;
       env = [
         "GDK_BACKEND,wayland,x11,*"
         "SDL_VIDEODRIVER,wayland"
@@ -56,6 +56,8 @@
 
       input = {
         kb_layout = "de";
+        kb_variant = "bone";
+        #kb_options = "grp:lctrl_lshift_toggle";
 
         follow_mouse = 1;
 
