@@ -15,6 +15,8 @@
     wl-clipboard
     grimblast
     cliphist
+    hyprpolkitagent
+    hyprpicker
     (writeShellScriptBin "exitwindow" ''
       if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
         ${xdotool}/bin/xdotool getactivewindow windowunmap
@@ -50,8 +52,7 @@
         "${swayosd}/bin/swayosd-server"
         "${wvkbd}/bin/wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
         "${blueman}/bin/blueman-applet"
-        "${deepin.dde-polkit-agent}/lib/polkit-1-dde/dde-polkit-agent"
-        #"${activate-linux.packages.x86_64-linux.activate-linux}/bin/activate-linux -t \"Activate NixOS\" -m \"Go to Settings to activate NixOS.\""
+        "${hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
 
       input = {
@@ -165,6 +166,7 @@
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, J, layoutmsg, swapwithmaster"
+        "$mainMod, I, exec, hyprpicker -an"
 
         "$mainMod, Print, exec, ${grimblast}/bin/grimblast --notify copy area"
         "$mainMod SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave area"
@@ -209,6 +211,10 @@
       bindm = [
         "$mainMod, mouse:272, movewindow" #lmb
         "$mainMod, mouse:273, resizewindow" #rmb
+      ];
+
+      bindl = [
+        ", switch:Lid Switch, exec, hyprlock"
       ];
 
       bindeli = with pkgs; [
