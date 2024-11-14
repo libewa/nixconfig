@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "activate-linux": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1727974937,
-        "narHash": "sha256-gbLwxgpzNJY8+cGfY3JJCNDB7ZzTweeV4js7j+3nEYE=",
-        "owner": "mrglockenspiel",
-        "repo": "activate-linux",
-        "rev": "75d00638d552c0b5983caf1c12fa8547e2580969",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrglockenspiel",
-        "repo": "activate-linux",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -58,21 +37,6 @@
       }
     },
     "flake-utils": {
-      "locked": {
-        "lastModified": 1652776076,
-        "narHash": "sha256-gzTw/v1vj4dOVbpBSJX4J0DwUR6LIyXo7/SuuTJp1kM=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "04c1b180862888302ddfb2e3ad9eaa63afc60cf8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_2": {
       "inputs": {
         "systems": "systems"
       },
@@ -113,7 +77,7 @@
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -147,7 +111,6 @@
     },
     "root": {
       "inputs": {
-        "activate-linux": "activate-linux",
         "disko": "disko",
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",

@@ -21,17 +21,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    activate-linux = {
-      url = "github:mrglockenspiel/activate-linux";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    activate-linux,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -58,7 +53,6 @@
           ./modules/system/gui/sunshine.nix
           ./modules/system/gui/hypr.nix
           ./modules/system/gui/steamdeck.nix
-          inputs.nixos-boot.nixosModules.default
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
           {
@@ -97,7 +91,6 @@
             home.homeDirectory = "/home/linus";
           }
         ];
-        extraSpecialArgs = {inherit activate-linux;};
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

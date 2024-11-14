@@ -1,11 +1,8 @@
 {
   pkgs,
-  activate-linux,
   ...
 }: {
   home.packages = with pkgs; [
-    activate-linux.packages.x86_64-linux.activate-linux
-
     kitty
     hyprnome
     nautilus
