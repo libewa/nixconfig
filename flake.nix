@@ -2,8 +2,8 @@
   description = "NixOS config flake";
 
   inputs = {
-    nixos-boot.url = "github:Melkor333/nixos-boot";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       # Optional, by default this flake follows nixpkgs-unstable.
@@ -13,12 +13,18 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl.url = "https://github.com/nix-community/NixOS-WSL/archive/refs/heads/main.tar.gz";
-    home-manager = {
-      url = "github:libewa/home-manager-1/zed-editor";
+    nixos-wsl = {
+      url = "https://github.com/nix-community/NixOS-WSL/archive/refs/heads/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    activate-linux.url = "github:mrglockenspiel/activate-linux";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    activate-linux = {
+      url = "github:mrglockenspiel/activate-linux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
