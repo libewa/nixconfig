@@ -27,6 +27,9 @@ remove the reference in [`flake.nix`] and commit your changes.
 
 You should probably also change [`modules/system/users.nix`]. Again, commit your changes.
 
+> [!TIP]
+> Set the password using a hash from `mkpasswd`.
+
 Push to a remote if you want to build upon your changes later.
 
 Then, to activate the configuration, run Disko.
@@ -47,7 +50,7 @@ see a big yellow bar telling you that you are using a "generated configuration".
 
 To remove this bar, simply activate the included home-manager configuration.
 
-> [!INFO]
+> [!NOTE]
 > After this, the keyboard layout will be set to [Neo bone]
 
 Open `kitty` by pressing SUPER and Q, and run this:
