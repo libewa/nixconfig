@@ -51,7 +51,7 @@ see a big yellow bar telling you that you are using a "generated configuration".
 To remove this bar, simply activate the included home-manager configuration.
 
 > [!NOTE]
-> After this, the keyboard layout will be set to [Neo bone]
+> After this, the keyboard layout (when logged in) will be set to [Neo bone].
 
 Open `kitty` by pressing SUPER and Q, and run this:
 
