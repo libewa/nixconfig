@@ -69,7 +69,7 @@ To modify the configuration for your own need, copy the [`hosts/yoga/`]
 folder and rename it to your local hostname. You can optionally delete it if it's
 not needed anymore. In [`flake.nix`], add a new entry to the `nixos-configurations`
 object, with your host name as the key. You can copy the `yoga` entry for this.
-Comment out or remove [`./modules/germanlocale.nix`] if you use a QWERTY and not a QWERTZ keyboard.
+Comment out or remove [`modules/germanlocale.nix`] if you use a QWERTY and not a QWERTZ keyboard.
 
 Then, rebuild with this command:
 
