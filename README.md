@@ -34,7 +34,7 @@ Push to a remote if you want to build upon your changes later.
 
 Then, to activate the configuration, run Disko.
 
-> [!WARNING]
+> [!CAUTION]
 > This will wipe your hard drive! All data will be lost!
 > Make sure your backups are up to date.
 
