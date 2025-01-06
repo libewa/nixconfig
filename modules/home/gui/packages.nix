@@ -7,5 +7,9 @@
     thunderbird
     arduino-cli
     vlc
+
+    jetbrains-toolbox
+    jetbrains.clion
+    jetbrains.webstorm
   ];
 }

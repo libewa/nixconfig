@@ -10,8 +10,9 @@
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
       "git.autofetch" = true;
-      "swift.actionAfterBuildError" = "Focus Problems";
-      "swift.sourcekit-lsp.serverPath" = "sourcekit-lsp";
+      #"editor.fontFamily" = "'CascadiaCodeNF-Regular' 'Droid Sans Mono', 'monospace', monospace";
+      "editor.fontLigatures" = true;
+      "editor.formatOnPaste" = true;
     };
     keybindings = [
       {

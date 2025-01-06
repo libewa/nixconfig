@@ -1,3 +1,5 @@
+#NOTE: The Zed binary is called `zeditor` on NixOS
+
 {...}: {
   programs.zed-editor = {
     enable = true;

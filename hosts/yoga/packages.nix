@@ -30,4 +30,7 @@
   programs.hyprland.enable = true;
   programs.nm-applet.enable = true;
   services.blueman.enable = true;
+  fonts.packages = with pkgs; [
+    cascadia-code
+  ];
 }
