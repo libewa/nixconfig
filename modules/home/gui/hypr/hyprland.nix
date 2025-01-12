@@ -14,47 +14,27 @@
     wl-clipboard
     grimblast
     cliphist
+    rofi-wayland
 
     hyprpolkitagent
     hyprpicker
     hyprsunset
-    (writeShellScriptBin "exitwindow" ''
-      if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
-        ${xdotool}/bin/xdotool getactivewindow windowunmap
-      else
-        ${hyprland}/bin/hyprctl dispatch killactive ""
-      fi
-    '')
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
     settings = {
-      "$terminal" = "${pkgs.kitty}/bin/kitty || ${pkgs.xterm}/bin/xterm";
-      "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
-      "$wwwbrowser" = "${pkgs.firefox}/bin/firefox";
-      "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$mainMod" = "SUPER";
 
-      env = [
-        "GDK_BACKEND,wayland,x11,*"
-        "SDL_VIDEODRIVER,wayland"
-        "CLUTTER_BACKEND,wayland"
-        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
-
-        "XCURSOR_SIZE,24"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
-      ];
-
       exec-once = with pkgs; [
-        "${swaynotificationcenter}/bin/swaync"
-        "${wl-clipboard}/bin/wl-paste --watch ${cliphist}/bin/cliphist store"
-        "${udiskie}/bin/udiskie &"
-        "${swayosd}/bin/swayosd-server"
-        "${wvkbd}/bin/wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
-        "${blueman}/bin/blueman-applet"
-        "${hyprpolkitagent}/libexec/hyprpolkitagent"
+        "uwsm app -- swaync"
+        "uwsm app -- wl-paste --watch ${cliphist}/bin/cliphist store"
+        "uwsm app -- udiskie &"
+        "uwsm app -- swayosd-server"
+        "uwsm app -- wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
+        "uwsm app -- blueman-applet"
+        "uwsm app -- ${hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
 
       input = {
@@ -154,26 +134,26 @@
         "suppressevent maximize, class:.*"
       ];
 
-      bind = with pkgs; [
-        "$mainMod, o, exec, ${rofi-wayland}/bin/rofi -show power-menu -modi power-menu:rofi-power-menu"
-        "$mainMod,space,exec,${procps}/bin/pkill rofi || $menu"
-        "$mainMod, V, exec, ${cliphist}/bin/cliphist list | ${rofi-wayland}/bin/rofi -dmenu | ${cliphist}/bin/cliphist decode | ${wl-clipboard}/bin/wl-copy"
+      bind = [
+        "$mainMod, o, exec, uwsm app -- rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "$mainMod,space,exec,pkill rofi || uwsm app -- rofi -show drun"
+        "$mainMod, V, exec, uwsm app -- cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        "$mainMod, Q, exec, $terminal"
-        "$mainMod, B, exec, $wwwbrowser"
-        "$mainMod, C, exec, exitwindow"
+        "$mainMod, Q, exec, uwsm app -- kitty || xterm"
+        "$mainMod, B, exec, uwsm app -- firefox"
+        "$mainMod, C, killactive, "
         "$mainMod, M, exit, "
-        "$mainMod, E, exec, $fileManager"
+        "$mainMod, E, exec, uwsm app -- nautilus"
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, J, layoutmsg, swapwithmaster"
-        "$mainMod, I, exec, ${hyprpicker}/bin/hyprpicker -anr -f hex"
+        "$mainMod, I, exec, uwsm app -- hyprpicker -anr -f hex"
 
-        "$mainMod, Print, exec, ${grimblast}/bin/grimblast --notify copy area"
-        "$mainMod SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave area"
-        "$mainMod ALT_SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave screen"
-        "$mainMod ALT, Print, exec, ${grimblast}/bin/grimblast --notify copy screen"
+        "$mainMod, Print, exec, uwsm app -- grimblast --notify copy area"
+        "$mainMod SHIFT, Print, exec, uwsm app -- grimblast --notify copysave area"
+        "$mainMod ALT_SHIFT, Print, exec, uwsm app -- grimblast --notify copysave screen"
+        "$mainMod ALT, Print, exec, uwsm app -- grimblast --notify copy screen"
 
         # move focus with arrow keys
         "$mainMod, left, movefocus, l"
@@ -216,18 +196,18 @@
       ];
 
       bindl = [
-        ", switch:Lid Switch, exec, hyprlock"
+        ", switch:Lid Switch, exec, uwsm app -- hyprlock"
       ];
 
-      bindeli = with pkgs; [
-        ", XF86AudioRaiseVolume, exec, ${swayosd}/bin/swayosd-client --output-volume raise"
-        ", XF86AudioLowerVolume, exec, ${swayosd}/bin/swayosd-client --output-volume lower"
-        ", XF86MonBrightnessUp, exec, ${swayosd}/bin/swayosd-client --brightness +5"
-        ", XF86MonBrightnessDown, exec, ${swayosd}/bin/swayosd-client --brightness -5"
+      bindeli = [
+        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+        ", XF86MonBrightnessUp, exec, swayosd-client --brightness +5"
+        ", XF86MonBrightnessDown, exec, swayosd-client --brightness -5"
       ];
 
-      bindli = with pkgs; [
-        ", XF86AudioMute, exec, ${swayosd}/bin/swayosd-client --output-volume=mute-toggle"
+      bindli = [
+        ", XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle"
       ];
     };
   };

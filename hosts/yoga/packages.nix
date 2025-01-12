@@ -27,7 +27,11 @@
     flake = "/home/linus/nixconfig";
   };
   hardware.graphics.enable32Bit = true;
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
   programs.nm-applet.enable = true;
   services.blueman.enable = true;
   fonts.packages = with pkgs; [

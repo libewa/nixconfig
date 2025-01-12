@@ -1,0 +1,6 @@
+export GDK_BACKEND=wayland,x11,*
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export XCURSOR_SIZE=32
+export QT_QPA_PLATFORMTHEME=qt5ct
