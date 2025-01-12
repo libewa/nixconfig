@@ -6,7 +6,6 @@
     kitty
     hyprnome
     nautilus
-    hyprlock
     swayosd
     swaynotificationcenter
     udiskie
@@ -15,8 +14,10 @@
     wl-clipboard
     grimblast
     cliphist
+
     hyprpolkitagent
     hyprpicker
+    hyprsunset
     (writeShellScriptBin "exitwindow" ''
       if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
         ${xdotool}/bin/xdotool getactivewindow windowunmap
@@ -28,13 +29,14 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     settings = {
       "$terminal" = "${pkgs.kitty}/bin/kitty || ${pkgs.xterm}/bin/xterm";
       "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
       "$wwwbrowser" = "${pkgs.firefox}/bin/firefox";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$mainMod" = "SUPER";
-      
+
       env = [
         "GDK_BACKEND,wayland,x11,*"
         "SDL_VIDEODRIVER,wayland"
@@ -166,7 +168,7 @@
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, J, layoutmsg, swapwithmaster"
-        "$mainMod, I, exec, hyprpicker -an"
+        "$mainMod, I, exec, ${hyprpicker}/bin/hyprpicker -anr -f hex"
 
         "$mainMod, Print, exec, ${grimblast}/bin/grimblast --notify copy area"
         "$mainMod SHIFT, Print, exec, ${grimblast}/bin/grimblast --notify copysave area"
