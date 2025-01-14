@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
     virt-manager
     vscodium
-    firefox
+    firefox-devedition
     pv
     efibootmgr
     udiskie

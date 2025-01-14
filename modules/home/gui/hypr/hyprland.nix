@@ -140,7 +140,7 @@
         "$mainMod, V, exec, uwsm app -- cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         "$mainMod, Q, exec, uwsm app -- kitty || xterm"
-        "$mainMod, B, exec, uwsm app -- firefox"
+        "$mainMod, B, exec, uwsm app -- firefox-devedition"
         "$mainMod, C, killactive, "
         "$mainMod, M, exit, "
         "$mainMod, E, exec, uwsm app -- nautilus"
