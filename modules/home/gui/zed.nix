@@ -4,31 +4,61 @@
   programs.zed-editor = {
     enable = true;
     userSettings = {
-      theme = "XY-Zed";
-      features = {
-        copilot = false;
-      };
-      vim_mode = false;
       ui_font_size = 16;
       buffer_font_size = 16;
+      theme = "Atelier Sulphurpool Dark";
+      buffer_font_family = "Cascadia Code NF";
+      ui_font_family = "Cascadia Code NF";
+      vim_mode = false;
+      auto_signature_help = true;
+      calls.mute_on_join = true;
+
+      lsp = {
+        deno.settings.deno.enable = true;
+      }
+      languages = {
+        "TypeScript" = {
+          language_servers = [
+            "deno"
+            "!typescript-language-server"
+            "!vtsls"
+            "!eslint"
+          ];
+          formatter = "language_server";
+        };
+        "JavaScript" = {
+          language_servers = [
+            "deno"
+            "!typescript-language-server"
+            "!vtsls"
+            "!eslint"
+          ];
+          formatter = "language_server";
+        };
+        "TSX" = {
+          language_servers = [
+            "deno"
+            "!typescript-language-server"
+            "!vtsls"
+            "!eslint"
+          ];
+          formatter = "language_server";
+        };
+      };
     };
     extensions = [
       "html"
-      "dockerfile"
-      "docker-compose"
       "swift"
       "git_firefly"
-      "toml"
-      "sql"
       "log"
       "emmet"
-      "xy-zed"
       "latex"
       "xml"
       "nix"
       "assembly"
       "gdscript"
       "deno"
+      "scss"
       "basher"
     ];
   };
