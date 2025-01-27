@@ -135,20 +135,21 @@
       ];
 
       bind = [
-        "$mainMod, o, exec, uwsm app -- rofi -show power-menu -modi power-menu:rofi-power-menu"
+        "$mainMod, O, exec, uwsm app -- rofi -show power-menu -modi power-menu:rofi-power-menu"
         "$mainMod,space,exec,pkill rofi || uwsm app -- rofi -show drun"
         "$mainMod, V, exec, uwsm app -- cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        "$mainMod, Q, exec, uwsm app -- kitty || xterm"
+        "$mainMod, T, exec, uwsm app -- kitty || xterm"
         "$mainMod, B, exec, uwsm app -- firefox-devedition"
         "$mainMod, C, killactive, "
-        "$mainMod, M, exit, "
         "$mainMod, E, exec, uwsm app -- nautilus"
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
         "$mainMod, J, layoutmsg, swapwithmaster"
         "$mainMod, I, exec, uwsm app -- hyprpicker -anr -f hex"
+        "$mainMod, Z, exec, uwsm app -- zeditor"
+        "$mainMod, X, exec, uwsm app -- hyprsunset"
 
         "$mainMod, Print, exec, uwsm app -- grimblast --notify copy area"
         "$mainMod SHIFT, Print, exec, uwsm app -- grimblast --notify copysave area"

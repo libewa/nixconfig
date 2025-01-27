@@ -42,7 +42,7 @@
         };
         "custom/power" = {
           format = "󰐥 Power options";
-          on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
+          on-click = "uwsm app -- rofi -show power-menu -modi power-menu:rofi-power-menu";
         };
         "custom/osk" = {
           format = "";
