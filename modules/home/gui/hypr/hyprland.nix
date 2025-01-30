@@ -187,8 +187,8 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         # scratchpad
-        "$mainMod, t, togglespecialworkspace, magic"
-        "$mainMod SHIFT, t, movetoworkspace, special:magic"
+        "$mainMod, udiaeresis, togglespecialworkspace, magic"
+        "$mainMod SHIFT, udiaeresis, movetoworkspace, special:magic"
       ];
 
       bindm = [
