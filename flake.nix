@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       # Optional, by default this flake follows nixpkgs-unstable.
@@ -48,7 +48,8 @@
           ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
-          
+          ./modules/system/ipadfs.nix
+
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
           ./modules/system/gui/sunshine.nix
