@@ -16,6 +16,9 @@ Shell with `git` and flakes.
 nix shell --experimental-features "nix-command flakes" nixpkgs#git
 ```
 
+> [!TIP]
+> If your configuration has Flakes enabled, such as when booting from an ISO with this configuration, you can omit the `--experimental-features` flag.
+
 Clone the repsitory.
 
 ```shell
@@ -62,6 +65,18 @@ nh home switch
 Reboot, for good measure.
 
 Your setup should now be pretty much identical to mine.
+
+## Building a Live CD ISO image
+
+Building an ISO image is easier, as NixOS provides templates for insecure setups like this.
+
+Simply set aside a lot of space for your nix store, run this build command, and wait around 15 minutes:
+
+```shellsession
+$ nix build .
+```
+
+Then, boot the ISO however you would do with one from [nixos.org][NixOS], or any other Linux livedisc.
 
 ## Hacking
 
