@@ -23,7 +23,6 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
-      defaultEditor = true;
     };
     git.enable = true;
     zsh.enable = true;
