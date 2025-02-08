@@ -97,6 +97,7 @@
                 ./modules/home/gui/rofi.nix
                 ./modules/home/gui/waybar.nix
                 ./modules/home/gui/zed.nix
+                ./modules/home/gui/cursor.nix
 
                 ./modules/home/cli/git.nix
                 ./modules/home/cli/zsh.nix
