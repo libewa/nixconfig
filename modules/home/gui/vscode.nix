@@ -21,7 +21,7 @@
       }
     ];
     extensions = with pkgs.vscode-extensions; [
-      vadimcn.vscode-lldb
+      #vadimcn.vscode-lldb
       ms-azuretools.vscode-docker
       github.vscode-pull-request-github
       bbenoist.nix
