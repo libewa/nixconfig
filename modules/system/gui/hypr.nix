@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
   programs.hyprlock.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;

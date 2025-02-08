@@ -15,7 +15,7 @@
 
       lsp = {
         deno.settings.deno.enable = true;
-      }
+      };
       languages = {
         "TypeScript" = {
           language_servers = [

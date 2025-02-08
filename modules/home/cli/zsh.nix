@@ -49,7 +49,7 @@
       theme = "bira";
       extraConfig = ''
         ENABLE_CORRECTION="true"
-      ''
+      '';
     };
   };
 }

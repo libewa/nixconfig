@@ -32,6 +32,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    packages.x86_64-linux.default = self.nixosConfigurations.iso.config.system.build.isoImage;
     nixosConfigurations = {
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -73,6 +74,35 @@
           inputs.nixos-wsl.nixosModules.wsl
         ];
       };
+      iso = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ({ pkgs, modulesPath, ... }: {
+            imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+          })
+          ./modules/system/germanlocale.nix
+          ./modules/system/gui/hypr.nix
+          ./modules/system/core.nix
+          
+          ./hosts/iso/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nixos = {
+              imports = [
+                ./home.nix
+                ./modules/home/gui
+                ./modules/home/cli
+              ];
+              home.username = "nixos";
+              home.homeDirectory = "/home/nixos";
+            };
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+        ];
+      };
     };
     homeConfigurations = {
       "linus" = home-manager.lib.homeManagerConfiguration {
@@ -84,6 +114,7 @@
           ./home.nix
           ./modules/home/gui
           ./modules/home/cli
+          ./modules/home/cedev.nix
           {
             # Home Manager needs a bit of information about you and the paths it should
             # manage.

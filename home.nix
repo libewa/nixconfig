@@ -18,8 +18,7 @@
     #  source = ./dotfiles/hypr;
     #};
   };
-
-  home.sessionVariables.PATH = "/home/linus/CEdev/bin:$PATH";
+  
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
 }
