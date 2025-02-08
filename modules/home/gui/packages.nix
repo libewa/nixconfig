@@ -7,7 +7,8 @@
     thunderbird
     arduino-cli
     vlc
-
+    imhex
+    
     jetbrains-toolbox
     jetbrains.clion
     jetbrains.webstorm
