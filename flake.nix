@@ -78,11 +78,12 @@
         system = "x86_64-linux";
         modules = [
           ({ pkgs, modulesPath, ... }: {
-            imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+            imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix") ];
           })
           ./modules/system/germanlocale.nix
           ./modules/system/gui/hypr.nix
           ./modules/system/core.nix
+          ./modules/system/gui/sddm.nix
           
           ./hosts/iso/configuration.nix
           home-manager.nixosModules.home-manager
@@ -92,14 +93,27 @@
             home-manager.users.nixos = {
               imports = [
                 ./home.nix
-                ./modules/home/gui
-                ./modules/home/cli
+                ./modules/home/gui/hypr
+                ./modules/home/gui/rofi.nix
+                ./modules/home/gui/waybar.nix
+                ./modules/home/gui/zed.nix
+
+                ./modules/home/cli/git.nix
+                ./modules/home/cli/zsh.nix
+                ./modules/home/cli/helix.nix
+                ./modules/home/cli/fastfetch.nix
               ];
               home.username = "nixos";
               home.homeDirectory = "/home/nixos";
             };
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
+          }
+          inputs.sddm-sugar-candy-nix.nixosModules.default
+          {
+            nixpkgs.overlays = [
+                inputs.sddm-sugar-candy-nix.overlays.default
+              ];
           }
         ];
       };
