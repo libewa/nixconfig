@@ -8,7 +8,7 @@
 }
 window#waybar {
     min-height: 0;
-    color: #fff; 
+    color: #fff;
     border-radius: 12px;
 }
 
@@ -27,11 +27,20 @@ tooltip {
 button:hover {
     box-shadow: rgba(43, 48, 59, 0.9);
     text-shadow: inherit;
-    background: rgba(0, 99, 198, 0.4);
+    background: rgba(0, 99, 198, 0.8);
 }
 #workspaces button {
-    background: none;
+    background: rgba(0, 99, 198, 1);
     color: #fff;
-    border: rgba(100, 114, 125, 0.5);
     padding: 0 3px;
+    border-color: rgba(0, 0, 198, 0.7);
+    border-style: solid;
+    border-width: 1px;
+}
+#workspaces button.active {
+    border-width: 2px;
+}
+#workspaces button.urgent {
+    border-color: rgba(224, 44, 20, 0.7);
+    border-width: 1.5px;
 }

@@ -9,7 +9,6 @@
 
   programs.helix = {
     enable = true;
-    defaultEditor = true;
     ignores = [
       ".build/"
       "!.gitignore"

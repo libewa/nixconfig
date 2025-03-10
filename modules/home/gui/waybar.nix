@@ -10,12 +10,12 @@
         position = "top";
         modules-left = ["custom/power" "tray" "hyprland/workspaces"];
         modules-center = ["hyprland/window"];
-        modules-right = ["network" "pulseaudio" "memory" "backlight" "keyboard-state" "custom/osk" "hyprland/language" "battery" "clock"];
+        modules-right = ["network" "pulseaudio" "memory" "backlight" "keyboard-state" "hyprland/language" "battery" "clock"];
 
         keyboard-state = {
           numlock = false; # yoga laptop doesnt have numlock
           capslock = true;
-          format = "{name} {icon}";
+          format = "{name}: {icon}";
           format-icons = {
             locked = "";
             unlocked = "";
@@ -23,12 +23,22 @@
         };
         "hyprland/workspaces" = {
           format-icons = {
-            empty = "";
+            empty = "◌";
             active = "";
-            default = "";
+            default = "⊙";
           };
-          format = "{icon}";
+          window-rewrite = {
+            "class<firefox>" = "";
+            "class<kitty>" = "";
+            "class<codium>" = "󰨞";
+          };
+          window-rewrite-default = "+";
+          format = "{name} {windows}";
+          show-special = true;
           separate-outputs = true;
+          persistent-workspaces = {
+            "*" = [ "magic" ];
+          };
         };
         tray = {
           spacing = 10;
