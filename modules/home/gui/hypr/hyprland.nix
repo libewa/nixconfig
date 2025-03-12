@@ -38,9 +38,9 @@
       ];
 
       input = {
-        kb_layout = "de";
-        kb_variant = "bone";
-        #kb_options = "grp:lctrl_lshift_toggle";
+        kb_layout = "de,de";
+        kb_variant = "bone,e1";
+        kb_options = "grp:sclk_toggle";
 
         follow_mouse = 1;
 
@@ -56,7 +56,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 10;
         border_size = 2;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -123,6 +123,7 @@
 
       misc = {
         force_default_wallpaper = 0;
+        disable_splash_rendering = true;
       };
 
       windowrule = [

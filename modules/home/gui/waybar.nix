@@ -5,11 +5,13 @@
     settings = {
       topbar = {
         height = 30;
-        margin = "10px";
+        margin-top = 10;
+        margin-left = 10;
+        margin-right = 10;
+        margin-bottom = 0;
         spacing = 10;
         position = "top";
         modules-left = ["custom/power" "tray" "hyprland/workspaces"];
-        modules-center = ["hyprland/window"];
         modules-right = ["network" "pulseaudio" "memory" "backlight" "keyboard-state" "hyprland/language" "battery" "clock"];
 
         keyboard-state = {
@@ -31,6 +33,8 @@
             "class<firefox>" = "";
             "class<kitty>" = "";
             "class<codium>" = "󰨞";
+            "title<debian12 auf QEMU/KVM>" = "";
+            "class<steam>" = "";
           };
           window-rewrite-default = "+";
           format = "{name} {windows}";
@@ -70,11 +74,11 @@
             critical = 15;
           };
           format = "{capacity}% {icon}";
-          format-full = "{capacity}% {icon}";
-          format-charging = "{capacity}% ";
+          format-full = "{capacity}% 󱟢";
+          format-charging = "{capacity}% 󰂄";
           format-plugged = "{capacity}% ";
           format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂"];
         };
 
         network = {
@@ -99,6 +103,16 @@
           };
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
+      };
+      windowtitle = {
+        height = 15;
+        margin-left = 10;
+        margin-right = 10;
+        margin-top = 0;
+        margin-bottom = 10;
+        spacing = 10;
+        position = "bottom";
+        modules-center = ["hyprland/window"];
       };
     };
     style = builtins.readFile ../../../dotfiles/waybar/style.css;

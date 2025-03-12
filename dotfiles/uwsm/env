@@ -3,4 +3,4 @@ export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export QT_QPA_PLATFORMTHEME=qt5ct
-export EDITOR=zed -w
+export EDITOR=zeditor -w
