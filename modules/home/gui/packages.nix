@@ -8,7 +8,8 @@
     arduino-cli
     vlc
     imhex
-    
+    ausweisapp
+
     jetbrains-toolbox
     jetbrains.clion
     jetbrains.webstorm
