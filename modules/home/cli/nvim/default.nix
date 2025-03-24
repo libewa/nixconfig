@@ -4,10 +4,11 @@
     ./nvim-cmp.nix
     ./nvim-tree.nix
     ./cmp-git.nix
+    ./copilot.nix
   ];
   programs.neovim = {
     enable = true;
-    defaultEditor = false;
+    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
@@ -36,6 +37,7 @@
     extraPackages = with pkgs; [
       ripgrep
       fd
+      nodejs
     ];
     extraConfig =
       /*

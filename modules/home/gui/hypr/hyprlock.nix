@@ -34,6 +34,22 @@
         valign = "center";
       };
 
+      label = [
+        {
+            monitor = "";
+            text = "$USER";
+            font = "Ubuntu Nerd Font";
+            font_size = 20;
+            font_color = "rgb(255, 255, 255)";
+            outline_color = "rgb(0, 0, 0)";
+            outline_thickness = 2;
+            fade_on_empty = false;
+            position = "0, -40";
+            halign = "center";
+            valign = "center";
+        }
+      ];
+
       input-field = {
         monitor = "";
         size = "200, 50";

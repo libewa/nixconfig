@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     kitty
     hyprnome
-    nautilus
+    dolphin
     swayosd
     swaynotificationcenter
     udiskie
@@ -143,7 +143,7 @@
         "$mainMod, T, exec, uwsm app -- kitty || xterm"
         "$mainMod, B, exec, uwsm app -- firefox-devedition"
         "$mainMod, C, killactive, "
-        "$mainMod, E, exec, uwsm app -- nautilus"
+        "$mainMod, E, exec, uwsm app -- dolphin"
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle

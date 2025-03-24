@@ -2,7 +2,7 @@
   programs.neovim.plugins = with pkgs.vimPlugins; [
     plenary-nvim
     nvim-cmp
-    cmp-git
+    lspkind-nvim
   ];
   programs.neovim.extraLuaConfig =
     /*
@@ -10,6 +10,12 @@
     */
     ''
         local cmp = require'cmp'
+        local lspkind = require('lspkind')
+        local has_words_before = function()
+          if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+          local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+          return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+        end
 
         cmp.setup({
           snippet = {
@@ -21,6 +27,24 @@
           window = {
             -- completion = cmp.config.window.bordered(),
             -- documentation = cmp.config.window.bordered(),
+          },
+          formatting = {
+            format = lspkind.cmp_format({
+              mode = "symbol",
+              maxwidth = {
+                menu = function() return math.floor(0.45 * vim.o.columns) end,
+                abbr = function() return math.floor(0.3 * vim.o.columns) end,
+              },
+              ellipsis_char = "…",
+              symbol_map = { Copilot = "" }
+            })
+          },
+          sorting =  {
+            priority_weight = 2,
+            comparators = {
+              require("copilot_cmp.comparators").prioritize,
+              cmp.config.compare.offset,
+            }
           },
           mapping = cmp.mapping.preset.insert({
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -37,6 +61,7 @@
             -- { name = 'snippy' }, -- For snippy users.
           }, {
             { name = 'buffer' },
+            { name = 'copilot', group_index = 2 },
           })
         })
 

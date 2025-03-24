@@ -17,6 +17,8 @@
     htop
     wget
     curl
+    jq
+    pv
   ];
   programs = {
     neovim = {

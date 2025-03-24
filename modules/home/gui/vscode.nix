@@ -3,8 +3,6 @@
     enable = true;
     package = pkgs.vscodium;
     userSettings = {
-      "workbench.colorTheme" = "Material Theme High Contrast";
-      "workbench.iconTheme" = "eq-material-theme-icons-light";
       "nix.serverPath" = "nil";
       "nix.enableLanguageServer" = true;
       "git.enableSmartCommit" = true;

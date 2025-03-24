@@ -75,7 +75,7 @@
          lsp.rust_analyzer.setup {
            capabilities = capabilities
          }
-         lsp.tsserver.setup {
+         lsp.denols.setup {
            capabilities = capabilities
          }
 

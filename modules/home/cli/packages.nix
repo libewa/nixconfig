@@ -6,11 +6,10 @@
     audacity
     lynx
     cmatrix
-    sl
     nil
     ffmpeg
     lazygit
     rustup
-    jq
+    deno
   ];
 }
