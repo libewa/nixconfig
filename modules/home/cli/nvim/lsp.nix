@@ -18,6 +18,7 @@
       rust-analyzer
       typescript
       nodePackages.typescript-language-server
+      arduino-language-server
     ];
     extraLuaConfig = ''
          lsp = require('lspconfig')
@@ -27,7 +28,7 @@
 
          -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
          lsp.nil_ls.setup {
-           capabilities = capabilities
+           capabilities = capabilities,
          }
          lsp.nixd.setup {
            capabilities = capabilities
@@ -42,14 +43,14 @@
            capabilities = capabilities,
            settings = {
              enable = true,
-      suggest = {
-        imports = {
-          hosts = {
-            ["https://deno.land"] = true,
-            ["https://jsr.io"] = true
-          }
-        }
-      }
+             suggest = {
+               imports = {
+                 hosts = {
+                   ["https://deno.land"] = true,
+                   ["https://jsr.io"] = true
+                 }
+               }
+             }
            }
          }
          lsp.arduino_language_server.setup {
@@ -73,9 +74,6 @@
            capabilities = capabilities
          }
          lsp.rust_analyzer.setup {
-           capabilities = capabilities
-         }
-         lsp.denols.setup {
            capabilities = capabilities
          }
 

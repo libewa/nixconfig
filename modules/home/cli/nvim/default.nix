@@ -33,6 +33,12 @@
           let g:instant_username = "libewa"
         '';
       }
+      {
+        plugin = indent-blankline-nvim;
+        config = ''
+          lua require("ibl").setup()
+	'';
+      }
     ];
     extraPackages = with pkgs; [
       ripgrep
@@ -48,8 +54,9 @@
         set shiftwidth=2
         set foldcolumn=1
         set foldmethod=indent
-
-        autocmd BufRead * normal zR
+	
+	set foldlevelstart=99
+	set lcs=tab:>->,lead:·,trail:·,extends:>,precedes:<,nbsp:¦
 
         map <C-p> :NvimTreeToggle<CR>
         map <C-d> :NvimTreeFocus<CR>
@@ -57,6 +64,7 @@
         map <C-S-Space> :Telescope<Space>commands<CR>
         map <C-y> :q<CR>
         map <C-s> :w<CR>
+	map <C-ü> :terminal
       '';
     extraLuaConfig =
       /*
