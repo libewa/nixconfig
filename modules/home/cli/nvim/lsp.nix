@@ -19,6 +19,8 @@
       typescript
       nodePackages.typescript-language-server
       arduino-language-server
+      emmet-language-server
+
     ];
     extraLuaConfig = ''
          lsp = require('lspconfig')
