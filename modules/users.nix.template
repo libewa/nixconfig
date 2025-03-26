@@ -8,7 +8,7 @@
       description = "Example User";
       extraGroups = [ "networkmanager" "wheel" "dialout" "input" ];
       shell = pkgs.zsh;
-      hashedPassword = "";
+      hashedPassword = ""; # use mkpasswd to get a hash
     };
   };
 

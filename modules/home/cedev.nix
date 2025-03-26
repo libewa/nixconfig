@@ -1,3 +1,3 @@
 {
-    home.sessionVariables.PATH = "/home/linus/CEdev/bin:$PATH";
+  home.sessionVariables.PATH = "/home/linus/CEdev/bin:$PATH";
 }

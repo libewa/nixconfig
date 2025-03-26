@@ -14,7 +14,14 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       plenary-nvim
-      neogit
+      {
+        plugin = neogit;
+        config = ''
+          set g.loaded_netrw = 1
+          set g:loaded_netrwPlugin = 1
+          lua require('neogit').setup()
+        '';
+      }
       conflict-marker-vim
       telescope-nvim
       todo-comments-nvim
@@ -37,7 +44,7 @@
         plugin = indent-blankline-nvim;
         config = ''
           lua require("ibl").setup()
-	'';
+        '';
       }
     ];
     extraPackages = with pkgs; [
@@ -45,38 +52,6 @@
       fd
       nodejs
     ];
-    extraConfig =
-      /*
-      vim
-      */
-      ''
-        set mouse=a
-        set shiftwidth=2
-        set foldcolumn=1
-        set foldmethod=indent
-	
-	set foldlevelstart=99
-	set lcs=tab:>->,lead:·,trail:·,extends:>,precedes:<,nbsp:¦
-
-        map <C-p> :NvimTreeToggle<CR>
-        map <C-d> :NvimTreeFocus<CR>
-        map <C-Space> :Telescope<CR>
-        map <C-S-Space> :Telescope<Space>commands<CR>
-        map <C-y> :q<CR>
-        map <C-s> :w<CR>
-	map <C-ü> :terminal
-      '';
-    extraLuaConfig =
-      /*
-      lua
-      */
-      ''
-        -- disable netrw at the very start of your init.lua
-        vim.g.loaded_netrw = 1
-        vim.g.loaded_netrwPlugin = 1
-
-        neogit = require('neogit')
-        neogit.setup()
-      '';
+    extraConfig = builtins.readFile ../dotfiles/nvim/init.vim;
   };
 }

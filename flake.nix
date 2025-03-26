@@ -59,8 +59,8 @@
           inputs.disko.nixosModules.default
           {
             nixpkgs.overlays = [
-                inputs.sddm-sugar-candy-nix.overlays.default
-              ];
+              inputs.sddm-sugar-candy-nix.overlays.default
+            ];
           }
         ];
       };
@@ -78,14 +78,18 @@
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ({ pkgs, modulesPath, ... }: {
-            imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix") ];
+          ({
+            pkgs,
+            modulesPath,
+            ...
+          }: {
+            imports = [(modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")];
           })
           ./modules/system/germanlocale.nix
           ./modules/system/gui/hypr.nix
           ./modules/system/core.nix
           ./modules/system/gui/sddm.nix
-          
+
           ./hosts/iso/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -114,8 +118,8 @@
           inputs.sddm-sugar-candy-nix.nixosModules.default
           {
             nixpkgs.overlays = [
-                inputs.sddm-sugar-candy-nix.overlays.default
-              ];
+              inputs.sddm-sugar-candy-nix.overlays.default
+            ];
           }
         ];
       };

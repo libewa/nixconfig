@@ -18,7 +18,7 @@
     #  source = ./dotfiles/hypr;
     #};
   };
-  
+
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
 }

@@ -1,5 +1,4 @@
-{ pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.neovim.plugins = [
     {
       plugin = pkgs.vimPlugins.copilot-lua;

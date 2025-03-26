@@ -1,3 +1,3 @@
 {
-  xdg.configFile."uwsm/env".source = ./../../../../dotfiles/uwsm/env;
+  xdg.configFile."uwsm/env".source = ../dotfiles/uwsm/env;
 }

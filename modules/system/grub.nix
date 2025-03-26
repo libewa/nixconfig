@@ -9,7 +9,7 @@
     timeoutStyle = "menu";
     extraEntries = ''
       menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' --class efi {
-      	fwsetup
+        fwsetup
       }
       menuentry "Memtest86+" --class memtest {
         linux ($drive1)//memtest.bin

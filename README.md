@@ -28,10 +28,7 @@ git clone https://github.com/libewa/nixconfig
 Optionally, modify [`modules/system/germanlocale.nix`] to set a different locale, or
 remove the reference in [`flake.nix`] and commit your changes.
 
-You should probably also change [`modules/system/users.nix`]. Again, commit your changes.
-
-> [!TIP]
-> Set the password using a hash from `mkpasswd`.
+You should also change [`modules/system/users.nix`], to configure users and set a password, using a hash from `mkpasswd`. Again, commit your changes.
 
 Push to a remote if you want to build upon your changes later.
 

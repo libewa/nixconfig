@@ -13,7 +13,7 @@
       uid = 1001;
       isNormalUser = true;
       description = "Benjamin";
-      extraGroups = ["networkmanager" "dialout" "input" ];
+      extraGroups = ["networkmanager" "dialout" "input"];
     };
 
     lilith = {

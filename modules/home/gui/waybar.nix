@@ -41,7 +41,7 @@
           show-special = true;
           separate-outputs = true;
           persistent-workspaces = {
-            "*" = [ "magic" ];
+            "*" = ["magic"];
           };
         };
         tray = {
@@ -115,6 +115,6 @@
         modules-center = ["hyprland/window"];
       };
     };
-    style = builtins.readFile ../../../dotfiles/waybar/style.css;
+    style = builtins.readFile ./dotfiles/waybar/style.css;
   };
 }
