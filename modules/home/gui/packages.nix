@@ -10,9 +10,5 @@
     imhex
     #ausweisapp
     arduino-ide
-
-    jetbrains-toolbox
-    jetbrains.clion
-    jetbrains.webstorm
   ];
 }

@@ -18,17 +18,5 @@
         "command" = "workbench.action.terminal.toggleTerminal";
       }
     ];
-    extensions = with pkgs.vscode-extensions; [
-      #vadimcn.vscode-lldb
-      ms-azuretools.vscode-docker
-      github.vscode-pull-request-github
-      bbenoist.nix
-      arrterian.nix-env-selector
-      jnoortheen.nix-ide
-      esbenp.prettier-vscode
-      equinusocio.vsc-material-theme
-      ms-vscode.cpptools
-      denoland.vscode-deno
-    ];
   };
 }

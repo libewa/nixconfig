@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     kitty
     hyprnome
-    dolphin
+    kdePackages.dolphin
     swayosd
     swaynotificationcenter
     udiskie
@@ -12,6 +12,7 @@
     grimblast
     cliphist
     rofi-wayland
+    whitesur-icon-theme
 
     hyprpolkitagent
     hyprpicker
