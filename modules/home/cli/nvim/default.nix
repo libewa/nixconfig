@@ -17,15 +17,12 @@
       {
         plugin = neogit;
         config = ''
-          set g.loaded_netrw = 1
-          set g:loaded_netrwPlugin = 1
           lua require('neogit').setup()
         '';
       }
       conflict-marker-vim
       telescope-nvim
       todo-comments-nvim
-      nvim-tree-lua
       nvim-web-devicons
       {
         plugin = neoconf-nvim;
