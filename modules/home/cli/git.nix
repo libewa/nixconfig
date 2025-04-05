@@ -15,12 +15,12 @@
       user = {
         name = "libewa";
         email = "libewa.git@icloud.com";
-        signingkey = "~/.ssh/id_ed25519.pub";
+        signingkey = "EBD029E073D2959A9DC1A74A7BCA3874C2A0475C";
       };
       pull.rebase = true;
       push.autoSetupRemote = true;
-      gpg.format = "ssh";
       commit.gpgsign = true;
+      tag.gpgsign = true;
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
     };
