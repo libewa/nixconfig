@@ -5,7 +5,6 @@
     prusa-slicer
     vesktop
     thunderbird
-    arduino-cli
     vlc
     imhex
     #ausweisapp

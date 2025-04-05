@@ -152,6 +152,7 @@
         modules = [
           ./home.nix
           ./modules/home/cli
+          ./modules/home/gui/vscode.nix
           {
             # Home Manager needs a bit of information about you and the paths it should
             # manage.

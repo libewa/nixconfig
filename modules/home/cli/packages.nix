@@ -11,5 +11,6 @@
     lazygit
     rustup
     deno
+    arduino-cli
   ];
 }
