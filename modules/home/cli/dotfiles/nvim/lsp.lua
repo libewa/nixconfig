@@ -19,8 +19,8 @@ vim.g.markdown_fenced_languages = {
 lsp.denols.setup {
   capabilities = capabilities,
   settings = {
-      enable = true,
-      suggest = {
+    enable = true,
+    suggest = {
       imports = {
         hosts = {
           ["https://deno.land"] = true,
@@ -30,6 +30,7 @@ lsp.denols.setup {
     }
   }
 }
+
 lsp.arduino_language_server.setup {
   capabilities = capabilities
 }
@@ -41,6 +42,10 @@ lsp.jsonls.setup {
   capabilities = capabilities
 }
 lsp.html.setup {
+  capabilities = capabilities
+}
+
+lsp.clangd.setup {
   capabilities = capabilities
 }
 

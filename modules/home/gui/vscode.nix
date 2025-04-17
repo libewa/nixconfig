@@ -9,13 +9,16 @@
         "git.enableSmartCommit" = true;
         "git.confirmSync" = false;
         "git.autofetch" = true;
-        "editor.fontFamily" = "'CascadiaCodeNF' 'Droid Sans Mono', 'monospace', monospace";
+        #"editor.fontFamily" = "'CascadiaCodeNF' 'Droid Sans Mono', 'monospace', monospace";
         "editor.fontLigatures" = true;
         "editor.formatOnPaste" = true;
         "workbench.colorTheme" = "Abyss";
         "diffEditor.codeLens" = true;
         "explorer.confirmDragAndDrop" = false;
         "workbench.iconTheme" = "eq-material-theme-icons";
+        "[typescript]" = {
+          "editor.defaultFormatter" = "denoland.vscode-deno";
+	};
       };
       keybindings = [
         {

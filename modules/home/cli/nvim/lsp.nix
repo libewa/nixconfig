@@ -21,6 +21,6 @@
       arduino-language-server
       emmet-language-server
     ];
-    extraLuaConfig = builtins.readFile ../dotfiles/nvim/cmp-git.lua;
+    extraLuaConfig = builtins.readFile ../dotfiles/nvim/lsp.lua;
   };
 }
