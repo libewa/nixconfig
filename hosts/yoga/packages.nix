@@ -27,4 +27,5 @@
   fonts.packages = with pkgs; [
     cascadia-code
   ];
+  services.tlp.enable = true;
 }
