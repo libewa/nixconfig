@@ -2,9 +2,9 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ls = "ls --color=auto";
-      la = "ls -Al --color=auto";
-      ll = "ls -l --color=auto";
+      ls = "ls --color=auto -h";
+      la = "ls -Alh --color=auto";
+      ll = "ls -lh --color=auto";
       grep = "grep --color=auto";
       egrep = "egrep --color=auto";
     };
