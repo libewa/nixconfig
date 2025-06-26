@@ -17,11 +17,11 @@
     LC_TIME = "de_DE.UTF-8";
   };
   # Configure console keymap
-  console.keyMap = "de-bone";
+  console.keyMap = "de";
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
-    variant = "bone";
+    variant = "";
   }; # do this even if theres no server because why not? it's not used if xserver.enabled is false
 }
