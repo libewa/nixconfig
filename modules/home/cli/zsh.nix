@@ -13,8 +13,8 @@
       LANGUAGE = "en_US";
       LC_ALL = "de_DE.UTF-8";
     };
-    initExtra = "
-      fastfetch
+    initContent = "
+      hyfetch
     ";
     syntaxHighlighting = {
       enable = true;
