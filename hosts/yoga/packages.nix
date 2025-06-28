@@ -3,7 +3,6 @@
   virtualisation.virtualbox.host.enable = false;
   programs.dconf.enable = true; # virt-manager requires dconf to remember settings
   environment.systemPackages = with pkgs; [
-    vscodium
     firefox-devedition
     libreoffice
 

@@ -30,7 +30,6 @@
         "uwsm app -- wl-paste --watch ${cliphist}/bin/cliphist store"
         "uwsm app -- udiskie &"
         "uwsm app -- swayosd-server"
-        "uwsm app -- wvkbd-mobintl -o --landscape-layers landscape,landscapespecial -L 300 --hidden"
         "uwsm app -- blueman-applet"
         "uwsm app -- ${hyprpolkitagent}/libexec/hyprpolkitagent"
       ];

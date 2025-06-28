@@ -14,7 +14,7 @@
     extraConfig = {
       user = {
         name = "libewa";
-        email = "libewa.git@icloud.com";
+        email = "linus@libewa.xyz";
         signingkey = "EBD029E073D2959A9DC1A74A7BCA3874C2A0475C";
       };
       pull.rebase = true;

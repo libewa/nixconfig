@@ -32,7 +32,7 @@
           window-rewrite = {
             "class<firefox>" = "";
             "class<kitty>" = "";
-            "class<codium>" = "󰨞";
+            "class<code>" = "󰨞";
             "title<debian12 auf QEMU/KVM>" = "";
             "class<steam>" = "";
           };

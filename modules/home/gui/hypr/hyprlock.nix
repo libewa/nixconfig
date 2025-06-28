@@ -40,11 +40,11 @@
           text = "$USER";
           font = "Ubuntu Nerd Font";
           font_size = 20;
-          font_color = "rgb(255, 255, 255)";
+          font_color = "rgb(101, 101, 101)";
           outline_color = "rgb(0, 0, 0)";
           outline_thickness = 2;
           fade_on_empty = false;
-          position = "0, -40";
+          position = "0, 30";
           halign = "center";
           valign = "center";
         }
