@@ -14,15 +14,8 @@
   };
   hardware.enableAllFirmware = true;
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = false;
-    startWhenNeeded = true;
-  };
-
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "nixos";
+  services.getty = {
+    autologinUser = "nixos";
   };
 
   # This value determines the NixOS release from which the default

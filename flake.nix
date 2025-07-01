@@ -32,7 +32,10 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    packages.x86_64-linux.default = self.nixosConfigurations.iso.config.system.build.isoImage;
+    packages.x86_64-linux = {
+      iso-gui = self.nixosConfigurations.iso-gui.config.system.build.isoImage;
+      iso-term = self.nixosConfigurations.iso-term.config.system.build.isoImage;
+    };
     nixosConfigurations = {
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -73,7 +76,7 @@
           inputs.nixos-wsl.nixosModules.wsl
         ];
       };
-      iso = nixpkgs.lib.nixosSystem {
+      iso-gui = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ({
@@ -89,6 +92,7 @@
           ./modules/system/gui/sddm.nix
 
           ./hosts/iso/configuration.nix
+          ./hosts/iso/gui.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -118,6 +122,40 @@
             nixpkgs.overlays = [
               inputs.sddm-sugar-candy-nix.overlays.default
             ];
+          }
+        ];
+      };
+      iso-term = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ({
+            pkgs,
+            modulesPath,
+            ...
+          }: {
+            imports = [(modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")];
+          })
+          ./modules/system/germanlocale.nix
+          ./modules/system/core.nix
+
+          ./hosts/iso/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nixos = {
+              imports = [
+                ./home.nix
+                ./modules/home/cli/git.nix
+                ./modules/home/cli/zsh.nix
+                ./modules/home/cli/helix.nix
+                ./modules/home/cli/fetch.nix
+              ];
+              home.username = "nixos";
+              home.homeDirectory = "/home/nixos";
+            };
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
           }
         ];
       };

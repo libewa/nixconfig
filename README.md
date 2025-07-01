@@ -82,10 +82,11 @@ Your setup should now be pretty much identical to mine.
 
 Building an ISO image is easier, as NixOS provides templates for insecure setups like this.
 
-Simply set aside a lot of space for your nix store, run this build command, and wait around 15 minutes:
+Simply set aside a lot of space for your nix store, run one of these build commands, and wait around 15 minutes:
 
 ```shellsession
-$ nix build .
+$ nix build .#iso-gui
+$ nix build .#iso-term
 ```
 
 Then, boot the ISO however you would do with one from [nixos.org][NixOS], or any other Linux livedisc.
