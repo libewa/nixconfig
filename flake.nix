@@ -37,24 +37,22 @@
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/yoga/configuration.nix
+          { networking.hostName = "yoga"; }
+          ./hosts/desktop/configuration.nix
           ./hardware-configuration.nix
           ./modules/system/core.nix
 
           ./modules/system/grub.nix
           ./modules/system/appimage.nix
-          ./modules/system/backup.nix
           ./modules/system/germanlocale.nix
           ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
-          ./modules/system/ipadfs.nix
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
           ./modules/system/gui/sunshine.nix
           ./modules/system/gui/hypr.nix
-          ./modules/system/gui/steamdeck.nix
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
           {

@@ -5,8 +5,7 @@
   imports = [
     ./packages.nix
     ./users.nix
-  ];
-  networking.hostName = "yoga";
+  ];  
 
   boot.plymouth.enable = false;
   hardware.bluetooth = {

@@ -18,7 +18,7 @@
     (writeShellScriptBin "install-os" ''
       #!/bin/sh
       echo "Installing OS..."
-      nix run 'github:nix-community/disko/latest#disko-install' -- --flake github:libewa/nixconfig#yoga --disk sda /dev/sda
+      nix run 'github:nix-community/disko/latest#disko-install' -- --flake github:libewa/nixconfig#"$0" --disk sda "$1"
     '')
   ];
 

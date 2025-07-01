@@ -6,6 +6,13 @@ This is my [NixOS] system configuration.
 > [!IMPORTANT]  
 > Read the whole text BEFORE modifying your system!
 
+> [!INFO]
+> If you are new to Linux, do not start with NixOS. Try Fedora or Mint instead.
+> 
+> If you do want to exile and torture yourself, know this: SUPER is the Windows key,
+> or the Command key on a Mac keyboard
+> When looking for solutions online, search "NixOS" specifically. Use wiki.nixos.org, not nixos.wiki.
+
 This configuration uses [Disko] for partition management, so you will need to wipe
 your hard drive. BACKUP YOUR FILES!
 
@@ -39,14 +46,16 @@ Then, to activate the configuration, run Disko.
 > Make sure your backups are up to date.
 
 ```shell
-sudo nix run 'github:nix-community/disko/latest#disko-install' -- --flake .#yoga --disk sda /dev/sda
+sudo nix run 'github:nix-community/disko/latest#disko-install' -- --flake .#<flake attribute> --disk sda <device>
 ```
 
 You can also use the shortcut script:
 
 ```shell
-sudo install-os
+sudo install-os <flake attribute> <device>
 ```
+
+Replace `<flake attribute>` with the flake attribute you want to configure, probably `yoga`, and `<device>` with a raw disk device path (like `/dev/sda`).
 
 After a long time, you can reboot, and your system should work.
 
@@ -83,7 +92,7 @@ Then, boot the ISO however you would do with one from [nixos.org][NixOS], or any
 
 ## Hacking
 
-To modify the configuration for your own need, copy the [`hosts/yoga/`]
+To modify the configuration for your own need, modify the [`hosts/desktop/`]
 folder and rename it to your local hostname. You can optionally delete it if it's
 not needed anymore. In [`flake.nix`], add a new entry to the `nixos-configurations`
 object, with your host name as the key. You can copy the `yoga` entry for this.
@@ -103,4 +112,4 @@ Use this command for rebuilding from now on.
 [`modules/system/users.nix`]: ./modules/system/users.nix
 [`modules/system/germanlocale.nix`]: ./modules/system/germanlocale.nix
 [`flake.nix`]: ./flake.nix
-[`hosts/yoga/`]: ./hosts/yoga/
+[`hosts/desktop/`]: ./hosts/desktop/
