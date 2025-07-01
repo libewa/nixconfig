@@ -42,6 +42,12 @@ Then, to activate the configuration, run Disko.
 sudo nix run 'github:nix-community/disko/latest#disko-install' -- --flake .#yoga --disk sda /dev/sda
 ```
 
+You can also use the shortcut script:
+
+```shell
+sudo install-os
+```
+
 After a long time, you can reboot, and your system should work.
 
 You will see the Simple Desktop Display Manager (`sddm`). You will need to login

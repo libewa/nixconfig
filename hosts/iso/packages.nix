@@ -14,6 +14,12 @@
     bottles
 
     bluez-tools
+
+    (writeShellScriptBin "install-os" ''
+      #!/bin/sh
+      echo "Installing OS..."
+      nix run 'github:nix-community/disko/latest#disko-install' -- --flake .#yoga --disk sda /dev/sda
+    '')
   ];
 
   hardware.graphics.enable32Bit = true;

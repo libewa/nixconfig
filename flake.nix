@@ -107,7 +107,7 @@
                 ./modules/home/cli/git.nix
                 ./modules/home/cli/zsh.nix
                 ./modules/home/cli/helix.nix
-                ./modules/home/cli/fastfetch.nix
+                ./modules/home/cli/fetch.nix
               ];
               home.username = "nixos";
               home.homeDirectory = "/home/nixos";
