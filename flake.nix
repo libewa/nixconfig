@@ -197,6 +197,17 @@
           }
         ];
       };
+      libewa = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home.nix
+          ./modules/home/cli
+          {
+            home.username = "libewa";
+            home.homeDirectory = "/home/libewa";
+          }
+        ]; 
+      }; 
     };
     nixosModules = {
       sddm = {
