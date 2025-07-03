@@ -21,12 +21,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nixos-hardware,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -62,6 +64,35 @@
             nixpkgs.overlays = [
               inputs.sddm-sugar-candy-nix.overlays.default
             ];
+          }
+        ];
+      };
+      nixmac = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/desktop/configuration.nix
+
+          nixos-hardware.nixosModules.apple-t2
+
+          ./modules/system/core.nix
+          ./modules/system/macboot.nix
+
+          ./modules/system/appimage.nix
+          ./modules/system/germanlocale.nix
+          ./modules/system/powerkey.nix
+          ./modules/system/disko.nix
+          ./modules/system/firewall.nix
+
+          ./modules/system/gui/sddm.nix
+          ./modules/system/gui/audio.nix
+          ./modules/system/gui/sunshine.nix
+          ./modules/system/gui/hypr.nix
+          inputs.sddm-sugar-candy-nix.nixosModules.default
+          inputs.disko.nixosModules.default
+          {
+            nixpkgs.overlays = [
+              inputs.sddm-sugar-candy-nix.overlays.default
+            ];
+            nixpkgs.hostPlatform = "x86_64-linux";
           }
         ];
       };

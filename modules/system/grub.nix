@@ -3,7 +3,7 @@
   boot.loader.timeout = 2;
   boot.loader.grub = {
     enable = true;
-    device = "nodev";
+    devices = [ "nodev" ];
     efiSupport = true;
     #useOSProber = true;
     timeoutStyle = "menu";
