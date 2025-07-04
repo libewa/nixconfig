@@ -7,7 +7,6 @@
     ./users.nix
   ];  
 
-  boot.plymouth.enable = false;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -20,11 +19,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = false;
-    startWhenNeeded = true;
-  };
+  networking.hostName = "yoga";
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

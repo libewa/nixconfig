@@ -1,7 +1,5 @@
 {pkgs, ...}: {
   virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = false;
-  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
   environment.systemPackages = with pkgs; [
     firefox-devedition
     libreoffice

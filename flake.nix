@@ -42,8 +42,7 @@
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          { networking.hostName = "yoga"; }
-          ./hosts/desktop/configuration.nix
+          ./hosts/yoga/configuration.nix
           ./hardware-configuration.nix
           ./modules/system/core.nix
 
@@ -56,7 +55,6 @@
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
-          ./modules/system/gui/sunshine.nix
           ./modules/system/gui/hypr.nix
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
@@ -69,12 +67,12 @@
       };
       nixmac = nixpkgs.lib.nixosSystem {
         modules = [
-          ./hosts/desktop/configuration.nix
+          ./hosts/nixmac/configuration.nix
 
           nixos-hardware.nixosModules.apple-t2
-
+          ./modules/system/t2cache.nix
           ./modules/system/core.nix
-          ./modules/system/macboot.nix
+          ./modules/system/grub.nix
 
           ./modules/system/appimage.nix
           ./modules/system/germanlocale.nix
@@ -84,7 +82,6 @@
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
-          ./modules/system/gui/sunshine.nix
           ./modules/system/gui/hypr.nix
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
