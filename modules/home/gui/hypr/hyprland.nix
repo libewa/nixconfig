@@ -19,6 +19,15 @@
     hyprsunset
   ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+    xdgOpenUsePortal = true;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
@@ -43,11 +52,14 @@
 
         touchpad = {
           natural_scroll = true;
+          tap-to-click = false;
+          disable_while_typing = true;
+          clickfinger_behavior = true;
         };
 
         sensitivity = 0; # -1.0 to 1.0, 0 means no modification.
       };
-      cursor.no_hardware_cursors = true;
+      cursor.no_hardware_cursors = false;
 
       general = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -119,13 +131,13 @@
       };
 
       misc = {
-        force_default_wallpaper = 0;
+        #force_default_wallpaper = 0;
         disable_splash_rendering = true;
       };
 
       windowrule = [
         "stayfocused,title:rofi*"
-        "float,title:Deepin Polkit Agent"
+        "float,title:*Polkit Agent"
       ];
 
       windowrulev2 = [
@@ -147,7 +159,7 @@
         "$mainMod, J, layoutmsg, swapwithmaster"
         "$mainMod, I, exec, uwsm app -- hyprpicker -anr -f hex"
         "$mainMod, Z, exec, uwsm app -- zeditor"
-        "$mainMod, X, exec, uwsm app -- hyprsunset"
+        "$mainMod, X, exec, pkill hyprsunset || uwsm app -- hyprsunset"
 
         "$mainMod, Print, exec, uwsm app -- grimblast --notify copy area"
         "$mainMod SHIFT, Print, exec, uwsm app -- grimblast --notify copysave area"
@@ -185,8 +197,8 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         # scratchpad
-        "$mainMod, udiaeresis, togglespecialworkspace, magic"
-        "$mainMod SHIFT, udiaeresis, movetoworkspace, special:magic"
+        "$mainMod, S, togglespecialworkspace, magic"
+        "$mainMod SHIFT, S, movetoworkspace, special:magic"
       ];
 
       bindm = [
@@ -195,7 +207,7 @@
       ];
 
       bindl = [
-        ", switch:Lid Switch, exec, uwsm app -- hyprlock"
+        ", switch:Lid Switch, exec, loginctl lock-session"
       ];
 
       bindeli = [
