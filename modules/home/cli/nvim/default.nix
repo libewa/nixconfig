@@ -1,54 +1,63 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   imports = [
+    inputs.nixvim.homeModules.nixvim
     ./lsp.nix
     ./nvim-cmp.nix
-    ./nvim-tree.nix
-    ./cmp-git.nix
-    ./copilot.nix
+    ./keybinds.nix
   ];
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
-      plenary-nvim
-      {
-        plugin = neogit;
-        config = ''
-          lua require('neogit').setup()
-        '';
-      }
-      conflict-marker-vim
-      telescope-nvim
-      todo-comments-nvim
-      nvim-web-devicons
-      {
-        plugin = neoconf-nvim;
-        config = ''
-          lua require('neoconf').setup()
-        '';
-      }
-      diffview-nvim
-      {
-        plugin = instant-nvim;
-        config = ''
-          let g:instant_username = "libewa"
-        '';
-      }
-      {
-        plugin = indent-blankline-nvim;
-        config = ''
-          lua require("ibl").setup()
-        '';
-      }
-    ];
+    plugins = {
+      treesitter = {
+        enable = true;
+        folding = true;
+        settings = {
+          indent.enable = true;
+          highlight.enable = true;
+        };
+      };
+      neogit.enable = true;
+      git-conflict.enable = true;
+      telescope = {
+        enable = true;
+        extensions = {
+          file-browser.enable = true;
+          undo.enable = true;
+        };
+      };
+      todo-comments.enable = true;
+      web-devicons.enable = true;
+      neoconf.enable = true;
+      diffview.enable = true;
+      instant = {
+        enable = true;
+        settings.username = "libewa";
+      };
+      indent-blankline.enable = true;
+      luasnip.enable = true;
+      #copilot-cmp.enable = true;
+      copilot-lua.enable = true;
+      neo-tree = {
+        enable = true;
+      };
+      #cmp-git.enable = true;
+    };
     extraPackages = with pkgs; [
       ripgrep
       fd
-      nodejs
     ];
-    extraConfig = builtins.readFile ../dotfiles/nvim/init.vim;
+    colorschemes.catppuccin = {
+      enable = true;
+      settings = {
+        flavour = "mocha";
+        transparent_background = true;
+      };
+    };
+    clipboard.providers.wl-copy.enable = true;
+    extraConfigVim = builtins.readFile ../dotfiles/nvim/init.vim;
+    withNodeJs = true;
   };
 }

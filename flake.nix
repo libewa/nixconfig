@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -207,8 +212,7 @@
           }
         ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        extraSpecialArgs = { inherit inputs; };
       };
       nixos = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -224,6 +228,7 @@
             home.homeDirectory = "/home/nixos";
           }
         ];
+        extraSpecialArgs = { inherit inputs; };
       };
       libewa = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -235,6 +240,7 @@
             home.homeDirectory = "/home/libewa";
           }
         ]; 
+        extraSpecialArgs = { inherit inputs; };
       }; 
     };
     nixosModules = {

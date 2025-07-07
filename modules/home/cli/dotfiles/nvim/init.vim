@@ -6,14 +6,4 @@ set foldmethod=indent
 set foldlevelstart=99
 set lcs=tab:>->,lead:·,trail:·,extends:>,precedes:<,nbsp:¦
 
-map <C-p> :NvimTreeToggle<CR>
-map <C-d> :NvimTreeFocus<CR>
-map <C-Space> :Telescope<CR>
-map <C-S-Space> :Telescope<Space>commands<CR>
-map <C-y> :q<CR>
-map <C-s> :w<CR>
-map <C-ü> :terminal
-
-map N :lua vim.diagnostic.open_float()<CR>
-map R :lua vim.diagnostic.goto_next()<CR>
 tnoremap <Esc> <C-\><C-n>
