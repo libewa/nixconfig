@@ -45,7 +45,7 @@
 
       input = {
         kb_layout = "de";
-        kb_variant = "e1";
+        kb_variant = "mac";
         kb_options = "grp:sclk_toggle";
 
         follow_mouse = 1;

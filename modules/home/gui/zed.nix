@@ -1,7 +1,7 @@
 #NOTE: The Zed binary is called `zeditor` on NixOS
 {...}: {
   programs.zed-editor = {
-    enable = true;
+    enable = false;
     userSettings = {
       ui_font_size = 16;
       buffer_font_size = 16;

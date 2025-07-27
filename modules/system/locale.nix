@@ -17,11 +17,11 @@
     LC_TIME = "de_DE.UTF-8";
   };
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "mac-de-latin1.map.gz";
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
-    variant = "";
+    variant = "mac";
   }; # do this even if theres no server because why not? it's not used if xserver.enabled is false
 }
