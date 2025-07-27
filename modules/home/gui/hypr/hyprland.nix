@@ -35,12 +35,12 @@
       "$mainMod" = "SUPER";
 
       exec-once = with pkgs; [
-        "uwsm app -- swaync"
-        "uwsm app -- wl-paste --watch ${cliphist}/bin/cliphist store"
-        "uwsm app -- udiskie &"
-        "uwsm app -- swayosd-server"
-        "uwsm app -- blueman-applet"
-        "uwsm app -- ${hyprpolkitagent}/libexec/hyprpolkitagent"
+        "uwsm app -s b -- swaync"
+        "uwsm app -s b -- wl-paste --watch ${cliphist}/bin/cliphist store"
+        "uwsm app -s b -- udiskie &"
+        "uwsm app -s b -- swayosd-server"
+        "uwsm app -s b -- blueman-applet"
+        "uwsm app -s b -- ${hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
 
       input = {
@@ -147,7 +147,7 @@
       bind = [
         "$mainMod, O, exec, uwsm app -- rofi -show power-menu -modi power-menu:rofi-power-menu"
         "$mainMod,space,exec,pkill rofi || uwsm app -- rofi -show drun"
-        "$mainMod, V, exec, uwsm app -- cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, uwsm app -s b -- cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         "$mainMod, T, exec, uwsm app -- kitty || xterm"
         "$mainMod, B, exec, uwsm app -- firefox-devedition"
@@ -156,10 +156,10 @@
         "$mainMod, F, togglefloating, "
         "$mainMod, P, pseudo, " # dwindle
         "$mainMod, J, togglesplit," # dwindle
-        "$mainMod, J, layoutmsg, swapwithmaster"
+        "$mainMod, J, layoutmsg, swapwithmaster" # master
         "$mainMod, I, exec, uwsm app -- hyprpicker -anr -f hex"
         "$mainMod, Z, exec, uwsm app -- zeditor"
-        "$mainMod, X, exec, pkill hyprsunset || uwsm app -- hyprsunset"
+        "$mainMod, X, exec, pkill hyprsunset || uwsm app -s s -- hyprsunset"
 
         "$mainMod, Print, exec, uwsm app -- grimblast --notify copy area"
         "$mainMod SHIFT, Print, exec, uwsm app -- grimblast --notify copysave area"
