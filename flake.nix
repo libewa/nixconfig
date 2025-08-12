@@ -53,7 +53,7 @@
 
           ./modules/system/grub.nix
           ./modules/system/appimage.nix
-          ./modules/system/germanlocale.nix
+          ./modules/system/locale.nix
           ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
@@ -80,7 +80,7 @@
           ./modules/system/grub.nix
 
           ./modules/system/appimage.nix
-          ./modules/system/germanlocale.nix
+          ./modules/system/locale.nix
           ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
@@ -104,7 +104,7 @@
           ./hosts/wsl/configuration.nix
           ./modules/system/core.nix
           ./modules/system/appimage.nix
-          ./modules/system/germanlocale.nix
+          ./modules/system/locale.nix
           ./modules/system/firewall.nix
           inputs.nixos-wsl.nixosModules.wsl
         ];
@@ -119,7 +119,7 @@
           }: {
             imports = [(modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")];
           })
-          ./modules/system/germanlocale.nix
+          ./modules/system/locale.nix
           ./modules/system/gui/hypr.nix
           ./modules/system/core.nix
           ./modules/system/gui/sddm.nix
@@ -168,7 +168,7 @@
           }: {
             imports = [(modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")];
           })
-          ./modules/system/germanlocale.nix
+          ./modules/system/locale.nix
           ./modules/system/core.nix
 
           ./hosts/iso/configuration.nix
