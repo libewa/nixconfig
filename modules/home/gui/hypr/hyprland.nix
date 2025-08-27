@@ -44,8 +44,8 @@
       ];
 
       input = {
-        kb_layout = "de";
-        kb_variant = "mac";
+        kb_layout = "de,de";
+        kb_variant = "bone,mac";
         kb_options = "grp:sclk_toggle";
 
         follow_mouse = 1;
