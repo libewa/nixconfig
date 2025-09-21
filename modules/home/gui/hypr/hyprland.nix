@@ -45,7 +45,7 @@
 
       input = {
         kb_layout = "de,de";
-        kb_variant = "bone,mac";
+        kb_variant = pkgs.lib.mkDefault "bone,"; # overridden to bone,mac in flake.nix on nixmac
         kb_options = "grp:sclk_toggle";
 
         follow_mouse = 1;

@@ -216,6 +216,22 @@
 
         extraSpecialArgs = { inherit inputs; };
       };
+      "linus@nixmac" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          ./home.nix
+          ./modules/home/gui
+          ./modules/home/cli
+          {
+            home.username = "linus";
+            home.homeDirectory = "/home/linus";
+	    wayland.windowManager.hyprland.settings.input.kb_variant = "bone,mac";
+          }
+        ];
+
+        extraSpecialArgs = { inherit inputs; };
+      };
       nixos = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

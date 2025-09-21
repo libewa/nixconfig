@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -22,6 +22,6 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
-    variant = "mac";
+    variant = lib.mkDefault ""; # overriden to be mac in hosts/nixmac/configuration.nix
   }; # do this even if theres no server because why not? it's not used if xserver.enabled is false
 }
