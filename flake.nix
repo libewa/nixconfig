@@ -57,6 +57,7 @@
           ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
+          ./modules/system/distrobox.nix
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
@@ -84,7 +85,8 @@
           ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
-
+          ./modules/system/distrobox.nix
+          
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
           ./modules/system/gui/hypr.nix

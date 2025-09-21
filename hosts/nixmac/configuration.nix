@@ -12,8 +12,6 @@
     powerOnBoot = true;
   };
   hardware.enableAllFirmware = true;
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
 
   networking.networkmanager.enable = true;
   # Enable CUPS to print documents.
