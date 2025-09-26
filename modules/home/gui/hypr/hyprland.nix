@@ -11,7 +11,6 @@
     wl-clipboard
     grimblast
     cliphist
-    rofi-wayland
     whitesur-icon-theme
 
     hyprpolkitagent

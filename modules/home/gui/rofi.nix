@@ -5,7 +5,6 @@
   ];
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
     terminal = "${pkgs.kitty.outPath}/bin/kitty";
     theme = "arthur";
     extraConfig = {
