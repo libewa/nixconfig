@@ -61,7 +61,6 @@
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
-          ./modules/system/gui/hypr.nix
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
           {
@@ -89,7 +88,6 @@
           
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
-          ./modules/system/gui/hypr.nix
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
           {
@@ -122,7 +120,6 @@
             imports = [(modulesPath + "/installer/cd-dvd/installation-cd-graphical-base.nix")];
           })
           ./modules/system/locale.nix
-          ./modules/system/gui/hypr.nix
           ./modules/system/core.nix
           ./modules/system/gui/sddm.nix
 
@@ -135,7 +132,6 @@
             home-manager.users.nixos = {
               imports = [
                 ./home.nix
-                ./modules/home/gui/hypr
                 ./modules/home/gui/rofi.nix
                 ./modules/home/gui/waybar.nix
                 ./modules/home/gui/zed.nix
@@ -226,7 +222,6 @@
           {
             home.username = "linus";
             home.homeDirectory = "/home/linus";
-	    wayland.windowManager.hyprland.settings.input.kb_variant = "bone,mac";
           }
         ];
 

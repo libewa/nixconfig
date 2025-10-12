@@ -2,6 +2,8 @@
   security.pam.services.sddm.enableGnomeKeyring = true;
   services.displayManager.sddm = {
     enable = true;
+    wayland.enable = true;
+    enableHidpi = true;
     sugarCandyNix = {
       enable = true;
       settings = {

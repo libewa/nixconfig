@@ -19,11 +19,12 @@
   };
   hardware.graphics.enable32Bit = true;
   programs.virt-manager.enable = true;
+  
+  services.desktopManager.plasma6.enable = true;
 
   programs.nm-applet.enable = true;
   services.blueman.enable = true;
   fonts.packages = with pkgs; [
     cascadia-code
   ];
-  services.tlp.enable = true;
 }
