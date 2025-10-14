@@ -12,13 +12,6 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
 
-  home.file = {
-    #hypr = {
-    #  target = ".config/hypr";
-    #  source = ./dotfiles/hypr;
-    #};
-  };
-
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
 }

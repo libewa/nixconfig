@@ -22,8 +22,10 @@
   
   services.desktopManager.plasma6.enable = true;
 
-  programs.nm-applet.enable = true;
-  services.blueman.enable = true;
+  services.fwupd = {
+    enable = true;
+  };
+
   fonts.packages = with pkgs; [
     cascadia-code
   ];
