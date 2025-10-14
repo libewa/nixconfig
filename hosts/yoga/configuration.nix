@@ -5,6 +5,7 @@
   imports = [
     ./packages.nix
     ./users.nix
+    ./hardware-configuration.nix
   ];  
 
   hardware.bluetooth = {

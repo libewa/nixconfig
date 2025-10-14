@@ -48,7 +48,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/yoga/configuration.nix
-          ./hardware-configuration.nix
           ./modules/system/core.nix
 
           ./modules/system/grub.nix
