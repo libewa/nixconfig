@@ -51,6 +51,7 @@
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
           ./modules/system/distrobox.nix
+          ./modules/system/manpages.nix
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
@@ -65,6 +66,7 @@
           ./modules/system/appimage.nix
           ./modules/system/locale.nix
           ./modules/system/firewall.nix
+          ./modules/system/manpages.nix
           inputs.nixos-wsl.nixosModules.wsl
         ];
       };
@@ -80,6 +82,7 @@
           })
           ./modules/system/locale.nix
           ./modules/system/core.nix
+          ./modules/system/manpages.nix
 
           ./hosts/iso/configuration.nix
           home-manager.nixosModules.home-manager
