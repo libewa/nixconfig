@@ -6,4 +6,9 @@ set foldmethod=indent
 set foldlevelstart=99
 set lcs=tab:>->,lead:·,trail:·,extends:>,precedes:<,nbsp:¦
 
+set shiftwidth=2 smarttab expandtab
+set softtabstop=0
+set tabstop=8
+set autoindent
+
 tnoremap <Esc> <C-\><C-n>
