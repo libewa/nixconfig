@@ -21,20 +21,22 @@
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    sddm-sugar-candy-nix = {
+      url = "github:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    nixos-hardware,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     packages.x86_64-linux = {
-      iso-gui = self.nixosConfigurations.iso-gui.config.system.build.isoImage;
       iso-term = self.nixosConfigurations.iso-term.config.system.build.isoImage;
     };
     nixosConfigurations = {
@@ -55,7 +57,13 @@
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
+          inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.disko.nixosModules.default
+          {
+            nixpkgs.overlays = [
+              inputs.sddm-sugar-candy-nix.overlays.default
+            ];
+          }
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
@@ -142,6 +150,11 @@
       }; 
     };
     nixosModules = {
+      sddm = {
+        imports = [
+          ./modules/system/sddm.nix
+        ];
+      };
       grub = {
         imports = [
           ./modules/system/grub.nix
