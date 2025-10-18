@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   services.displayManager.sddm = {
-    theme = "breeze";
     enable = true;
+    theme = lib.mkDefault "breeze";
     wayland.enable = true;
     enableHidpi = true;
     sugarCandyNix = {
