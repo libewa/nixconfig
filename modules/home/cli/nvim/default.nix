@@ -37,13 +37,10 @@
         settings.username = "libewa";
       };
       indent-blankline.enable = true;
-      luasnip.enable = true;
-      #copilot-cmp.enable = true;
-      copilot-lua.enable = true;
       neo-tree = {
         enable = true;
       };
-      #cmp-git.enable = true;
+      rainbow-delimiters.enable = true;
     };
     extraPackages = with pkgs; [
       ripgrep

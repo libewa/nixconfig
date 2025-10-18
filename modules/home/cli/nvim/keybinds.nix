@@ -20,11 +20,13 @@
             }
         ];
         plugins.cmp.settings.mapping = {
-            "<leader-r>" = "cmp.mapping.scroll_docs(-4)";
-            "<leader-f>" = "cmp.mapping.scroll_docs(4)";
-            "<leader-tab>" = "cmp.mapping.complete()";
-            "<leader-esc>" = "cmp.mapping.abort()";
+            "C-n" = "cmp.mapping.select_prev_item(select)";
+            "<C-i>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-u>" = "cmp.mapping.scroll_docs(4)";
+            "<C-tab>" = "cmp.mapping.complete()";
+            "<esc>" = "cmp.mapping.abort()";
             "<CR>" = "cmp.mapping.confirm({ select = false })";
+            "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace })";
         };
     };
 }

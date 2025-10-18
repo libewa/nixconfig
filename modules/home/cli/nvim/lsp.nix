@@ -1,8 +1,10 @@
 {pkgs, ...}: {
   programs.nixvim = {
+    plugins.luasnip.enable = true;
+    plugins.lsp-lines.enable = true;
+    plugins.lsp-status.enable = true;
     plugins.lsp = {
       enable = true;
-      #TODO: snippets
       servers = {
         nil_ls.enable = true;
         nixd.enable = true;
