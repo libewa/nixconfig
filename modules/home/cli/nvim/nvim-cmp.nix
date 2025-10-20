@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         completion = {
-          keyword_length = 1;
+          keyword_length = 3;
         };
         sources = [
           { name="nvim_lsp"; }

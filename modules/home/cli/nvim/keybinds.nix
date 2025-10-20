@@ -20,13 +20,13 @@
             }
         ];
         plugins.cmp.settings.mapping = {
-            "C-n" = "cmp.mapping.select_prev_item(select)";
             "<C-i>" = "cmp.mapping.scroll_docs(-4)";
             "<C-u>" = "cmp.mapping.scroll_docs(4)";
-            "<C-tab>" = "cmp.mapping.complete()";
+            "<down>" = "cmp.mapping.select_next_item()";
+            "<up>" = "cmp.mapping.select_prev_item()";
+            "<C-Space>" = "cmp.mapping.complete()";
             "<esc>" = "cmp.mapping.abort()";
             "<CR>" = "cmp.mapping.confirm({ select = false })";
-            "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace })";
         };
     };
 }
