@@ -7,7 +7,7 @@
     thunderbird
     vlc
     imhex
-    #ausweisapp
+    ausweisapp
     arduino-ide
   ];
 }

@@ -12,5 +12,6 @@
     rustup
     deno
     arduino-cli
+    nix-search-cli
   ];
 }
