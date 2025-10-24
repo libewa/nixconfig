@@ -13,7 +13,7 @@
     ];
     extraConfig = {
       user = {
-        name = "libewa";
+        name = "Linus Warnatz";
         email = "linus@libewa.xyz";
         signingkey = "EBD029E073D2959A9DC1A74A7BCA3874C2A0475C";
       };
