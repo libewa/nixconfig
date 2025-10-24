@@ -41,6 +41,7 @@
         enable = true;
       };
       rainbow-delimiters.enable = true;
+      markdown-preview.enable = true;
     };
     extraPackages = with pkgs; [
       ripgrep
