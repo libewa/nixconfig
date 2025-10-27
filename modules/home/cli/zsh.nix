@@ -13,9 +13,6 @@
       LANGUAGE = "en_US";
       LC_ALL = "de_DE.UTF-8";
     };
-    initContent = "
-      hyfetch
-    ";
     syntaxHighlighting = {
       enable = true;
       highlighters = ["brackets" "main"];
