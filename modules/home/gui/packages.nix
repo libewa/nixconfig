@@ -9,6 +9,7 @@
     imhex
     ausweisapp
     arduino-ide
+    gimp
   ];
   services.nextcloud-client = {
     enable = true;

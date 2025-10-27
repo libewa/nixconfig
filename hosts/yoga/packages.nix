@@ -28,5 +28,6 @@
 
   fonts.packages = with pkgs; [
     cascadia-code
+    comic-mono
   ];
 }
