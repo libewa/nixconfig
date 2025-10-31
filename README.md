@@ -10,7 +10,7 @@ This is my [NixOS] system configuration.
 > If you are new to Linux, do not start with NixOS. Try [Fedora] or [Mint] instead.
 > 
 > When looking for solutions online, search "NixOS" specifically. Use
-> <wiki.nixos.org>, not nixos.wiki.
+> <https://wiki.nixos.org>, not nixos.wiki.
 
 This configuration uses [Disko] for partition management, so you will need to
 wipe your hard drive. BACKUP YOUR FILES!
