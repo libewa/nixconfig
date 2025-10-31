@@ -10,6 +10,8 @@
     ausweisapp
     arduino-ide
     gimp
+    breitbandmessung
+    kdePackages.tokodon
   ];
   services.nextcloud-client = {
     enable = true;

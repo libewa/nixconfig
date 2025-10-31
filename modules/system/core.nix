@@ -14,7 +14,7 @@
     gcc
     fastfetch
     killall
-    htop
+    btop
     wget
     curl
     jq
