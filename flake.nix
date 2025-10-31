@@ -42,7 +42,7 @@
       yoga = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/yoga/configuration.nix
+          ./hosts/yoga/
           ./modules/system/core.nix
 
           ./modules/system/grub.nix
@@ -69,7 +69,7 @@
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/wsl/configuration.nix
+          ./hosts/wsl/
           ./modules/system/core.nix
           ./modules/system/appimage.nix
           ./modules/system/locale.nix
@@ -92,7 +92,7 @@
           ./modules/system/core.nix
           ./modules/system/manpages.nix
 
-          ./hosts/iso/configuration.nix
+          ./hosts/iso/
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
