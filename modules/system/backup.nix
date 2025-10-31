@@ -11,22 +11,14 @@
         raw_target_compress = "xz";
         volume."/btrfs-root" = {
           subvolume = "/home";
-          target."/mnt/yoga" = {
-            incremental = "yes";
-          };
-          /*
-            target."raw ssh://nas/volume1/backup/yoga" = {
+          target."raw ssh://192.168.178.40/volume1/backup/yoga" = {
             ssh_user = "backup";
             incremental = "no";
+            ssh_identity = "/etc/btrbk/id_ed25519";
           };
-          */
         };
         timestamp_format = "long";
       };
     };
-  };
-  services.cron = {
-    enable = true;
-    systemCronJobs = ["0 * * * * /usr/bin/env btrbk snapshot"];
   };
 }

@@ -53,6 +53,7 @@
           ./modules/system/firewall.nix
           ./modules/system/distrobox.nix
           ./modules/system/manpages.nix
+          ./modules/system/backup.nix
 
           ./modules/system/gui/sddm.nix
           ./modules/system/gui/audio.nix
