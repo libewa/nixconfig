@@ -13,12 +13,7 @@
       LANGUAGE = "en_US";
       LC_ALL = "de_DE.UTF-8";
     };
-    syntaxHighlighting = {
-      enable = true;
-      highlighters = ["brackets" "main"];
-    };
     defaultKeymap = "viins";
-
     plugins = [
       {
         name = "zsh-nix-shell";
@@ -31,6 +26,9 @@
         };
       }
     ];
+    initExtraBeforeCompInit = ''
+      fpath+=(/run/current-system/sw/share/zsh/site-functions)
+    '';
     oh-my-zsh = {
       enable = true;
       plugins = [
