@@ -1,17 +1,11 @@
 {
   programs.git = {
     enable = true;
-    aliases = {
-      co = "checkout";
-      adog = "log --all --decorate --oneline --graph";
-      aa = "add .";
-      s = "status";
-    };
     includes = [
       {path = ./dotfiles/git/github.gitconfig;}
       {path = ./dotfiles/git/lfs.gitconfig;}
     ];
-    extraConfig = {
+    settings = {
       user = {
         name = "Linus Warnatz";
         email = "linus@libewa.xyz";
@@ -23,6 +17,12 @@
       tag.gpgsign = true;
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
+      aliases = {
+        co = "checkout";
+        adog = "log --all --decorate --oneline --graph";
+        aa = "add .";
+        s = "status";
+      };
     };
   };
 }

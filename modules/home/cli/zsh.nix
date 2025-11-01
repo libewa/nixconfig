@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -26,7 +26,7 @@
         };
       }
     ];
-    initExtraBeforeCompInit = ''
+    initContent = lib.mkOrder 550 ''
       fpath+=(/run/current-system/sw/share/zsh/site-functions)
     '';
     oh-my-zsh = {

@@ -48,7 +48,6 @@
           ./modules/system/grub.nix
           ./modules/system/appimage.nix
           ./modules/system/locale.nix
-          ./modules/system/powerkey.nix
           ./modules/system/disko.nix
           ./modules/system/firewall.nix
           ./modules/system/distrobox.nix
