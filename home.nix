@@ -13,4 +13,5 @@
 
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
+  nixpkgs.config.allowUnfree = true;
 }

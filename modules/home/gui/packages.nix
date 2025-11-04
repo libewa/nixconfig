@@ -12,6 +12,7 @@
     gimp
     breitbandmessung
     kdePackages.tokodon
+    kmymoney
   ];
   services.nextcloud-client = {
     enable = true;
