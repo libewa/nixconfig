@@ -4,6 +4,7 @@
     ./lsp.nix
     ./nvim-cmp.nix
     ./keybinds.nix
+    ./dap.nix
   ];
   programs.nixvim = {
     enable = true;
