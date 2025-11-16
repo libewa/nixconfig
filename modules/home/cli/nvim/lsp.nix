@@ -23,7 +23,11 @@
         clangd.enable = true;
         dprint.enable = true;
         emmet_language_server.enable = true;
-        #rust_analyzer.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustc = false;
+        };
       };
     };
     extraConfigLua = /*lua*/ ''
