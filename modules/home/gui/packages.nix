@@ -13,6 +13,7 @@
     breitbandmessung
     kdePackages.tokodon
     kmymoney
+    espeak-ng
   ];
   services.nextcloud-client = {
     enable = true;
