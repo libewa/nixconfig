@@ -17,8 +17,8 @@
         "workbench.iconTheme" = "eq-material-theme-icons";
         "[typescript]" = {
           "editor.defaultFormatter" = "denoland.vscode-deno";
-	      };
-        "editor.rulers"= [80 100];
+        };
+        "editor.rulers" = [80 100];
       };
       keybindings = [
         {

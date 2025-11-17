@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./lsp.nix
@@ -49,7 +53,7 @@
       fd
     ];
     colorschemes.catppuccin = {
-      enable = true;
+      enable = false;
       settings = {
         flavour = "mocha";
         transparent_background = true;

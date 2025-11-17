@@ -8,12 +8,12 @@
           keyword_length = 3;
         };
         sources = [
-          { name="nvim_lsp"; }
-          { name="buffer"; }
-          { name="emoji"; }
-          { name="git"; }
-          { name="latex_symbols"; }
-          { name="path"; }
+          {name = "nvim_lsp";}
+          {name = "buffer";}
+          {name = "emoji";}
+          {name = "git";}
+          {name = "latex_symbols";}
+          {name = "path";}
         ];
       };
     };

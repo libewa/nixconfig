@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   programs.nixvim.plugins = {
     dap-lldb.enable = true;
     dap = {

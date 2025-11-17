@@ -17,7 +17,7 @@
       tag.gpgsign = true;
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos";
-      aliases = {
+      alias = {
         co = "checkout";
         adog = "log --all --decorate --oneline --graph";
         aa = "add .";

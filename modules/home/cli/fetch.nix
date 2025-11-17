@@ -43,7 +43,7 @@
   programs.hyfetch = {
     enable = true;
     settings = {
-      preset  = "rainbow";
+      preset = "rainbow";
       mode = "rgb";
       light_dark = "dark";
       lightness = 0.65;
