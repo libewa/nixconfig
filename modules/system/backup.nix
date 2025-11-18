@@ -9,12 +9,17 @@
         target_preserve_min = "no";
         target_preserve = "7d 8w *m";
         raw_target_compress = "xz";
+        stream_compress = "xz";
         volume."/btrfs-root" = {
           subvolume = "/home";
+          /*
           target."raw ssh://192.168.178.40/volume1/backup/yoga" = {
             ssh_user = "backup";
             incremental = "no";
             ssh_identity = "/etc/btrbk/id_ed25519";
+          };
+          */
+          target."/run/media/linus/backup/yoga" = {
           };
         };
         timestamp_format = "long";
