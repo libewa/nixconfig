@@ -29,6 +29,9 @@
     initContent = lib.mkOrder 550 ''
       fpath+=(/run/current-system/sw/share/zsh/site-functions)
     '';
+    envExtra = ''
+      . "$HOME/.cargo/env"
+    '';
     oh-my-zsh = {
       enable = true;
       plugins = [
