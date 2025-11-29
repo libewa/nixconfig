@@ -1,3 +1,3 @@
 {
-  imports = [./zed.nix ./vscode.nix ./cursor.nix ./kitty.nix ./texlive.nix];
+  imports = [./zed.nix ./kitty.nix ./cursor.nix ];
 }
