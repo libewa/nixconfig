@@ -1,3 +1,7 @@
+> [!NOTE]
+> This repository has been archived. Further development can be found on [Codeberg](https://codeberg.org/libewa/nixconfig).
+> Also, I do not use NixOS anymore, but I am keeping Home Manager.
+
 # nixconfig
 This is my [NixOS] system configuration.
 
